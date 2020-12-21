@@ -1,0 +1,5 @@
+möte 21/12.
+Närvarande: Simon, Philip, Sara och Sayed.
+
+Att göra idag:
+skapa projekt, filstruktur och startsida.

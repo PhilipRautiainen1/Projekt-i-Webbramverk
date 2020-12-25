@@ -1,0 +1,17 @@
+body{
+    background-image: linear-gradient(120deg, #f6d365, #fda087);
+    width: 100%;
+}
+section{
+    width: 100%;
+
+}
+.container{
+    width: 100%;
+    height: 100%;
+    border: 3px solid #9C1A1C;
+}
+
+.header{
+    font-size: 200px;
+}

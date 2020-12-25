@@ -2,9 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Title</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
 </head>
 <body>
-
+    <section class="jumbo">
+        <div class="container">
+            <div class="header">Quiz</div>
+            <div class="menu">
+                <div class="button-1"></div>
+                <div class="button-2">Lägg till fråga</div>
+                <div class="button-3">Highscore</div>
+            </div>
+            <div class="content">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
+    </section>
 </body>
 </html>

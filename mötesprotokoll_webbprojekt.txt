@@ -1,16 +1,21 @@
 möte 21/12.
 Närvarande: Simon, Philip, Sara och Sayed.
+Att göra idag:skapa projekt, filstruktur och startsida.
 
-Att göra idag:
-skapa projekt, filstruktur och startsida.
 
 möte 22/12.
 närvarande: Simon, Philip, Sara och Sayed.
-
 Att göra idag: fixa filstruktur, skapa startsida och fördela sidor för eget arbete.
 
 
-nästa möte: 28/12
+möte: 28/12
+Närvarande: Simon, Philip, Sara och Sayed.
+Att göra idag: eget arbete med de tilldelade sidorna samt fortsätta läsa på.
+Simon: spelsidan, Sara: base och startsidan, Philip: highscore, Sayed: inloggning. 
+
+
+nästa möte: 30/12
+
 
 
 https://opentdb.com/

@@ -1,17 +1,61 @@
 body{
+    width: 100%;
     background-image: linear-gradient(120deg, #f6d365, #fda087);
-    width: 100%;
-}
-section{
-    width: 100%;
-
-}
-.container{
-    width: 100%;
-    height: 100%;
-    border: 3px solid #9C1A1C;
+    /*background-image: url("/view/images/background.jpg");*/
 }
 
 .header{
+    font-family: 'Frijole', cursive;
     font-size: 200px;
+    text-align: center;
+}
+
+.menu {
+    display: flex;
+    flex: auto;
+    width: 70%;
+    margin: auto;
+    border-top: black 4px dotted;
+    border-bottom: black 4px dotted;
+}
+
+.button{
+    width: 33%;
+    text-align: center;
+    font-family: 'Staatliches', cursive;
+    font-size: 30px;
+}
+
+.content{
+    margin: 25px;
+}
+
+.page-footer{
+    width: 70%;
+    margin: auto;
+    border-top: black 4px dotted;
+
+}
+
+.footer-text{
+    margin: 25px;
+    font-family: 'Staatliches', cursive;
+    font-size: 18px;
+    text-align: center;
+}
+
+a:link {
+    text-decoration: none;
+    color: black;
+    font-family: 'Staatliches', cursive;
+}
+
+a:visited {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: white;
 }

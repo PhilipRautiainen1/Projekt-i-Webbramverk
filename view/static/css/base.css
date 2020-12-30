@@ -1,7 +1,10 @@
 body{
     width: 100%;
+    height: 100vh;
+    overflow-y: hidden;
+    overflow-x: hidden;
     background-image: linear-gradient(120deg, #f6d365, #fda087);
-    /*background-image: url("/view/images/background.jpg");*/
+    /*background-image: url("./images/background.jpg");*/
 }
 
 .header{
@@ -34,7 +37,6 @@ body{
     width: 70%;
     margin: auto;
     border-top: black 4px dotted;
-
 }
 
 .footer-text{

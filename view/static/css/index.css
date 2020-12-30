@@ -1,0 +1,26 @@
+.block-container {
+    display: flex;
+    flex: auto;
+    width: 60%;
+    margin: auto;
+}
+
+.block {
+    width: 50%;
+    height: 100px;
+    margin: 10px;
+    padding: 10px;
+    border: black 2px solid;
+}
+
+.block-header{
+    text-align: center;
+    font-family: 'Staatliches', cursive;
+    font-size: 20px;
+}
+
+.block-text{
+    text-align: center;
+    padding-top: 7px;
+
+}

@@ -1,3 +1,5 @@
+Hemsida med quizfrågor: https://opentdb.com/
+
 möte 21/12.
 Närvarande: Simon, Philip, Sara och Sayed.
 Att göra idag:skapa projekt, filstruktur och startsida.
@@ -14,8 +16,7 @@ Att göra idag: eget arbete med de tilldelade sidorna samt fortsätta läsa på.
 Simon: spelsidan, Sara: base och startsidan, Philip: highscore, Sayed: inloggning. 
 
 
-nästa möte: 30/12
+möte: 30/12
+Närvarande: Philip, Sara och Sayed.
 
 
-
-https://opentdb.com/

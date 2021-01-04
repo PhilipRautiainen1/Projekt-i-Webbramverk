@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+    <!doctype html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/game.css') }}">
+        <title>Game</title>
+    </head>
+    <body>
+    <div class="content">
+        <div class="gamebox">
+            <div class="questionbox">
+                <div class="questiontext">Question?</div>
+            </div>
+            <div class="answerboxes">
+                <div class="r1">
+                    <div class="answerbox">
+                        <div class="answertext">fråga 1</div>
+                    </div>
+                    <div class="answerbox">
+                        <div class="answertext">fråga 2</div>
+                    </div>
+                </div>
+                <div class="r2">
+                    <div class="answerbox">
+                        <div class="answertext">fråga 3</div>
+                    </div>
+                    <div class="answerbox">
+                        <div class="answertext">fråga 4</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    </body>
+    </html>
+
+{% endblock %}

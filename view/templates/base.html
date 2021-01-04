@@ -7,19 +7,28 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
 </head>
 <body>
-    <section class="jumbo">
-        <div class="container">
+    <div class="container">
+        <section class="jumbo">
             <div class="header">Quiz</div>
-            <div class="menu">
-                <div class="button-1"></div>
-                <div class="button-2">Lägg till fråga</div>
-                <div class="button-3">Highscore</div>
-            </div>
-            <div class="content">
-                {% block content %}
-                {% endblock %}
+        </section>
+
+        <div class="menu">
+            <div class="navbar">
+                <div class="button">
+                    <div class="menutext">Logga in</div>
+                </div>
+                <div class="button">
+                    <div class="menutext">Lägg till fråga</div>
+                </div>
+                <div class="button">
+                    <div class="menutext">Highscore</div>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
+
+    {% block content %}
+    {% endblock %}
+
 </body>
 </html>

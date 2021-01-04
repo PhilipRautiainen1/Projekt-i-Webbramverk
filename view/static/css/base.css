@@ -1,50 +1,63 @@
 body{
+    width: 100%;
+    height: 100vh;
+    overflow-y: hidden;
+    overflow-x: hidden;
     background-image: linear-gradient(120deg, #f6d365, #fda087);
-
-
-}
-.container{
-    height: 100%;
-    width: 100%;
-    justify-content: center;
-
-
-}
-.jumbo{
-    width: 100%;
-    height: 20%;
-
+    /*background-image: url("./images/background.jpg");*/
 }
 
 .header{
-    text-align: center;
+    font-family: 'Frijole', cursive;
     font-size: 200px;
-    margin-bottom: 3%;
+    text-align: center;
 }
 
-.navbar{
-    width: 100%;
-    background: black;
+.menu {
     display: flex;
-    border: 1px solid black;
-    justify-content: center;
-
+    flex: auto;
+    width: 70%;
+    margin: auto;
+    border-top: black 4px dotted;
+    border-bottom: black 4px dotted;
 }
 
 .button{
-    height: 100%;
-    width: 100%;
-    background-color: darkslategray;
-    border-radius: 6%;
-    border: 2px solid black;
-    margin-left: 3px;
-    margin-right: 3px;
-
-
-}
-.menutext{
-    font-size: 36px;
+    width: 33%;
     text-align: center;
-
+    font-family: 'Staatliches', cursive;
+    font-size: 30px;
 }
 
+.content{
+    margin: 25px;
+}
+
+.page-footer{
+    width: 70%;
+    margin: auto;
+    border-top: black 4px dotted;
+}
+
+.footer-text{
+    margin: 25px;
+    font-family: 'Staatliches', cursive;
+    font-size: 18px;
+    text-align: center;
+}
+
+a:link {
+    text-decoration: none;
+    color: black;
+    font-family: 'Staatliches', cursive;
+}
+
+a:visited {
+    text-decoration: none;
+    color: black;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: white;
+}

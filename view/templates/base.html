@@ -3,32 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Title</title>
+    <title>Quiz</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Frijole&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <section class="jumbo">
-            <div class="header">Quiz</div>
-        </section>
-
+    <section>
+        <div class="header">Quiz</div>
         <div class="menu">
-            <div class="navbar">
-                <div class="button">
-                    <div class="menutext">Logga in</div>
-                </div>
-                <div class="button">
-                    <div class="menutext">Lägg till fråga</div>
-                </div>
-                <div class="button">
-                    <div class="menutext">Highscore</div>
-                </div>
-            </div>
+            <div class="button"><a href="{{ url_for('index') }}">Logga in</a></div>
+            <div class="button"><a href="{{ url_for('index') }}">Lägg till fråga</a></div>
+            <div class="button"><a href="{{ url_for('index') }}">Highscore</a></div>
         </div>
+        <div class="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </section>
+
+    <div class="page-footer">
+        <div class="footer-text">© 2020 Quiz AB</div>
     </div>
-
-    {% block content %}
-    {% endblock %}
-
 </body>
 </html>

@@ -8,7 +8,9 @@ def index():
     return render_template("index.html")
 
 
-
+@app.route('/highscore')
+def highscore():
+    return render_template("highscore.html")
 
 @app.route('/game')
 def game():

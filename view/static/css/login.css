@@ -73,12 +73,6 @@ body{
     color: #2691d9;
   }
 
-  .txt_field input:focus ~span::before,
-  .txt_field input:valid ~span::before{
-    width: 100%;
-
-  }
-
   .pass{
     margin: -5px 0 20px 5px;
     color: #a6a6a6;
@@ -113,14 +107,24 @@ body{
     text-align: center;
     font-size: 16px;
     color: #666666;
+
   }
 
   .signup-link a{
     color: #2691d9;
-    text-decoration: none;
+    text-decoration: underline;
   }
 
   .signup-link a:hover{
     text-decoration: underline;
 
   }
+
+  .center p{
+    font-size: 16px;
+    text-align: center;
+    color: lightblue;
+    text-decoration: none;
+  }
+
+

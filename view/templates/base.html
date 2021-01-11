@@ -6,17 +6,22 @@
     <title>Quiz</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+
     <link href="https://fonts.googleapis.com/css2?family=Frijole&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
+
+
 </head>
 <body>
     <section>
         <div class="header">Quiz</div>
         <div class="menu">
-            <div class="button"><a href="{{ url_for('index') }}">Logga in</a></div>
+            <div class="button"><a href="{{ url_for('sign_in') }}">Logga in</a></div>
             <div class="button"><a href="{{ url_for('index') }}">Lägg till fråga</a></div>
             <div class="button"><a href="{{ url_for('index') }}">Highscore</a></div>
+
+
         </div>
         <div class="content">
             {% block content %}

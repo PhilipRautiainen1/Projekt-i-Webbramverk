@@ -1,6 +1,6 @@
-body{
-    overflow-y: hidden;
-}
+/*body{*/
+/*    !*overflow-y: hidden;*!*/
+/*}*/
 
 #wrap:after {
       display: block;
@@ -13,28 +13,49 @@ body{
       word-break: break-all;
     }
 
+    #filler1{
+        /*background-color: chocolate;*/
+        width: 15%;
+        height: 300px;
+        float: left;
+    }
+
+    #filler2{
+        /*background-color: chocolate;*/
+        width: 15%;
+        height: 300px;
+        float: left;
+    }
+
     #rank {
         padding-top: 15px;
-        width: 33%;
+        width: 23.333%;
         text-align: center;
-        height: 100vh;
+        height: 30vh;
+        /*background-color: blue;*/
+        float: left;
+        font-family: 'Staatliches', cursive;
     }
 
     #rank:after{
-        content: ""; /* This is necessary for the pseudo element to work. */
+        content: "1 \A 2 \A 3 \A 4 \A 5 \A 6 \A 7 \A 8 \A 9 \A 10"; /* This is necessary for the pseudo element to work. */
         display: block; /* This will put the pseudo element on its own line. */
         margin: 0 auto; /* This will center the border. */
         width: 50%; /* Change this to whatever width you want. */
         padding-top: 10px; /* This creates some space between the element and the border. */
-        border-bottom: 3px solid #9C1A1C; /* This creates the border. Replace black with whatever color you want. */
+        border-top: 3px solid #9C1A1C; /* This creates the border. Replace black with whatever color you want. */
+        white-space: pre-line;
     }
 
     #points {
         padding-top: 15px;
-        width: 33%;
+        width: 23.333%;
         text-align: center;
-        min-height: 100vh;
-        height: 100vh;
+        /*min-height: 100vh;*/
+        height: 30vh;
+        /*background-color: green;*/
+        float: left;
+        font-family: 'Staatliches', cursive;
     }
 
     #points:after{
@@ -43,13 +64,17 @@ body{
         margin: 0 auto; /* This will center the border. */
         width: 50%; /* Change this to whatever width you want. */
         padding-top: 10px; /* This creates some space between the element and the border. */
-        border-bottom: 3px solid #9C1A1C; /* This creates the border. Replace black with whatever color you want. */
+        border-top: 3px solid #9C1A1C; /* This creates the border. Replace black with whatever color you want. */
     }
+
     #username {
         padding-top: 15px;
-        width: 33%;
+        width: 23.333%;
         text-align: center;
-        height: 100vh;
+        height: 30vh;
+        /*background-color: darkorange;*/
+        float: left;
+        font-family: 'Staatliches', cursive;
     }
 
     #username:after{
@@ -58,13 +83,31 @@ body{
         margin: 0 auto; /* This will center the border. */
         width: 50%; /* Change this to whatever width you want. */
         padding-top: 10px; /* This creates some space between the element and the border. */
-        border-bottom: 3px solid #9C1A1C; /* This creates the border. Replace black with whatever color you want. */
+        border-top: 3px solid #9C1A1C; /* This creates the border. Replace black with whatever color you want. */
     }
 
     #highscore{
-        padding-top: 20px;
+        padding-top: 0;
       font-size: 40px;
         width: 100%;
 
         text-align: center;
+        font-family: 'Staatliches', cursive;
+
+    }
+
+    .page-footer{
+        /*background-color: blueviolet;*/
+        display: flex;
+        flex: auto;
+        width: 70%;
+        margin: auto;
+        height: auto;
+        text-align: center;
+    }
+
+    .footer-text{
+        width: 100%;
+        text-align: center;
+        /*background-color: blueviolet;*/
     }

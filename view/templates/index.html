@@ -1,13 +1,13 @@
 {% extends "base.html" %}
 {% block content %}
-    <div class="block-container">
-        <div class="block">
-            <a href="{{ url_for('game') }}"><div class="block-header">Lokalt spel</div></a>
-            <div class="block-text">Spela på en dator med upp till 8 spelare</div>
+    <div class="wrap-flex">
+        <div class="column">
+            <a href="{{ url_for('game') }}"><div class="header-center">Lokalt spel</div></a>
+            <div class="text">Spela på en dator med upp till 8 spelare</div>
         </div>
-        <div class="block">
-            <a href="{{ url_for('index') }}"><div class="block-header">Online spel</div></a>
-            <div class="block-text">Spela mot andra</div>
+        <div class="column">
+            <a href="{{ url_for('index') }}"><div class="header-center">Online spel</div></a>
+            <div class="text">Spela mot andra</div>
         </div>
     </div>
 {% endblock %}

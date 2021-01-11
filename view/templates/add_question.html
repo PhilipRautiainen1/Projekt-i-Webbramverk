@@ -1,0 +1,24 @@
+{% extends "base_user.html" %}
+{% block content %}
+    <div class="wrap">
+        <div class="header-center">Lägg till fråga</div>
+        <form>
+            <div class="category-select">
+                <label for="category">Kategori:</label>
+                <select name="category" id="category">
+                    <option value="literature">Litteratur</option>
+                    <option value="music">Musik</option>
+                    <option value="football">Fotboll</option>
+                    <option value="cars">Bilar</option>
+                </select> <br />
+            </div>
+
+            <input type="text" placeholder="Fråga" /> <br />
+            <input type="text" placeholder="Rätt svar" /> <br />
+            <input type="text" placeholder="Fel svar" /> <br />
+            <input type="text" placeholder="Fel svar" /> <br />
+            <input type="text" placeholder="Fel svar" /> <br />
+            <input type="submit" value="Lägg till" id="submit" /> <br />
+        </form>
+</div>
+{%  endblock %}

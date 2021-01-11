@@ -26,3 +26,9 @@ def add_question():
 @app.route('/not-logged-in')
 def not_logged_in():
     return render_template('not_logged_in.html')
+
+
+@app.route('/game')
+def game():
+    #questions_list = get_questions()
+    return render_template('game.html')#, questions_list=questions_list)

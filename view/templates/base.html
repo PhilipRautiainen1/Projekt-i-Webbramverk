@@ -17,9 +17,9 @@
     <section>
         <div class="web-header"><a href="{{ url_for('index') }}">Quiz</a></div>
         <div class="menu">
-            <div class="button"><a href="{{ url_for('logged_in') }}">Logga in</a></div>
+            <div class="button"><a href="{{ url_for('sign_in') }}">Logga in</a></div>
             <div class="button" onclick="alert('Du måste logga in för att visa den här sidan')"><a href="{{ url_for('index') }}">Lägg till fråga</a></div>
-            <div class="button"><a href="{{ url_for('index') }}">Highscore</a></div>
+            <div class="button"><a href="{{ url_for('highscore') }}">Highscore</a></div>
         </div>
         <div class="content">
             {% block content %}

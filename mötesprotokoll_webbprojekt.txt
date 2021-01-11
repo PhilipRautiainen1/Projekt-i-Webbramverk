@@ -18,5 +18,32 @@ Simon: spelsidan, Sara: base och startsidan, Philip: highscore, Sayed: inloggnin
 
 möte: 30/12
 Närvarande: Philip, Sara och Sayed.
+Gjort: alla har kommit igång med sin tilldelade uppgift. Sara har gjort klart base.
+Att göra: Vi fortsätter med våra tilldelade uppgifter. Sara jobbar med base för inloggade.
+
+
+möte: 4/1
+Närvarande: Sara och Simon.
+Gjort: Sara har gjort klart base för inloggade och börjat med Lägga-till-fråga-sidan. Simon har arbetat med Spel-sidan.
+Att göra: Fortsätter med våra tilldelade uppgifter. 
+
+
+möte: 5/1
+Närvarande: Sara, Simon, Sayed och Philip
+Gjort: Alla sidor börjar ta form. 
+Att göra: Alla har några detaljer som de ska fixa på sin sida, vilket är målet till på torsdag. 
+
+
+möte: 8/1
+Närvarande: Sara, Simon, Sayed och Philip
+Gjort: Sara, Philip och Simon är nästan klara med sina sidor, Sayed har en liten bit kvar.
+Att göra: Idag ska Simon och Sara modellera databasen för projektet. Sayed fortsätter att jobba med inloggningssidan. Philip har idag ett läkarbesök och kommer därför in lite senare. 
+
+
+möte: 11/1
+Närvarande: 
+Gjort: 
+Att göra: 
+
 
 

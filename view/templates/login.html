@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="center">
+        <h1>Login</h1>
+        <form action="" method="POST">
+            <div class="txt_field">
+                <input type="text" required>
+                <span></span>
+                <label>Användarnamn</label>
+            </div>
+            <div class="txt_field">
+                <input type="lösenord" required>
+                <span></span>
+                <label>Lösenord</label>
+            </div>
+            <div class="pass">Glömt Lösenord?</div>
+            <input type="submit" value="Logga In">
+            <div class="signup-link">
+                Inte Medlem? <a href="/signup">Bli Medlem</a>
+            </div>
+            <p>Gå Tillbaka Till <a href="/"> Homepage </a> </p>
+        </form>
+    </div>
+
+{% endblock %}

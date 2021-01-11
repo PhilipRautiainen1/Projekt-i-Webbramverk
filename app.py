@@ -32,4 +32,4 @@ def add_test_question():
 #add_test_question()
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)

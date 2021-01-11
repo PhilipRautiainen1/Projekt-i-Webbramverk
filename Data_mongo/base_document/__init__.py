@@ -1,10 +1,11 @@
 from pymongo import MongoClient
 from abc import ABC
 
+passw = "s3cr37"
+port = "27016"
 
-client = MongoClient('mongodb://root:s3cr37@localhost:27016')
-db = client.model_db
-
+client = MongoClient(f'mongodb://root:{passw}@localhost:{port}')
+db = client.quizbas
 
 class ResultList(list):
     def first_or_none(self):
@@ -12,7 +13,6 @@ class ResultList(list):
 
     def last_or_none(self):
         return self[-1] if len(self) > 0 else None
-
 
 class Document(dict, ABC):
     collection = None
@@ -33,6 +33,10 @@ class Document(dict, ABC):
         else:
             return self.collection.update({'_id': self._id}, self.__dict__)
 
+    def delete_field(self, field):
+        self.collection.update({'_id': self._id}, {"$unset": {field: ""}})
+
+
     @classmethod
     def insert_many(cls, items):
         for item in items:
@@ -49,5 +53,3 @@ class Document(dict, ABC):
     @classmethod
     def delete(cls, **kwargs):
         cls.collection.delete_many(kwargs)
-
-

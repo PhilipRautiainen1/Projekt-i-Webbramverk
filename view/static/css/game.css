@@ -8,17 +8,19 @@
     height: 200px;
     background-color: #7eb3b5;
     margin: auto;
+
 }
 .question {
     height: 100%;
     width: 100%;
     border: 5px dotted black;
     background-color: lavender;
-    text-align: center;
-    vertical-align: middle;
     font-size: 24px;
     margin: auto;
-    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
 
 
 

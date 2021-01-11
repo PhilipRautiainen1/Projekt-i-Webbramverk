@@ -12,4 +12,5 @@ def index():
 
 @app.route('/game')
 def game():
-    return render_template('game.html')
+    questions_list = get_questions()
+    return render_template('game.html', questions_list=questions_list)

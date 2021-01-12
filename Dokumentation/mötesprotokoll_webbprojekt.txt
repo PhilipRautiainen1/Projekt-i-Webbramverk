@@ -41,9 +41,37 @@ Att göra: Idag ska Simon och Sara modellera databasen för projektet. Sayed for
 
 
 möte: 11/1
+Närvarande: Sara, Simon, Sayed och Philip 
+Att göra: Skapa MySQL-databas och mergade samtliga branches. 
+
+
+Möte 12/1
+Närvarande: Sara, Sayed, 
+Gjort: Igår gjorde vi klart vår modell för MySQL-databasen och fick igång databasen i Docker. Vi såg också till att allas kod kom upp på Github och mergades. 
+Att göra: Idag ska vi skriva modellerna för MySQL-databasen samt börja titta på inloggningssida. 
+
+
+Möte 13/1
 Närvarande: 
-Gjort: 
+Gjort:
 Att göra: 
 
+
+Möte 14/1
+Närvarande: 
+Gjort:
+Att göra: 
+
+
+Möte 15/1
+Närvarande: 
+Gjort:
+Att göra: 
+
+
+Möte 18/1
+Närvarande: 
+Gjort:
+Att göra: 
 
 

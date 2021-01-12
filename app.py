@@ -1,5 +1,8 @@
 from Data_mongo.models import Question
+from Data_mysql.db import engine, Base
 from view import app
+from Data_mysql.models.users import User
+from Data_mysql.models.friends import Friend
 
 def add_test_question():
     answers = [{
@@ -30,6 +33,7 @@ def add_test_question():
     question.save()
 
 #add_test_question()
+#Base.metadata.create_all(engine)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+   app.run(debug=True)

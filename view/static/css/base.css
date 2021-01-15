@@ -1,9 +1,11 @@
 body{
     width: 100%;
     height: 100vh;
-
+    margin: 0;
+    padding: 0;
     background-image: linear-gradient(120deg, #f6d365, #fda087);
     /*background-image: url("./images/background.jpg");*/
+    border: 2px solid red;
 }
 
 .web-header{

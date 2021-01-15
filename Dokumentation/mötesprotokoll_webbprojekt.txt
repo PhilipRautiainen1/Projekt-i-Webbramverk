@@ -41,37 +41,32 @@ Att göra: Idag ska Simon och Sara modellera databasen för projektet. Sayed for
 
 
 möte: 11/1
-Närvarande: Sara, Simon, Sayed och Philip 
-Att göra: Skapa MySQL-databas och mergade samtliga branches. 
+Närvarande: Sara, Simon, Sayed och Philip
+Att göra: Skapa MySQL-databas och mergade samtliga branches.
 
 
 Möte 12/1
-Närvarande: Sara, Sayed, 
-Gjort: Igår gjorde vi klart vår modell för MySQL-databasen och fick igång databasen i Docker. Vi såg också till att allas kod kom upp på Github och mergades. 
-Att göra: Idag ska vi skriva modellerna för MySQL-databasen samt börja titta på inloggningssida. 
-
+Närvarande: Sara, Sayed, Simon och Philip
+Gjort: Igår gjorde vi klart vår modell för MySQL-databasen och fick igång databasen i Docker. Vi såg också till att allas kod kom upp på Github och mergades.
+Att göra: Idag ska vi skriva modellerna för MySQL-databasen samt börja titta på inloggningssida.
 
 Möte 13/1
-Närvarande: 
-Gjort:
-Att göra: 
+Närvarande: alla
+Gjort:Skapat Mysql bas
+Att göra:Ta bort Mysql bas
 
+14/1
+närvarande: alla
+Gjort: kastat mysql db, laggt till user i mongo. fixat inloggning.
+att göra: repo.
 
-Möte 14/1
-Närvarande: 
-Gjort:
-Att göra: 
-
-
-Möte 15/1
-Närvarande: 
-Gjort:
-Att göra: 
-
-
-Möte 18/1
-Närvarande: 
-Gjort:
-Att göra: 
-
-
+avstämning att göra under kommande veckor:
+spel,
+add/remove friends,
+hämta highscores,
+intregera api,
+error handling,
+validering av formulär,
+session,
+lägga till/ta bort fråga,
+>>>>>>> master:mötesprotokoll_webbprojekt.txt

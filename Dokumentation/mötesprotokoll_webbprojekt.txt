@@ -69,4 +69,3 @@ error handling,
 validering av formulär,
 session,
 lägga till/ta bort fråga,
->>>>>>> master:mötesprotokoll_webbprojekt.txt

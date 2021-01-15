@@ -1,6 +1,6 @@
-def main():
-    pass
+from Data_mongo.repositories import question_repository as qr
 
 
-if __name__ == "__main__":
-    main()
+def add_question(question):
+    qr.add_question(question)
+

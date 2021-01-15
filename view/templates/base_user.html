@@ -19,6 +19,15 @@
             <div class="button"><a href="{{ url_for('highscore') }}">Highscore</a></div>
         </div>
         <div class="content">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <div class="wrap info">
+                        {% for message in messages %}
+                            {{ message }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endwith %}
             {% block content %}
             {% endblock %}
         </div>

@@ -19,10 +19,19 @@
         <div class="web-header"><a href="{{ url_for('index') }}">Quiz</a></div>
         <div class="menu">
             <div class="button"><a href="{{ url_for('sign_in') }}">Logga in</a></div>
-            <div class="button" onclick="alert('Du måste logga in för att visa den här sidan')"><a href="{{ url_for('index') }}">Lägg till fråga</a></div>
+            <div class="button"><a href="{{ url_for('add_question') }}">Lägg till fråga</a></div>
             <div class="button"><a href="{{ url_for('highscore') }}">Highscore</a></div>
         </div>
         <div class="content">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    <div class="wrap info">
+                        {% for message in messages %}
+                            {{ message }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            {% endwith %}
             {% block content %}
             {% endblock %}
         </div>

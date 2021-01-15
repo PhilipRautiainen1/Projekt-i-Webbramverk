@@ -7,8 +7,8 @@ class Friend(Base):
     user_id = Column(Integer, ForeignKey("users.id", ondelete="Cascade", onupdate="Cascade"), nullable=False, primary_key=True)
     friend_id = Column(Integer, ForeignKey("users.id", ondelete="Cascade", onupdate="Cascade"), nullable=False, primary_key=True)
 
-    user = relationship("User")
-    friend = relationship("Friend")
+    friends = relationship("Friend", foreign_keys=[id])
+
 
     def __repr__(self):
         return f"Användare {self.user_id} är vän med {self.friend_id}."

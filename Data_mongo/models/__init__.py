@@ -15,8 +15,8 @@ class Question(Document):
     }]
     }
     '''
-
     collection = db.questions
+
 
 class PlayedGame(Document):
     '''
@@ -30,3 +30,19 @@ class PlayedGame(Document):
     }
     '''
     collection = db.playedgames
+
+
+class User(Document):
+    '''
+    {
+        id_user: autoinc
+        username: String,
+        email: String,
+        password: String,
+        score: int,
+        friends: [
+            id_user: String
+        ]
+    }
+    '''
+    collection = db.users

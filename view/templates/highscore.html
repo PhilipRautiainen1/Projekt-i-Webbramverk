@@ -13,8 +13,16 @@
         <div id="highscore">Highscore</div>
         <div id="filler1"></div>
         <div id="rank">Rank</div>
-        <div id="points">Poäng</div>
-        <div id="username">Användarnamn</div>
+        <div id="points">Poäng
+            {% for user in users %}
+                <li><a href="{{ user.href }}">{{ user.score }}</a></li>
+            {% endfor %}
+        </div>
+        <div id="username">Användarnamn
+            {% for user in users %}
+                <li><a href="{{ user.href }}">{{ user.username }}</a></li>
+            {% endfor %}
+        </div>
         <div id="filler2"></div>
     </div>
 {#</html>#}

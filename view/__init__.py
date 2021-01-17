@@ -56,18 +56,14 @@ def not_logged_in():
 
 
 @app.route('/highscore')
-def highscore():
-    return render_template("highscore.html")
-
-
-@app.route('/highscore')
 def user_highscore():
     users = get_username_score()
+
     return render_template("highscore.html", users=users)
 
 
 def get_username_score():
-    sorted_users = User.find({},{'id_user: 0', 'username: 1', 'email: 0', 'password: 0', 'score: 1', 'friends: 0'})\
+    sorted_users = User.find(**{})\
         .sort({('score', -1)}).limit(10)
     return sorted_users
 

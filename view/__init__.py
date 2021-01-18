@@ -78,10 +78,10 @@ def highscore():
 
 def get_username_score():
     users = User.all()
-    sorted_users = sorted(users, key=lambda u: u.score)
+    sorted_users = sorted(users, key=lambda u: u.score, reverse=True)
 
-        # .sort().limit(10)
-    return sorted_users
+    limited_users = sorted_users[:10]
+    return limited_users
 
 
 @app.route('/game')

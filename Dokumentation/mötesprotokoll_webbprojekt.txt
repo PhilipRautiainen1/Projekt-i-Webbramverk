@@ -69,3 +69,13 @@ error handling,
 validering av formulär,
 session,
 lägga till/ta bort fråga,
+
+
+18/1
+närvarande: Sara, Philip, Sayed	
+Gjort: Philip jobbade med att hämta data till Highscore-sidan, Sara jobbade med att lägga till frågor till databasen samt flash-meddelanden, Sayed jobbade med designen på sign-up-sidan.
+Att göra: Philip fortsätter arbetet med highscore, Sara jobbar med validering av formulär, Sayed fortsätter sign-up. 
+
+Kommentarer från Joakim:
+- städa bland routes, flytta ut hjälpfunktioner till egna moduler, ta bort de som inte används
+- städa i app.py

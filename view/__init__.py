@@ -122,7 +122,7 @@ def signup():
 def signup_post():
     email = request.form['email']
     username = request.form['username']
-    password = request.form['password']
+    password = request.form['password1']
     salt = bcrypt.gensalt()
     hashed_password = bcrypt.hashpw(str.encode(password), salt)
     add_user(email, username, hashed_password)

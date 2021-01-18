@@ -50,7 +50,7 @@ def my_page():
 
 
 @app.route('/add-question', methods=['GET', 'POST'])
-# @login_required('index')
+#@login_required('index')
 def add_question():
     # POST: Add a question to the database
     if request.method == 'POST':
@@ -62,7 +62,7 @@ def add_question():
         wrong_answer3 = request.form['wrong_answer3']
 
         question = category, question, right_answer, wrong_answer1, wrong_answer2, wrong_answer3
-        #qc.add_question(question)
+        qc.add_question(question)
         flash('Frågan har blivit tillagd!')
 
     # GET: Serve Add-question page

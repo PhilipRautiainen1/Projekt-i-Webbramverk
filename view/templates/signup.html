@@ -3,10 +3,15 @@
 {% block content %}
     <h1>Sign Up</h1>
     <div class="user">
-        <form action="/signup" method="POST">
+        <form name='sign_up_form' onsubmit='return validate()'>
             <input type="email" name="email" placeholder="Email Address" /> <br />
+            <div class='error' id='email_error'></div>
             <input type="text" name="username" placeholder="User Name" /> <br />
-            <input type="password" name="password" placeholder="Password" /> <br />
+            <div class='error' id='username_error'></div>
+            <input type="password" name="password1" placeholder="Password" /> <br />
+            <div class='error' id='password1_error'></div>
+            <input type="password" name="password2" placeholder="Retype your password" /> <br />
+            <div class='error' id='password2_error'></div>
             <input type="submit" value="Sign Up" /> <br />
         </form>
     </div>

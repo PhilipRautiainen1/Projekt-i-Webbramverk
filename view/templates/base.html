@@ -15,11 +15,13 @@
 </head>
 <body>
     <section>
-        <div class="web-header"><a href="{{ url_for('index') }}">Quiz</a></div>
-        <div class="menu">
-            <div class="button"><a href="{{ url_for('sign_in') }}">Logga in</a></div>
-            <div class="button"><a href="{{ url_for('add_question') }}">Lägg till fråga</a></div>
-            <div class="button"><a href="{{ url_for('highscore') }}">Highscore</a></div>
+        <div class="wrap">
+            <div class="web-header"><a href="{{ url_for('index') }}">Quiz</a></div>
+            <div class="menu">
+                <div class="button"><a href="{{ url_for('sign_in') }}">Logga in</a></div>
+                <div class="button"><a href="{{ url_for('add_question') }}">Lägg till fråga</a></div>
+                <div class="button"><a href="{{ url_for('highscore') }}">Highscore</a></div>
+            </div>
         </div>
         <div class="content">
             {% with messages = get_flashed_messages() %}

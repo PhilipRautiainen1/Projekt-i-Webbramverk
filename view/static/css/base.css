@@ -15,8 +15,6 @@ body{
 .menu {
     display: flex;
     flex: auto;
-    width: 70%;
-    margin: auto;
     border-top: black 4px dotted;
     border-bottom: black 4px dotted;
 }

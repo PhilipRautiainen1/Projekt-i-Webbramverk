@@ -44,13 +44,13 @@ def logged_in():
 
 
 @app.route('/my-page')
-#@login_required
+@login_required('index')
 def my_page():
     return render_template('my_page.html')
 
 
 @app.route('/add-question', methods=['GET', 'POST'])
-#@login_required('index')
+@login_required('index')
 def add_question():
     # POST: Add a question to the database
     if request.method == 'POST':
@@ -85,7 +85,7 @@ def get_username_score():
 
 
 @app.route('/game')
-# @login_required
+# @login_required('index')
 def game():
     #questions_list = get_questions()
     return render_template('game.html')#, questions_list=questions_list)
@@ -104,7 +104,8 @@ def sign_in_post():
 
     if user is not None:
         if bcrypt.checkpw(str.encode(password), user.password):
-            return redirect(url_for('logged_in'))
+            flask_session['username'] = user.username
+            return redirect(url_for('profile'))
     return redirect(url_for('error'))
 
 
@@ -145,3 +146,9 @@ def add_user(email, username, hashed_password):
 @app.route('/error')
 def error():
     return render_template('error.html')
+
+
+@app.route('/signout')
+def signout():
+    flask_session.clear()
+    return render_template('index.html')

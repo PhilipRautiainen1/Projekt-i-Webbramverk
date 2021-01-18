@@ -1,7 +1,33 @@
-from flask import Flask, render_template, redirect, url_for
+from flask import Flask, render_template, redirect, url_for, request
+from flask import session as flask_session
+import bcrypt
+
+
+
+from functools import wraps
+
+from Data_mongo.models import User
 
 app = Flask(__name__)
 
+def login_required(default_page):
+    def decorator(route):
+        @wraps(route)
+        def wrapper(*args, **kwargs):
+            if 'username' in flask_session:
+                return route(*args, **kwargs)
+            return redirect(url_for(default_page))
+        return wrapper
+    return decorator
+
+def signin_status():
+    return 'username' in flask_session
+
+@app.before_request
+def check():
+    rp = request.path
+    if rp != '/' and rp.endswith('/'):
+        return redirect(rp[:-1])
 
 @app.route('/')
 def index():
@@ -10,10 +36,11 @@ def index():
 
 @app.route('/logged-in')
 def logged_in():
-    return render_template('base_user.html')
+    return render_template('profile.html')
 
 
 @app.route('/my-page')
+#@login_required
 def my_page():
     return render_template('my_page.html')
 
@@ -39,14 +66,21 @@ def game():
     return render_template('game.html')#, questions_list=questions_list)
 
 
-@app.route('/sign_in/')
+@app.route('/sign_in')
 def sign_in():
     return render_template('login.html')
 
 
-@app.route('/sign_in/', methods=["POST"])
+@app.route('/sign_in', methods=["POST"])
 def sign_in_post():
-    return redirect(url_for('profile'))
+    username = request.form['username']
+    password = request.form['password']
+    user = User.find(username=username).first_or_none()
+
+    if user is not None:
+        if bcrypt.checkpw(str.encode(password), user.password):
+            return redirect(url_for('logged_in'))
+    return redirect(url_for('error'))
 
 
 @app.route('/profile')
@@ -54,11 +88,34 @@ def profile():
     return render_template('profile.html')
 
 
-@app.route('/signup/')
+@app.route('/signup')
 def signup():
     return render_template('signup.html')
 
 
-@app.route('/signup/', methods=["POST"])
+@app.route('/signup', methods=["POST"])
 def signup_post():
+    email = request.form['email']
+    username = request.form['username']
+    password = request.form['password']
+    salt = bcrypt.gensalt()
+    hashed_password = bcrypt.hashpw(str.encode(password), salt)
+    add_user(email, username, hashed_password)
     return redirect(url_for('sign_in'))
+
+
+def add_user(email, username, hashed_password):
+    user = User(
+        {
+            'email': email,
+            'username': username,
+            'password': hashed_password,
+            'score': 0,
+            'friends': []
+        }
+    )
+    user.save()
+
+@app.route('/error')
+def error():
+    return render_template('error.html')

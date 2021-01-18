@@ -18,6 +18,7 @@
 
 .header-center{
     font-family: 'Staatliches', cursive;
+    margin: 10px;
     font-size: 25px;
     padding-left: 10px;
     text-align: center;
@@ -82,10 +83,15 @@ input{
     font-size: 20px;
 }
 
-.info-box{
-    width: 40%;
-    margin: auto;
-    border: black 4px solid;
-    padding: 5px;
-    background-color: white;
+
+.info{
+    width:50%;
+    background: rgba(85, 60, 96, 0.8);
+    border-left: 5px solid #890bc4;
+    border-radius: 5px;
+    padding: 10px;
+    font-family: 'Staatliches', cursive;
+    font-size: 22px;
+    text-align: center;
+
 }

@@ -2,7 +2,7 @@
 {% block content %}
     <div class="wrap">
         <div class="header-center">Lägg till fråga</div>
-        <form>
+        <form action="/add-question" method="POST">
             <div class="category-select">
                 <label for="category">Kategori:</label>
                 <select name="category" id="category">
@@ -13,11 +13,11 @@
                 </select> <br />
             </div>
 
-            <input type="text" placeholder="Fråga" /> <br />
-            <input type="text" placeholder="Rätt svar" /> <br />
-            <input type="text" placeholder="Fel svar" /> <br />
-            <input type="text" placeholder="Fel svar" /> <br />
-            <input type="text" placeholder="Fel svar" /> <br />
+            <input type="text" name="question" placeholder="Fråga" /> <br />
+            <input type="text" name="right_answer" placeholder="Rätt svar" /> <br />
+            <input type="text" name="wrong_answer1" placeholder="Fel svar 1" /> <br />
+            <input type="text" name="wrong_answer2" placeholder="Fel svar 2" /> <br />
+            <input type="text" name="wrong_answer3" placeholder="Fel svar 3" /> <br />
             <input type="submit" value="Lägg till" id="submit" /> <br />
         </form>
 </div>

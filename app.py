@@ -1,6 +1,6 @@
 import bcrypt
 
-from Data_mongo.models import Question
+from Data_mongo.models import Question, User
 from view import app, add_user
 
 
@@ -41,7 +41,21 @@ def sql():
     hashed_password = bcrypt.hashpw(str.encode(password), salt)
     add_user(email, username, hashed_password)
 
-add_test_question()
+# add_test_question()
+
+
+def test_user():
+    user = User ({
+        'email': 'test',
+        'username': 'test',
+        'password': 'test',
+        'score': 123,
+        'friends': []
+    })
+    user.save()
+
+
+# test_user()
 
 if __name__ == '__main__':
    app.run(debug=True)

@@ -71,7 +71,17 @@ def add_question():
 
 @app.route('/highscore')
 def highscore():
-    return render_template("highscore.html")
+    users = get_username_score()
+
+    return render_template("highscore.html", users=users)
+
+
+def get_username_score():
+    users = User.all()
+    sorted_users = sorted(users, key=lambda u: u.score)
+
+        # .sort().limit(10)
+    return sorted_users
 
 
 @app.route('/game')

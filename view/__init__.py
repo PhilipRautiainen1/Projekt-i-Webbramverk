@@ -1,6 +1,5 @@
 from flask import Flask, render_template, redirect, url_for, request, flash
 from flask import session as flask_session
-import bcrypt
 from controllers import question_controller as qc
 from controllers import user_controller as uc
 from Data_mongo.models import User
@@ -92,7 +91,9 @@ def sign_in_post():
 
 @app.route('/profile')
 def profile():
-    return render_template('profile.html')
+    username = flask_session['username']
+    user = uc.get_user(username)
+    return render_template('profile.html', user=user)
 
 
 @app.route('/signup')
@@ -108,7 +109,7 @@ def signup_post():
     if uc.signup_user(email, username, password):
         return redirect(url_for('sign_in'))
     username_error = 'Det finns redan en användare med det här användarnamnet.'
-    #flash('Det finns redan en användare med det här användarnamnet.')
+    # flash('Det finns redan en användare med det här användarnamnet.')
     return render_template('signup.html', username_error=username_error)
 
 

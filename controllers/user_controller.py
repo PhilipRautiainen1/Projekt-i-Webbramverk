@@ -3,6 +3,10 @@ from flask import session as flask_session
 from Data_mongo.repositories import user_repository as ur
 
 
+def get_user(username):
+    return ur.get_user(username)
+
+
 def login_check(username, password):
     user = ur.get_user(username)
     if user is not None:

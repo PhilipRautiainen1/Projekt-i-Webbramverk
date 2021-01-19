@@ -61,9 +61,13 @@ def add_question():
         wrong_answer2 = request.form['wrong_answer2']
         wrong_answer3 = request.form['wrong_answer3']
 
-        question = category, question, right_answer, wrong_answer1, wrong_answer2, wrong_answer3
-        qc.add_question(question)
-        flash('Frågan har blivit tillagd!')
+        if question not in Question:
+            question = category, question, right_answer, wrong_answer1, wrong_answer2, wrong_answer3
+            qc.add_question(question)
+            flash('Frågan har blivit tillagd!')
+        else:
+            flash('Frågan finns redan!')
+
 
     # GET: Serve Add-question page
     return render_template('add_question.html')
@@ -125,7 +129,10 @@ def signup_post():
     password = request.form['password']
     salt = bcrypt.gensalt()
     hashed_password = bcrypt.hashpw(str.encode(password), salt)
-    add_user(email, username, hashed_password)
+    if username not in User:
+        add_user(email, username, hashed_password)
+    else:
+        flash('Användarnamnet finns redan!')
     return redirect(url_for('sign_in'))
 
 

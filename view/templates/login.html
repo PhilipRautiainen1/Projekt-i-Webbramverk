@@ -6,19 +6,21 @@
             <div class="txt_field">
                 <input type="text" name="username" required>
                 <span></span>
-                <label>Användarnamn</label>
+                <label>User Name</label>
             </div>
             <div class="txt_field">
                 <input type="password" name="password" required>
                 <span></span>
-                <label>Lösenord</label>
+                <label>Password</label>
             </div>
-            <div class="pass">Glömt Lösenord?</div>
+            <div class="pass">Forgot Password?</div>
             <input type="submit" value="Logga In">
             <div class="signup-link">
-               Inte Medlem? <a href="{{ url_for('signup') }}">Bli Medlem</a>
+                Not a member? <a href="{{ url_for('signup') }}">Sign Up</a>
             </div>
-            <p>Gå Tillbaka Till <a href="{{ url_for("index") }}"> Homepage </a> </p>
+            <div class="home-link">
+                <p>Go Back To <a href="{{ url_for("index") }}"> Homepage </a> </p>
+            </div>
         </form>
     </div>
 

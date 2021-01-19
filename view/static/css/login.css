@@ -57,7 +57,6 @@
     width: 0%;
     height: 2px;
     background: #2691d9;
-
   }
 
   .txt_field input:focus ~label,
@@ -93,14 +92,16 @@
   input[type="submit"]:hover{
     border-color: #2691d9;
     transition: .5s;
+    background-image: linear-gradient(120deg, #f6d365, #fda087);
+    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.1);
+
   }
 
   .signup-link{
     margin: 30px 0;
     text-align: center;
     font-size: 16px;
-    color: #666666;
-
+    color: #a6a6a6;
   }
 
   .signup-link a{
@@ -110,14 +111,34 @@
 
   .signup-link a:hover{
     text-decoration: underline;
+    background-image: linear-gradient(120deg, #f6d365, #fda087);
+    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.1);
 
   }
+
 
   .center p{
     font-size: 16px;
     text-align: center;
-    color: lightblue;
+    color: #a6a6a6;
     text-decoration: none;
+  }
+
+  .home-link{
+      margin: 30px 0;
+    text-align: center;
+    font-size: 16px;
+    color: #a6a6a6;
+  }
+
+  .home-link a{
+    color: #2691d9;
+    text-decoration: underline;
+  }
+
+  .home-link a:hover{
+    background-image: linear-gradient(120deg, #f6d365, #fda087);
+    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.1);
   }
 
 

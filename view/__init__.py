@@ -1,29 +1,13 @@
 from flask import Flask, render_template, redirect, url_for, request, flash
 from flask import session as flask_session
 import bcrypt
-from functools import wraps
 from controllers import question_controller as qc
-from Data_mongo.models import User, Question
-
+from controllers import user_controller as uc
+from Data_mongo.models import User
+from view.tools import login_required
 
 app = Flask(__name__)
 app.secret_key = "supersecret"
-
-
-def login_required(default_page):
-    def decorator(route):
-        @wraps(route)
-        def wrapper(*args, **kwargs):
-            if 'username' in flask_session:
-                return route(*args, **kwargs)
-            flash('Du måste vara inloggad för att visa denna sidan')
-            return redirect(url_for(default_page))
-        return wrapper
-    return decorator
-
-
-def sign_in_status():
-    return 'username' in flask_session
 
 
 @app.before_request
@@ -100,12 +84,9 @@ def sign_in():
 def sign_in_post():
     username = request.form['username']
     password = request.form['password']
-    user = User.find(username=username).first_or_none()
-
-    if user is not None:
-        if bcrypt.checkpw(str.encode(password), user.password):
-            flask_session['username'] = user.username
-            return redirect(url_for('profile'))
+    if uc.login_check(username, password):
+        return redirect(url_for('profile'))
+    # flash('Felaktigt användarnamn eller lösenord')
     return redirect(url_for('error'))
 
 
@@ -124,23 +105,11 @@ def signup_post():
     email = request.form['email']
     username = request.form['username']
     password = request.form['password1']
-    salt = bcrypt.gensalt()
-    hashed_password = bcrypt.hashpw(str.encode(password), salt)
-    add_user(email, username, hashed_password)
-    return redirect(url_for('sign_in'))
-
-
-def add_user(email, username, hashed_password):
-    user = User(
-        {
-            'email': email,
-            'username': username,
-            'password': hashed_password,
-            'score': 0,
-            'friends': []
-        }
-    )
-    user.save()
+    if uc.signup_user(email, username, password):
+        return redirect(url_for('sign_in'))
+    username_error = 'Det finns redan en användare med det här användarnamnet.'
+    #flash('Det finns redan en användare med det här användarnamnet.')
+    return render_template('signup.html', username_error=username_error)
 
 
 @app.route('/error')
@@ -151,4 +120,4 @@ def error():
 @app.route('/signout')
 def signout():
     flask_session.clear()
-    return render_template('index.html')
+    return redirect(url_for('index'))

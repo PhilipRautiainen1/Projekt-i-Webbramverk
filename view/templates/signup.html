@@ -2,15 +2,15 @@
 
 {% block content %}
     <div class="signup-form">
-        <form name='sign_up_form' onsubmit='return validate()'>
+        <form name='sign_up_form' onsubmit='return validate()' action='/signup' method='POST'>
             <h1> SKAPA KONTO </h1>
             <input type="email" name="email" placeholder="E-postadress"  class="text_button" /> <br />
             <div class='error' id='email_error'></div>
             <input type="text" name="username" placeholder="Användarnamn" class="text_button" /> <br />
-            <div class='error' id='username_error'></div>
-            <input type="password" name="password" placeholder="Lösenord" class="text_button" /> <br />
+            <div class='error' id='username_error'>{{ username_error }}</div>
+            <input type="password" name="password1" placeholder="Lösenord" class="text_button" /> <br />
             <div class='error' id='password1_error'></div>
-            <input type="password" name="password" placeholder="Bekräfta" class="text_button" /> <br />
+            <input type="password" name="password2" placeholder="Bekräfta" class="text_button" /> <br />
             <div class='error' id='password2_error'></div>
             <input type="submit" value="Bli Medlem" class="signup_button" /> <br />
         </form>

@@ -93,5 +93,24 @@ input{
     font-family: 'Staatliches', cursive;
     font-size: 22px;
     text-align: center;
+}
 
+.signout{
+    width: 75px;
+    margin: 5px;
+    float: right;
+    text-align: center;
+    font-family: 'Staatliches', cursive;
+    font-size: 20px;
+    padding: 5px;
+    background: rgba(85, 60, 96, 0.8);
+    border-left: 5px solid #890bc4;
+    border-radius: 5px;
+}
+
+.error{
+    padding: 5px;
+    color: red;
+    font-size: 12px;
+    font-family: 'Staatliches', cursive;
 }

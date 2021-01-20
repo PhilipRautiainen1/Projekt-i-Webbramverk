@@ -1,7 +1,6 @@
 import bcrypt
-
 from Data_mongo.models import Question, User
-from view import app, add_user
+from view import app
 
 
 def add_test_question():

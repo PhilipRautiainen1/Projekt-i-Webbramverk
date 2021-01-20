@@ -1,5 +1,18 @@
 {% extends 'base_user.html' %}
 
 {% block content %}
-    <h1>This is your profile !</h1>
+    <div class="wrap">
+        <div class="header">Min profil</div>
+        <div class="profile">
+            <div class="profile_picture">
+                <img src="{{ url_for('static', filename='images/profile.png') }}"
+                     alt="Profile image" width="150" height="150">
+            </div>
+            <div class="profile_info">
+                Användarnamn: {{ user.username }} <br />
+                Email: {{ user.email }} <br />
+                Totalpoäng: {{ user.score }} <br />
+            </div>
+        </div>
+    </div>
 {% endblock %}

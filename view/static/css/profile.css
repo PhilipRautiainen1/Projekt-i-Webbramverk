@@ -1,0 +1,17 @@
+.profile{
+    display: flex;
+    width: 500px;
+    height: 150px;
+    border: solid 4px #890bc4;
+    background-color: antiquewhite;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 10px;
+}
+
+.profile_info{
+    padding-top: 30px;
+    padding-left: 15px;
+    font-size: 20px;
+    font-family: 'Staatliches', cursive;
+}

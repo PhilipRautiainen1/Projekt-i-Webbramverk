@@ -1,22 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/profile.css') }}">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Frijole&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Staatliches&display=swap" rel="stylesheet">
 </head>
 <body>
     <section>
-        <div class="web-header"><a href="{{ url_for('index') }}">Quiz</a></div>
-        <div class="menu">
-            <div class="button"><a href="{{ url_for('my_page') }}">Min sida</a></div>
-            <div class="button"><a href="{{ url_for('add_question') }}">Lägg till fråga</a></div>
-            <div class="button"><a href="{{ url_for('highscore') }}">Highscore</a></div>
+        <div class="wrap">
+            <div class="web-header"><a href="{{ url_for('index') }}">Quiz</a></div>
+            <div class="menu">
+                <div class="button"><a href="{{ url_for('profile') }}">Min sida</a></div>
+                <div class="button"><a href="{{ url_for('add_question') }}">Lägg till fråga</a></div>
+                <div class="button"><a href="{{ url_for('highscore') }}">Highscore</a></div>
+            </div>
+            <div class="signout"><a href="/signout">Logga ut</a></div>
         </div>
         <div class="content">
             {% with messages = get_flashed_messages() %}

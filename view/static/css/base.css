@@ -4,8 +4,6 @@ body{
     margin: 0;
     padding: 0;
     background-image: linear-gradient(120deg, #f6d365, #fda087);
-    /*background-image: url("./images/background.jpg");*/
-    border: 2px solid red;
 }
 
 .web-header{
@@ -17,8 +15,6 @@ body{
 .menu {
     display: flex;
     flex: auto;
-    width: 70%;
-    margin: auto;
     border-top: black 4px dotted;
     border-bottom: black 4px dotted;
 }

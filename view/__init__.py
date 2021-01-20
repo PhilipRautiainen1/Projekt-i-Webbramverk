@@ -1,29 +1,12 @@
 from flask import Flask, render_template, redirect, url_for, request, flash
 from flask import session as flask_session
-import bcrypt
-from functools import wraps
 from controllers import question_controller as qc
-from Data_mongo.models import User, Question
-
+from controllers import user_controller as uc
+from Data_mongo.models import User
+from view.tools import login_required
 
 app = Flask(__name__)
 app.secret_key = "supersecret"
-
-
-def login_required(default_page):
-    def decorator(route):
-        @wraps(route)
-        def wrapper(*args, **kwargs):
-            if 'username' in flask_session:
-                return route(*args, **kwargs)
-            flash('Du måste vara inloggad för att visa denna sidan')
-            return redirect(url_for(default_page))
-        return wrapper
-    return decorator
-
-
-def sign_in_status():
-    return 'username' in flask_session
 
 
 @app.before_request
@@ -44,13 +27,13 @@ def logged_in():
 
 
 @app.route('/my-page')
-#@login_required
+@login_required('index')
 def my_page():
     return render_template('my_page.html')
 
 
 @app.route('/add-question', methods=['GET', 'POST'])
-#@login_required('index')
+@login_required('index')
 def add_question():
     # POST: Add a question to the database
     if request.method == 'POST':
@@ -85,7 +68,7 @@ def get_username_score():
 
 
 @app.route('/game')
-# @login_required
+# @login_required('index')
 def game():
     #questions_list = get_questions()
     return render_template('game.html')#, questions_list=questions_list)
@@ -100,17 +83,17 @@ def sign_in():
 def sign_in_post():
     username = request.form['username']
     password = request.form['password']
-    user = User.find(username=username).first_or_none()
-
-    if user is not None:
-        if bcrypt.checkpw(str.encode(password), user.password):
-            return redirect(url_for('logged_in'))
-    return redirect(url_for('error'))
+    if uc.login_check(username, password):
+        return redirect(url_for('profile'))
+    login_error = 'Felaktigt användarnamn eller lösenord'
+    return render_template('login.html', login_error=login_error)
 
 
 @app.route('/profile')
 def profile():
-    return render_template('profile.html')
+    username = flask_session['username']
+    user = uc.get_user(username)
+    return render_template('profile.html', user=user)
 
 
 @app.route('/signup')
@@ -122,26 +105,19 @@ def signup():
 def signup_post():
     email = request.form['email']
     username = request.form['username']
-    password = request.form['password']
-    salt = bcrypt.gensalt()
-    hashed_password = bcrypt.hashpw(str.encode(password), salt)
-    add_user(email, username, hashed_password)
-    return redirect(url_for('sign_in'))
-
-
-def add_user(email, username, hashed_password):
-    user = User(
-        {
-            'email': email,
-            'username': username,
-            'password': hashed_password,
-            'score': 0,
-            'friends': []
-        }
-    )
-    user.save()
+    password = request.form['password1']
+    if uc.signup_user(email, username, password):
+        return redirect(url_for('sign_in'))
+    username_error = 'Det finns redan en användare med det här användarnamnet'
+    return render_template('signup.html', username_error=username_error)
 
 
 @app.route('/error')
 def error():
     return render_template('error.html')
+
+
+@app.route('/signout')
+def signout():
+    flask_session.clear()
+    return redirect(url_for('index'))

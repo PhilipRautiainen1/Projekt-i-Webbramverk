@@ -70,8 +70,10 @@ def get_username_score():
 @app.route('/game')
 # @login_required('index')
 def game():
-    #questions_list = get_questions()
-    return render_template('game.html')#, questions_list=questions_list)
+    questions_list = get_questions(5)
+    for i in range(5):
+        question = questions_list[i]
+        return render_template('game.html', question=question)
 
 
 @app.route('/sign_in')

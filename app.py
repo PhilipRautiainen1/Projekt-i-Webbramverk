@@ -1,5 +1,6 @@
 import bcrypt
 from Data_mongo.models import Question, User
+from Data_mongo.repositories.question_repository import get_questions, question_api_load
 from view import app
 
 
@@ -55,6 +56,7 @@ def test_user():
 
 
 # test_user()
-
+question_api_load()
+get_questions(5)
 if __name__ == '__main__':
    app.run(debug=True)

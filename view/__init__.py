@@ -2,7 +2,7 @@ from flask import Flask, render_template, redirect, url_for, request, flash
 from flask import session as flask_session
 from controllers import question_controller as qc
 from controllers import user_controller as uc
-from Data_mongo.models import User
+from Data_mongo.models import User, Question
 from view.tools import login_required
 
 app = Flask(__name__)
@@ -43,10 +43,20 @@ def add_question():
         wrong_answer1 = request.form['wrong_answer1']
         wrong_answer2 = request.form['wrong_answer2']
         wrong_answer3 = request.form['wrong_answer3']
+        wrong_answers = [wrong_answer1, wrong_answer2, wrong_answer3]
 
-        question = category, question, right_answer, wrong_answer1, wrong_answer2, wrong_answer3
-        qc.add_question(question)
-        flash('Frågan har blivit tillagd!')
+        if question not in Question:
+            if all(a != right_answer for a in wrong_answers):
+                if len(wrong_answers) == len(set(wrong_answers)):
+                    question = category, question, right_answer, wrong_answer1, wrong_answer2, wrong_answer3
+                    qc.add_question(question)
+                    flash('Frågan har blivit tillagd!')
+                else:
+                    flash('Ett felaktigt svar kan inte vara samma som ett annat!')
+            else:
+                flash('Ett rätt svar kan inte vara ett som är fel!')
+        else:
+            flash('Frågan finns redan!')
 
     # GET: Serve Add-question page
     return render_template('add_question.html')

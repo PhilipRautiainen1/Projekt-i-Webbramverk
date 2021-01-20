@@ -1,5 +1,6 @@
 from functools import wraps
 from flask import session as flask_session, flash, redirect, url_for
+import html
 
 
 def login_required(default_page):
@@ -18,5 +19,6 @@ def sign_in_status():
     return 'username' in flask_session
 
 
-
+def unescape_dict(d):
+    return {k: html.unescape(v) for k, v in d.items()}
 

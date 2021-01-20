@@ -60,11 +60,14 @@ def add_question():
         wrong_answer1 = request.form['wrong_answer1']
         wrong_answer2 = request.form['wrong_answer2']
         wrong_answer3 = request.form['wrong_answer3']
-
+        wrong_answers = [wrong_answer1, wrong_answer2, wrong_answer3]
         if question not in Question:
-            question = category, question, right_answer, wrong_answer1, wrong_answer2, wrong_answer3
-            qc.add_question(question)
-            flash('Frågan har blivit tillagd!')
+            if all(a != right_answer for a in wrong_answers):
+                question = category, question, right_answer, wrong_answer1, wrong_answer2, wrong_answer3
+                qc.add_question(question)
+                flash('Frågan har blivit tillagd!')
+            else:
+                flash('Ett rätt svar kan inte vara ett felaktigt!')
         else:
             flash('Frågan finns redan!')
 
@@ -131,8 +134,6 @@ def signup_post():
     hashed_password = bcrypt.hashpw(str.encode(password), salt)
     if username not in User:
         add_user(email, username, hashed_password)
-    else:
-        flash('Användarnamnet finns redan!')
     return redirect(url_for('sign_in'))
 
 

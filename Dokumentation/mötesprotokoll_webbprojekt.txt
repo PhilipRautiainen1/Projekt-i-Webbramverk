@@ -79,3 +79,9 @@ Att göra: Philip fortsätter arbetet med highscore, Sara jobbar med validering 
 Kommentarer från Joakim:
 - städa bland routes, flytta ut hjälpfunktioner till egna moduler, ta bort de som inte används
 - städa i app.py
+
+
+20/1
+Närvarande: alla
+Gjort: Philip har börjat titta på hur vi kan validera de frågor som läggs till, Simon har fortsatt att arbeta med spelsidan och Sayed med inloggninssidan, Sara har städat upp i modulerna, gjort validering av sign-up-formuläret, logga-ut funktion samt profilsida.
+Att göra: Philip jobbar med validering av frågeformuläret, Simon fortsätter med spelsidan, Sayed fortsätter med inloggninssidan, Sara jobbar med att hämta upp frågor från ett api till vår databas. 

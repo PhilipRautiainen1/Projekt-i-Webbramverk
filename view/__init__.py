@@ -85,8 +85,8 @@ def sign_in_post():
     password = request.form['password']
     if uc.login_check(username, password):
         return redirect(url_for('profile'))
-    # flash('Felaktigt användarnamn eller lösenord')
-    return redirect(url_for('error'))
+    login_error = 'Felaktigt användarnamn eller lösenord'
+    return render_template('login.html', login_error=login_error)
 
 
 @app.route('/profile')
@@ -108,8 +108,7 @@ def signup_post():
     password = request.form['password1']
     if uc.signup_user(email, username, password):
         return redirect(url_for('sign_in'))
-    username_error = 'Det finns redan en användare med det här användarnamnet.'
-    # flash('Det finns redan en användare med det här användarnamnet.')
+    username_error = 'Det finns redan en användare med det här användarnamnet'
     return render_template('signup.html', username_error=username_error)
 
 

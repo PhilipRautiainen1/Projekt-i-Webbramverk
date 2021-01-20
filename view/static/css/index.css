@@ -109,6 +109,8 @@ input{
 }
 
 .error{
+    padding: 5px;
     color: red;
     font-size: 12px;
+    font-family: 'Staatliches', cursive;
 }

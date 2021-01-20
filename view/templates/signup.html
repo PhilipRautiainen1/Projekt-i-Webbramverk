@@ -1,20 +1,18 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="test"></div>
     <div class="signup-form">
         <form name='sign_up_form' onsubmit='return validate()'>
-            <h1> CREATE ACCOUNT</h1>
-            <input type="email" name="email" placeholder="Email Address"  class="text_button" /> <br />
+            <h1> SKAPA KONTO </h1>
+            <input type="email" name="email" placeholder="E-postadress"  class="text_button" /> <br />
             <div class='error' id='email_error'></div>
-            <input type="text" name="username" placeholder="User Name" class="text_button" /> <br />
+            <input type="text" name="username" placeholder="Användarnamn" class="text_button" /> <br />
             <div class='error' id='username_error'></div>
-            <input type="password" name="password" placeholder="Password" class="text_button" /> <br />
+            <input type="password" name="password" placeholder="Lösenord" class="text_button" /> <br />
             <div class='error' id='password1_error'></div>
-            <input type="password" name="password" placeholder="Retry Password" class="text_button" /> <br />
+            <input type="password" name="password" placeholder="Försök igen med Lösenordet" class="text_button" /> <br />
             <div class='error' id='password2_error'></div>
-            <input type="submit" value="Sign Up" class="signup_button" /> <br />
+            <input type="submit" value="Bli Medlem" class="signup_button" /> <br />
         </form>
     </div>
-
 {% endblock %}

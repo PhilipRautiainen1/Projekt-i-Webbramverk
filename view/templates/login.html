@@ -1,25 +1,25 @@
 {% extends 'base.html' %}
 {% block content %}
     <div class="center">
-        <h1>Login</h1>
+        <h1>Logga in</h1>
         <form action="/sign_in" method="POST">
             <div class="txt_field">
-                <input type="text" name="username" required>
+                <input type="text" name="Användarnamn" required>
                 <span></span>
-                <label>User Name</label>
+                <label>Användarnamn</label>
             </div>
             <div class="txt_field">
-                <input type="password" name="password" required>
+                <input type="password" name="Lösenord" required>
                 <span></span>
-                <label>Password</label>
+                <label>Lösenord</label>
             </div>
-            <div class="pass">Forgot Password?</div>
+            <div class="pass">Glömt ditt lösenord?</div>
             <input type="submit" value="Logga In">
             <div class="signup-link">
-                Not a member? <a href="{{ url_for('signup') }}">Sign Up</a>
+                Inte Medlem? <a href="{{ url_for('signup') }}">Bli Medlem</a>
             </div>
             <div class="home-link">
-                <p>Go Back To <a href="{{ url_for("index") }}"> Homepage </a> </p>
+                <p>Gå tillbaka till <a href="{{ url_for("index") }}"> Startsidan </a> </p>
             </div>
         </form>
     </div>

@@ -51,7 +51,7 @@ def test_user():
         'score': 100,
         'friends': []
     })
-    user.save()
+    # user.save()
 
 
 test_user()

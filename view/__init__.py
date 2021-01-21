@@ -4,9 +4,11 @@ from controllers import question_controller as qc
 from controllers import user_controller as uc
 from Data_mongo.models import User
 from view.tools import login_required
+from datetime import timedelta
 
 app = Flask(__name__)
 app.secret_key = "supersecret"
+app.permanent_session_lifetime = timedelta(minutes=10)
 
 
 @app.before_request
@@ -55,7 +57,6 @@ def add_question():
 @app.route('/highscore')
 def highscore():
     users = get_username_score()
-
     return render_template("highscore.html", users=users)
 
 
@@ -84,6 +85,7 @@ def sign_in_post():
     username = request.form['username']
     password = request.form['password']
     if uc.login_check(username, password):
+        flask_session.permanent = True
         return redirect(url_for('profile'))
     login_error = 'Felaktigt användarnamn eller lösenord'
     return render_template('login.html', login_error=login_error)

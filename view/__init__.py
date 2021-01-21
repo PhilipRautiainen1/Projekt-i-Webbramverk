@@ -47,24 +47,24 @@ def add_question():
         wrong_answers = [wrong_answer1, wrong_answer2, wrong_answer3]
         questions = Question.all()
 
-        if question not in Question:
-            for q in questions:
-                seq = SequenceMatcher(None, question, q)
-                s = seq.ratio()
-                if s < 0.85:
-                    if all(a != right_answer for a in wrong_answers):
-                        if len(wrong_answers) == len(set(wrong_answers)):
-                            question = category, question, right_answer, wrong_answer1, wrong_answer2, wrong_answer3
-                            qc.add_question(question)
-                            flash('Frågan har blivit tillagd!')
-                        else:
-                            flash('Ett felaktigt svar kan inte vara samma som ett annat!')
+        # if question != any(questions):
+        for q in questions:
+            seq = SequenceMatcher(None, question, q)
+            s = seq.ratio()
+            if s < 0.85:
+                if all(a != right_answer for a in wrong_answers):
+                    if len(wrong_answers) == len(set(wrong_answers)):
+                        question = category, question, right_answer, wrong_answer1, wrong_answer2, wrong_answer3
+                        qc.add_question(question)
+                        flash('Frågan har blivit tillagd!')
                     else:
-                           flash('Ett rätt svar kan inte vara ett som är fel!')
+                        flash('Ett felaktigt svar kan inte vara samma som ett annat!')
                 else:
-                    flash('Din fråga är för lik en som redan existerar!')
-        else:
-            flash('Frågan finns redan!')
+                        flash('Ett rätt svar kan inte vara ett som är fel!')
+            else:
+                flash('Din fråga är för lik en som redan existerar!')
+        # else:
+        #     flash('Frågan finns redan!')
 
     # GET: Serve Add-question page
     return render_template('add_question.html')

@@ -44,10 +44,12 @@ def add_question():
         wrong_answer1 = request.form['wrong_answer1']
         wrong_answer2 = request.form['wrong_answer2']
         wrong_answer3 = request.form['wrong_answer3']
-        wrong_answers = [wrong_answer1, wrong_answer2, wrong_answer3]
-        questions = Question.all()
 
-        # if question != any(questions):
+        wrong_answers = [wrong_answer1, wrong_answer2, wrong_answer3]
+
+    questions = Question.all()
+
+    def check_q(question):
         for q in questions:
             seq = SequenceMatcher(None, question, q)
             s = seq.ratio()
@@ -57,18 +59,24 @@ def add_question():
                         question = category, question, right_answer, wrong_answer1, wrong_answer2, wrong_answer3
                         qc.add_question(question)
                         flash('Frågan har blivit tillagd!')
+                        return render_template('add_question.html')
                     else:
                         flash('Ett felaktigt svar kan inte vara samma som ett annat!')
+                        return render_template('add_question.html')
                 else:
-                        flash('Ett rätt svar kan inte vara ett som är fel!')
+                    flash('Ett rätt svar kan inte vara ett som är fel!')
+                    return render_template('add_question.html')
             else:
                 flash('Din fråga är för lik en som redan existerar!')
-        # else:
+                return render_template('add_question.html')
+
+
+
+
+       # else:
         #     flash('Frågan finns redan!')
-
+    # return render_template('add_question.html')
     # GET: Serve Add-question page
-    return render_template('add_question.html')
-
 
 @app.route('/highscore')
 def highscore():

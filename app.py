@@ -29,7 +29,7 @@ def add_test_question():
         "answers": answers
     })
 
-    question.save()
+    # question.save()
 
 def sql():
     Base.metadata.create_all(engine)
@@ -46,12 +46,12 @@ def sql():
 def test_user():
     user = User ({
         'email': 'test',
-        'username': 'test',
+        'username': 'test2',
         'password': 'test',
-        'score': 100,
+        'score': 50,
         'friends': []
     })
-    # user.save()
+    user.save()
 
 
 test_user()

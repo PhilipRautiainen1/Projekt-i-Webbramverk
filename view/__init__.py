@@ -61,9 +61,7 @@ def highscore():
 
 def get_username_score():
     users = User.all()
-    sorted_users = sorted(users, key=lambda u: u.score)
-
-        # .sort().limit(10)
+    sorted_users = sorted(users, key=lambda u: u.score).sort().limit(10)
     return sorted_users
 
 

@@ -18,6 +18,8 @@ def check():
 
 @app.route('/')
 def index():
+    if 'username' in flask_session:
+        return render_template('index_user.html')
     return render_template('index.html')
 
 
@@ -93,7 +95,8 @@ def sign_in_post():
 def profile():
     username = flask_session['username']
     user = uc.get_user(username)
-    return render_template('profile.html', user=user)
+    friends = user.friends
+    return render_template('profile.html', user=user, friends=friends)
 
 
 @app.route('/signup')

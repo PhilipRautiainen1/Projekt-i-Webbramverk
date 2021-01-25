@@ -7,12 +7,9 @@
         </div>
         <div class="answers">
             <div class="r1">
-                <div class="answer">
-                    <!--<a href="{{ url_for('game') }}">A. Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus debitis doloribus, ducimus eligendi eos esse eum facere iste magni maxime minima, molestias quasi qui recusandae tempora totam, veniam voluptatibus!</a>
-                    --->
-                    <button onclick="check_answer()">A. Lorem ipsum dolor sit amet, consectetur adipisicing elit. A accusamus debitis doloribus, ducimus eligendi eos esse eum facere iste magni maxime minima, molestias quasi qui recusandae tempora totam, veniam voluptatibus!</button>
-                </div>
-                <div class="answer"><a href="{{ url_for('game') }}">B. Lorem ipsum dolor sit amet, consectetur adipisicing elit. At explicabo magnam modi omnis optio praesentium quibusdam quis, ratione repellat repellendus similique vel velit? Ab asperiores ipsa, ipsam modi repellendus veniam.</a></div>
+                <div id="answer1">
+                    <a href="{{ url_for('game') }}"></a>{{ a1['answer'] }}</div>
+                <div id="answer2"><a >B. {{ a1['answer'] }}</a></div>
             </div>
             <div class="r2">
                 <div class="answer"><a href="{{ url_for('game') }}">C. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus consectetur debitis delectus, dignissimos distinctio, eos fugiat ipsa iure iusto nam nisi qui quis quisquam quos recusandae repudiandae, totam unde vel.</a></div>

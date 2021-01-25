@@ -13,15 +13,26 @@
         <div id="highscore">Highscore</div>
         <div id="filler1"></div>
         <div id="rank">Rank</div>
-        <div id="points">Poäng
-            {% for user in users %}
-                <li><a href="{{ user.href }}">{{ user.score }}</a></li>
-            {% endfor %}
+        <div id="points">
+            <p id="pointsheader">Poäng</p>
+            <div id="hdata">
+                {% for user in users %}
+                    <ul class="a">
+                        <li><a href="{{ user.href }}">{{ user.score }}</a></li>
+                    </ul>
+                {% endfor %}
+            </div>
+
         </div>
-        <div id="username">Användarnamn
-            {% for user in users %}
-                <li><a href="{{ user.href }}">{{ user.username }}</a></li>
-            {% endfor %}
+        <div id="username">
+            <p id="usersheader">Användarnamn</p>
+            <div id="udata">
+                {% for user in users %}
+                    <ul class="b">
+                        <li><a href="{{ user.href }}">{{ user.username }}</a></li>
+                    </ul>
+                {% endfor %}
+            </div>
         </div>
         <div id="filler2"></div>
     </div>

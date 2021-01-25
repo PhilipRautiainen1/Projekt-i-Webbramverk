@@ -16,11 +16,12 @@
         <div class="wrap">
             <div class="web-header"><a href="{{ url_for('index') }}">Quiz</a></div>
             <div class="menu">
-                <div class="button"><a href="{{ url_for('profile') }}">Min sida</a></div>
-                <div class="button"><a href="{{ url_for('add_question') }}">Lägg till fråga</a></div>
-                <div class="button"><a href="{{ url_for('highscore') }}">Highscore</a></div>
+                <div class="button-small"><a href="{{ url_for('profile') }}">Min sida</a></div>
+                <div class="button-small"><a href="{{ url_for('add_question') }}">Lägg till fråga</a></div>
+                <div class="button-small"><a href="{{ url_for('highscore') }}">Highscore</a></div>
+                <div class="sign-out"><a href="/signout">Logga ut</a></div>
             </div>
-            <div class="signout"><a href="/signout">Logga ut</a></div>
+{#            <div class="signout"><a href="/signout">Logga ut</a></div>#}
         </div>
         <div class="content">
             {% with messages = get_flashed_messages() %}
@@ -38,7 +39,8 @@
     </section>
 
     <div class="page-footer">
-        <div class="footer-text">© 2020 Quiz AB</div>
+        <div class="footer-text">Copyright &copy; Quiz AB</div>
     </div>
+
 </body>
 </html>

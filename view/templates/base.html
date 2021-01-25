@@ -16,7 +16,7 @@
     <script type="text/javascript" src="{{ url_for('static',filename='/js/game.js') }}"></script>
 </head>
 <body>
-    <section>
+    <div class="page-container">
         <div class="wrap">
             <div class="web-header"><a href="{{ url_for('index') }}">Quiz</a></div>
             <div class="menu">
@@ -38,12 +38,10 @@
             {% block content %}
             {% endblock %}
         </div>
-    </section>
-
-    <div class="page-footer">
-        <div class="footer-text">Copyright &copy; Quiz AB</div>
+        <footer id="footer">
+            <div class="footer-text">Copyright &copy; Quiz AB</div>
+        </footer>
     </div>
-
     <script src="{{ url_for('static', filename='js/main.js') }}"></script>
 </body>
 </html>

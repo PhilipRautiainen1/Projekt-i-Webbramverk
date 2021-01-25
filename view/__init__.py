@@ -60,6 +60,8 @@ def add_question():
 @app.route('/highscore')
 def highscore():
     users = uc.get_users_highscore()
+    if 'username' in flask_session:
+        return render_template("highscore_user.html", users=users)
     return render_template("highscore.html", users=users)
 
 

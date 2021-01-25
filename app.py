@@ -48,13 +48,13 @@ def test_user():
         'email': 'test',
         'username': 'test',
         'password': 'test',
-        'score': 123,
+        'score': 0,
         'friends': []
     })
-    # user.save()
+    user.save()
 
 
-# test_user()
+test_user()
 
 if __name__ == '__main__':
    app.run(debug=True)

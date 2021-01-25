@@ -24,5 +24,12 @@ def signup_user(email, username, password):
         return True
 
 
+def get_users_highscore():
+    users = ur.get_all_users()
+    sorted_users = sorted(users, key=lambda u: u.score, reverse=True)
+    limited_users = sorted_users[:10]
+    return limited_users
+
+
 
 

@@ -53,4 +53,11 @@ def add_questions():
     else:
         print('Could not reach the API')
 
-#add_questions()
+# add_questions()
+
+
+def get_questions():
+    return Question.all()
+
+
+

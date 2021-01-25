@@ -4,6 +4,7 @@ from controllers import question_controller as qc
 from controllers import user_controller as uc
 from Data_mongo.models import User
 from view.tools import login_required
+from difflib import SequenceMatcher
 from datetime import timedelta
 
 app = Flask(__name__)
@@ -47,8 +48,8 @@ def add_question():
         wrong_answer3 = request.form['wrong_answer3']
 
         question = category, question, right_answer, wrong_answer1, wrong_answer2, wrong_answer3
-        qc.add_question(question)
-        flash('Frågan har blivit tillagd!')
+        qc.check_and_add_q(question)
+        return render_template('add_question.html')
 
     # GET: Serve Add-question page
     return render_template('add_question.html')
@@ -56,16 +57,8 @@ def add_question():
 
 @app.route('/highscore')
 def highscore():
-    users = get_username_score()
+    users = uc.get_users_highscore()
     return render_template("highscore.html", users=users)
-
-
-def get_username_score():
-    users = User.all()
-    sorted_users = sorted(users, key=lambda u: u.score)
-
-        # .sort().limit(10)
-    return sorted_users
 
 
 @app.route('/game')

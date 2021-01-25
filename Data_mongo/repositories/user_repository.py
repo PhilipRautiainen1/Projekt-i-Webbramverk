@@ -15,3 +15,6 @@ def add_user(email, username, hashed_password):
         })
     user.save()
 
+
+def get_all_users():
+    return User.all()

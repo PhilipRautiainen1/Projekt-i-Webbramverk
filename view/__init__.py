@@ -1,3 +1,5 @@
+import json
+
 from flask import Flask, render_template, redirect, url_for, request, flash
 from flask import session as flask_session
 
@@ -63,20 +65,30 @@ def highscore():
     return render_template("highscore.html", users=users)
 
 
-@app.route('/game')
+@app.route('/game', methods=['GET', 'POST'])
 # @login_required('index')
 def game():
     no = 5
     questions_list = get_questions(no)
-    for i in range(no):
-        question = questions_list[i].question
 
-        answers = questions_list[i].answers
-        a1 = answers[0]
-        a2 = answers[1]
-        a3 = answers[2]
-        a4 = answers[3]
-        return render_template('game.html', question=question, a1=a1, a2=a2, a3=a3, a4=a4)
+    question = questions_list[0].question
+
+    answers = questions_list[0].answers
+    a1 = answers[0]
+    a2 = answers[1]
+    a3 = answers[2]
+    a4 = answers[3]
+    if request.method == 'POST':
+        for i, a in enumerate([a1, a2, a3, a4]):
+            no = request.values['user_answer'][-1]
+            response = False
+            if a['correctBool']:
+                if i+1 == int(no):
+                    response=True
+                    break
+
+        return app.response_class(response=json.dumps({'response': response}), status=200, mimetype='application/json')
+    return render_template('game.html', question=question, a1=a1, a2=a2, a3=a3, a4=a4)
 
 
 @app.route('/sign_in')

@@ -1,67 +1,67 @@
-body{
+*{
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
-.test{
-    width: 100%;
-    height: 40%;
-    background-color: #9C1A1C;
-
-}
 
 .signup-form{
-    width: 300px;
-    padding: 20px;
-    text-align: center;
+    font-family: 'Staatliches', cursive;
+    background: linear-gradient(120deg, #f6d365, #fda087);
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
-    overflow: hidden;
-    background: aliceblue;
-    margin-top: 40px;
-    border-radius: 6px;
+    width: 400px;
+    height: 520px;
+    background: #fff;
+    border-radius: 20px;
+    margin-top: 100px;
+    padding: 40px;
+    box-sizing: border-box;
+    justify-content: center;
 }
+
 
 .signup-form h1{
-    margin-top: 100px;
-    font-family: 'Permanent Marker', cursive;
-    color: #fff;
-    font-size: 40px;
-}
-
-.signup-form input{
-    display: block;
-    width: 100%;
-    padding: 0 16px;
-    height: 44px;
+    margin: 10px;
+    padding: 0 0 20px 0;
     text-align: center;
-    box-sizing: border-box;
-    outline: none;
-    border: none;
-    font-family: 'montserrat', sans-serif;
+    border-bottom: 1px solid silver;
 
-}
+  }
+
 
 .text_button{
-    margin: 5px 0;
-    border-radius: 6px;
+    width: 100%;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    padding: 0 5px;
+    border-bottom: 2px solid #adadad;
+    height: 40px;
+    font-size: 16px;
+    height: 40px;
+    margin: 10px;
 }
 
 .signup_button{
-    margin-top: 20px;
-    margin-bottom: 20px;
-    background: #487eb0;
-    color: #fff;
-    border-radius: 44px;
+    width: 100%;
+    height: 50px;
+    margin-top: 40px;
+    border: 1px solid;
+    background: #2691d9;
+    border-radius: 25px;
+    font-size: 18px;
+    color: #e9f4fb;
+    font-weight: 700;
     cursor: pointer;
-    transition: 0.8s;
+    outline: none;
+    font-family:  'Staatliches', cursive;
 }
 
 .signup_button:hover{
-    transform: scale(0.96);
+    background-image: linear-gradient(120deg, #f6d365, #fda087);
+    box-shadow: 0 4px 10px 0 rgba(0,0,0,0.1);
+    border: none;
 }
-
-
-

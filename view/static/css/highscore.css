@@ -65,6 +65,24 @@
         width: 50%; /* Change this to whatever width you want. */
         padding-top: 10px; /* This creates some space between the element and the border. */
         border-top: 3px solid #9C1A1C; /* This creates the border. Replace black with whatever color you want. */
+        /*background-color: #890bc4;*/
+    }
+
+    #pointsheader{
+        text-align: center;
+        padding: 0;
+        margin: 0;
+    }
+
+    #hdata{
+      width: 20%;
+      height: 50%;
+      top:5%;
+        left: 40%;
+      margin: 0 auto;
+      position: relative;
+      /*background:orange;*/
+        text-align: center;
     }
 
     #username {
@@ -86,6 +104,23 @@
         border-top: 3px solid #9C1A1C; /* This creates the border. Replace black with whatever color you want. */
     }
 
+    #usersheader{
+        text-align: center;
+        padding: 0;
+        margin: 0;
+    }
+
+    #udata{
+      width: 20%;
+      height: 50%;
+      top:5%;
+        left: 40%;
+      margin: 0 auto;
+      position: relative;
+      /*background:orange;*/
+        text-align: center;
+    }
+
     #highscore{
         padding-top: 0;
       font-size: 40px;
@@ -96,18 +131,30 @@
 
     }
 
-    .page-footer{
-        /*background-color: blueviolet;*/
-        display: flex;
-        flex: auto;
-        width: 70%;
-        margin: auto;
-        height: auto;
-        text-align: center;
+    /*.page-footer{*/
+    /*    !*background-color: blueviolet;*!*/
+    /*    display: flex;*/
+    /*    flex: auto;*/
+    /*    width: 70%;*/
+    /*    margin: auto;*/
+    /*    height: auto;*/
+    /*    text-align: center;*/
+    /*}*/
+
+    /*.footer-text{*/
+    /*    width: 100%;*/
+    /*    text-align: center;*/
+    /*    !*background-color: blueviolet;*!*/
+    /*}*/
+
+    ul.a{
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
     }
 
-    .footer-text{
-        width: 100%;
-        text-align: center;
-        /*background-color: blueviolet;*/
+    ul.b{
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
     }

@@ -1,10 +1,8 @@
-from flask import Flask, render_template, redirect, url_for, request, flash
+from flask import Flask, render_template, redirect, url_for, request
 from flask import session as flask_session
 from controllers import question_controller as qc
 from controllers import user_controller as uc
-from Data_mongo.models import User
 from view.tools import login_required
-from difflib import SequenceMatcher
 from datetime import timedelta
 
 app = Flask(__name__)

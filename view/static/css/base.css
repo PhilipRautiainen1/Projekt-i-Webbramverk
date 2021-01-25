@@ -24,12 +24,18 @@ body{
 }
 
 .button{
-    width: 25%;
+    width: 33%;
     text-align: center;
     font-family: 'Staatliches', cursive;
     font-size: 30px;
 }
 
+.button-small{
+     width: 25%;
+    text-align: center;
+    font-family: 'Staatliches', cursive;
+    font-size: 30px;
+}
 
 .sign-out{
     width: 25%;

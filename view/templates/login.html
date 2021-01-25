@@ -2,6 +2,17 @@
 {% block content %}
     <div class="center">
         <h1>Logga in</h1>
+{#         <div class="container">#}
+{#        <nav>#}
+            <div class="button-x">
+                <div class="close">
+                    <span>&times;</span>
+                        <a href="{{ url_for("index") }}"></a>
+                </div>
+{#            </div>#}
+{#        </nav>#}
+        </div>
+
         <form action="/sign_in" method="POST">
             <div class="txt_field">
                 <input type="text" name="username" required>

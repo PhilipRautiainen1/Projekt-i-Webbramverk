@@ -18,6 +18,46 @@
     border-bottom: 1px solid silver;
   }
 
+/*  .container{*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    position: absolute;*/
+/*}*/
+
+
+
+.button-x{
+    float: right;
+    width: 30px;
+    height: 100%;
+    /*border-radius: 15%;*/
+    line-height: 30px;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+
+.close{
+    height: 100%;
+    width: 30px;
+    text-align: center;
+    background-color: rgb(255, 153, 0);
+    cursor: pointer;
+    transition-property: background, border-radius;
+    transition: all ease-in-out .2s;
+    border-radius: 5px;
+}
+
+.close span{
+  font-size: 25px;
+}
+
+
+.close:hover{
+    background: #f39e00;
+    border-radius: 50%;
+}
+
   .center form{
     padding: 0 40px;
     box-sizing: border-box;

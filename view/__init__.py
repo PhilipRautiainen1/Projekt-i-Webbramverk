@@ -1,5 +1,7 @@
 from flask import Flask, render_template, redirect, url_for, request
+import json
 from flask import session as flask_session
+from Data_mongo.repositories.question_repository import get_questions
 from controllers import question_controller as qc
 from controllers import user_controller as uc
 from view.tools import login_required
@@ -63,11 +65,30 @@ def highscore():
     return render_template("highscore.html", users=users)
 
 
-@app.route('/game')
+@app.route('/game', methods=['GET', 'POST'])
 # @login_required('index')
 def game():
-    #questions_list = get_questions()
-    return render_template('game.html')#, questions_list=questions_list)
+    no = 5
+    questions_list = get_questions(no)
+
+    question = questions_list[0].question
+
+    answers = questions_list[0].answers
+    a1 = answers[0]
+    a2 = answers[1]
+    a3 = answers[2]
+    a4 = answers[3]
+    if request.method == 'POST':
+        for i, a in enumerate([a1, a2, a3, a4]):
+            no = request.values['user_answer'][-1]
+            response = False
+            if a['correctBool']:
+                if i+1 == int(no):
+                    response=True
+                    break
+
+        return app.response_class(response=json.dumps({'response': response}), status=200, mimetype='application/json')
+    return render_template('game.html', question=question, a1=a1, a2=a2, a3=a3, a4=a4)
 
 
 @app.route('/sign_in')

@@ -26,7 +26,7 @@
 
 }
 .answers {
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 .r1 {
@@ -41,7 +41,7 @@
     padding: 15px;
 }
 
-.answer {
+#answer1 {
     height: 100px;
     width: 40%;
     justify-content: center;
@@ -49,8 +49,44 @@
     padding: 15px;
     margin: auto;
     background-color: #b3fcff;
+    border: 3px dotted black;
+}
+#answer2 {
+    height: 100px;
+    width: 40%;
+    justify-content: center;
+    text-align: center;
+    padding: 15px;
+    margin: auto;
+    background-color: #b3fcff;
+    border: 3px dotted black;
 
 }
+
+#answer3 {
+    height: 100px;
+    width: 40%;
+    justify-content: center;
+    text-align: center;
+    padding: 15px;
+    margin: auto;
+    background-color: #b3fcff;
+    border: 3px dotted black;
+
+}
+
+#answer4 {
+    height: 100px;
+    width: 40%;
+    justify-content: center;
+    text-align: center;
+    padding: 15px;
+    margin: auto;
+    background-color: #b3fcff;
+    border: 3px dotted black;
+
+}
+
 button {
     background-color: saddlebrown;
 }

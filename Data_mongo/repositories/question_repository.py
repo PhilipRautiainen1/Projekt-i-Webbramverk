@@ -1,3 +1,4 @@
+import random
 from Data_mongo.models import Question
 from view.tools import unescape_dict
 import json
@@ -54,8 +55,17 @@ def add_questions():
         print('Could not reach the API')
 
 
-def get_questions():
-    return Question.all()
+def get_questions(no):
+    quest = []
+    questions = Question.all()
+    for i in range(20):
+        random.shuffle(questions)
+    for i in range(no):
+        quest.append(questions[i])
+
+
+
+    return quest
 
 
 

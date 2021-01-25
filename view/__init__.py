@@ -54,15 +54,8 @@ def add_question():
 
 @app.route('/highscore')
 def highscore():
-    users = get_username_score()
-    limited_users = users[:10]
-    return render_template("highscore.html", users=limited_users)
-
-
-def get_username_score():
-    users = User.all()
-    sorted_users = sorted(users, key=lambda u: u.score, reverse=True)
-    return sorted_users
+    users = uc.get_users_highscore()
+    return render_template("highscore.html", users=users)
 
 
 @app.route('/game')

@@ -69,10 +69,9 @@ def game():
     no = 5
     questions_list = get_questions(no)
     for i in range(no):
-        e
-        question = questions_list[i]['question']
+        question = questions_list[i].question
 
-        answers = questions_list[i]['answers']
+        answers = questions_list[i].answers
         a1 = answers[0]
         a2 = answers[1]
         a3 = answers[2]

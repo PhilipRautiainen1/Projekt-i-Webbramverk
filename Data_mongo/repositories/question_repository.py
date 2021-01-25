@@ -1,5 +1,4 @@
 import random
-
 from Data_mongo.models import Question
 from view.tools import unescape_dict
 import json
@@ -68,7 +67,7 @@ def get_questions(no):
 
 
 
-    return Question.all()
+    return quest
 
 
 

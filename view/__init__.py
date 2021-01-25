@@ -2,12 +2,14 @@ from flask import Flask, render_template, redirect, url_for, request, flash
 from flask import session as flask_session
 from controllers import question_controller as qc
 from controllers import user_controller as uc
-from Data_mongo.models import User, Question
+from Data_mongo.models import User
 from view.tools import login_required
 from difflib import SequenceMatcher
+from datetime import timedelta
 
 app = Flask(__name__)
 app.secret_key = "supersecret"
+app.permanent_session_lifetime = timedelta(minutes=10)
 
 
 @app.before_request
@@ -44,6 +46,7 @@ def add_question():
         wrong_answer1 = request.form['wrong_answer1']
         wrong_answer2 = request.form['wrong_answer2']
         wrong_answer3 = request.form['wrong_answer3']
+
         question = category, question, right_answer, wrong_answer1, wrong_answer2, wrong_answer3
         qc.check_and_add_q(question)
         return render_template('add_question.html')
@@ -75,6 +78,7 @@ def sign_in_post():
     username = request.form['username']
     password = request.form['password']
     if uc.login_check(username, password):
+        flask_session.permanent = True
         return redirect(url_for('profile'))
     login_error = 'Felaktigt användarnamn eller lösenord'
     return render_template('login.html', login_error=login_error)

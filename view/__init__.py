@@ -1,5 +1,7 @@
 from flask import Flask, render_template, redirect, url_for, request, flash
 from flask import session as flask_session
+
+from Data_mongo.repositories.question_repository import get_questions
 from controllers import question_controller as qc
 from controllers import user_controller as uc
 from Data_mongo.models import User
@@ -64,10 +66,18 @@ def highscore():
 @app.route('/game')
 # @login_required('index')
 def game():
-    questions_list = get_questions(5)
-    for i in range(5):
-        question = questions_list[i]
-        return render_template('game.html', question=question)
+    no = 5
+    questions_list = get_questions(no)
+    for i in range(no):
+        e
+        question = questions_list[i]['question']
+
+        answers = questions_list[i]['answers']
+        a1 = answers[0]
+        a2 = answers[1]
+        a3 = answers[2]
+        a4 = answers[3]
+        return render_template('game.html', question=question, a1=a1, a2=a2, a3=a3, a4=a4)
 
 
 @app.route('/sign_in')

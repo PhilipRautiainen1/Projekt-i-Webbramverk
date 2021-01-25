@@ -96,18 +96,18 @@
 
     }
 
-    .page-footer{
-        /*background-color: blueviolet;*/
-        display: flex;
-        flex: auto;
-        width: 70%;
-        margin: auto;
-        height: auto;
-        text-align: center;
-    }
+    /*.page-footer{*/
+    /*    !*background-color: blueviolet;*!*/
+    /*    display: flex;*/
+    /*    flex: auto;*/
+    /*    width: 70%;*/
+    /*    margin: auto;*/
+    /*    height: auto;*/
+    /*    text-align: center;*/
+    /*}*/
 
-    .footer-text{
-        width: 100%;
-        text-align: center;
-        /*background-color: blueviolet;*/
-    }
+    /*.footer-text{*/
+    /*    width: 100%;*/
+    /*    text-align: center;*/
+    /*    !*background-color: blueviolet;*!*/
+    /*}*/

@@ -54,7 +54,7 @@ def test_user():
     user.save()
 
 
-test_user()
+# test_user()
 
 if __name__ == '__main__':
    app.run(debug=True)

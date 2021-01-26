@@ -1,8 +1,5 @@
 from difflib import SequenceMatcher
-
 from flask import flash
-
-from Data_mongo.models import Question
 from Data_mongo.repositories import question_repository as qr
 
 
@@ -30,7 +27,7 @@ def check_and_add_q(new_question):
         else:
             return flash('Felaktiga svar måste vara unika!')
     else:
-        return flash('Ett rätt svar kan inte vara ett som är fel!')
+        return flash('Ett rätt svar kan inte vara samma som ett felaktigt svar!')
 
 
 

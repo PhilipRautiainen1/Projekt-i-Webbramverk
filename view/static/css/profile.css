@@ -1,17 +1,28 @@
 .profile{
     display: flex;
-    width: 500px;
-    height: 150px;
-    border: solid 4px #890bc4;
-    background-color: antiquewhite;
+    width: 700px;
     border-radius: 5px;
     padding: 5px;
     margin: 10px;
 }
 
-.profile_info{
-    padding-top: 30px;
+.user_info{
+    width: 35%;
+    padding-top: 10px;
     padding-left: 15px;
+    padding-right: 25px;
+    border-right: 5px dotted #890bc4;
+}
+
+.friends{
+    padding-top: 10px;
+    width: 25%;
+    list-style: none;
+    padding-left: 25px;
+
+}
+
+.profile_text{
     font-size: 20px;
     font-family: 'Staatliches', cursive;
 }

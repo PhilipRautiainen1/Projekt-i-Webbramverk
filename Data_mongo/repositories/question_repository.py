@@ -54,8 +54,6 @@ def add_questions():
     else:
         print('Could not reach the API')
 
-# add_questions()
-
 
 def get_questions(no):
     quest = []

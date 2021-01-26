@@ -1,14 +1,10 @@
+from flask import Flask, render_template, redirect, url_for, request
 import json
-
-from flask import Flask, render_template, redirect, url_for, request, flash
 from flask import session as flask_session
-
 from Data_mongo.repositories.question_repository import get_questions
 from controllers import question_controller as qc
 from controllers import user_controller as uc
-from Data_mongo.models import User
 from view.tools import login_required
-from difflib import SequenceMatcher
 from datetime import timedelta
 
 app = Flask(__name__)
@@ -25,6 +21,8 @@ def check():
 
 @app.route('/')
 def index():
+    if 'username' in flask_session:
+        return render_template('index_user.html')
     return render_template('index.html')
 
 
@@ -62,6 +60,8 @@ def add_question():
 @app.route('/highscore')
 def highscore():
     users = uc.get_users_highscore()
+    if 'username' in flask_session:
+        return render_template("highscore_user.html", users=users)
     return render_template("highscore.html", users=users)
 
 
@@ -111,7 +111,8 @@ def sign_in_post():
 def profile():
     username = flask_session['username']
     user = uc.get_user(username)
-    return render_template('profile.html', user=user)
+    friends = user.friends
+    return render_template('profile.html', user=user, friends=friends)
 
 
 @app.route('/signup')

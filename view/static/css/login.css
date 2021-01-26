@@ -18,38 +18,38 @@
     border-bottom: 1px solid silver;
   }
 
-/*  .container{*/
-/*    width: 100%;*/
-/*    height: 100%;*/
-/*    position: absolute;*/
-/*}*/
 
-
-
-.button-x{
+.button-xx{
     float: right;
-    width: 30px;
-    height: 50%;
-    /*border-radius: 15%;*/
+    width: 40px;
+    height: 100%;
     line-height: 30px;
-    margin-top: 20px;
     margin-right: 20px;
+    margin-top: 20px;
 }
 
 
 .close{
     height: 50%;
-    width: 30px;
-    text-align: center;
+    width: 100%;
     background-color: rgb(255, 153, 0);
     cursor: pointer;
     transition-property: background, border-radius;
-    transition: all ease-in-out .2s;
-    border-radius: 5px;
+    transition: all ease-in-out .4s;
+    border-radius: 30%;
+    text-align: center;
+    padding-top: 5px;
 }
+
 
 .close span{
   font-size: 35px;
+}
+
+
+.close a{
+  width: 30px;
+  height: 30px;
 }
 
 
@@ -58,16 +58,19 @@
     border-radius: 50%;
 }
 
+
   .center form{
     padding: 0 40px;
     box-sizing: border-box;
   }
+
 
   form .txt_field{
     position: relative;
     border-bottom: 2px solid #adadad;
     margin: 30px 0;
   }
+
 
   .txt_field input{
     width: 100%;
@@ -78,6 +81,7 @@
     background: none;
     outline: none;
   }
+
 
   .txt_field label{
     position: absolute;
@@ -90,6 +94,7 @@
     transition: .5s;
   }
 
+
   .txt_field span::before{
     content: '';
     position: absolute;
@@ -100,11 +105,13 @@
     background: #2691d9;
   }
 
+
   .txt_field input:focus ~label,
   .txt_field input:valid ~label{
     top: -5px;
     color: #2691d9;
   }
+
 
   .pass{
     margin: -5px 0 20px 5px;
@@ -127,13 +134,14 @@
     font-family:  'Staatliches', cursive;
   }
 
+
   input[type="submit"]:hover{
     transition: .5s;
     background-image: linear-gradient(120deg, #f6d365, #fda087);
     box-shadow: 0 4px 10px 0 rgba(0,0,0,0.1);
     border: none;
-
   }
+
 
   .signup-link{
     margin: 30px 0;
@@ -142,16 +150,17 @@
     color: #a6a6a6;
   }
 
+
   .signup-link a{
     color: #2691d9;
   }
+
 
   .signup-link a:hover{
     background-image: linear-gradient(120deg, #f6d365, #fda087);
     box-shadow: 0 4px 10px 0 rgba(0,0,0,0.1);
     border: none;
     border-radius: 5px;
-
   }
 
 
@@ -162,6 +171,7 @@
     text-decoration: none;
   }
 
+
   .home-link{
       margin: 30px 0;
     text-align: center;
@@ -169,9 +179,11 @@
     color: #a6a6a6;
   }
 
+
   .home-link a{
     color: #2691d9;
   }
+
 
   .home-link a:hover{
     background-image: linear-gradient(120deg, #f6d365, #fda087);

@@ -7,7 +7,7 @@ from Data_mongo.repositories.question_repository import get_questions
 from controllers import question_controller as qc
 from controllers import user_controller as uc
 from Data_mongo.models import User
-from view.tools import login_required
+from view.tools import login_required, GameInit
 from difflib import SequenceMatcher
 from datetime import timedelta
 
@@ -68,8 +68,11 @@ def highscore():
 @app.route('/game', methods=['GET', 'POST'])
 # @login_required('index')
 def game():
-    no = 5
-    questions_list = get_questions(no)
+
+    category = request.args.get('category', None)
+    no = request.args.get('no', None)
+
+    questions_list = get_questions(category, no)
 
     question = questions_list[0].question
 
@@ -90,6 +93,7 @@ def game():
         return app.response_class(response=json.dumps({'response': response}), status=200, mimetype='application/json')
     return render_template('game.html', question=question, a1=a1, a2=a2, a3=a3, a4=a4)
 
+#TODO renderar inte.
 
 @app.route('/sign_in')
 def sign_in():
@@ -140,6 +144,12 @@ def signout():
     flask_session.clear()
     return redirect(url_for('index'))
 
-@app.route('/setup')
+@app.route('/setup', methods=['GET', 'POST'])
 def setup():
+    if request.method == 'POST':
+        category = request.form['category']
+        no = int(request.form['number'])
+        data = [category, no]
+        return redirect(url_for('game', category=category, no=no))
     return render_template('setup.html')
+

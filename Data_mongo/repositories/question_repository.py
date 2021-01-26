@@ -57,15 +57,23 @@ def add_questions():
 # add_questions()
 
 
-def get_questions(no):
+def get_questions(category, no):
     quest = []
-    questions = Question.all()
-    for i in range(20):
-        random.shuffle(questions)
-    for i in range(no):
-        quest.append(questions[i])
-
-
+    cat_quest = []
+    if category == 'Random':
+        questions = Question.all()
+        for i in range(20):
+            random.shuffle(questions)
+        for i in range(no):
+            quest.append(questions[i])
+    else:
+        questions = Question.all()
+        for q in questions:
+            if category in q.category.lower():
+                cat_quest.append(q)
+        random.shuffle(cat_quest)
+        for i in range(int(no)):
+            quest.append(cat_quest[i])
 
     return quest
 

@@ -15,6 +15,7 @@ function reply(id){
             else {
                 $('#'+id).css('border', '3px solid red');
             }
+            $('#next-question').html()
     }});
 }
 

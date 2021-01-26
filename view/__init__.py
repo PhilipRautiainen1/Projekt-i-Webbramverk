@@ -77,8 +77,8 @@ def game():
     no = request.args.get('no', None)
 
     #temp value
-    #no = 3
-    #category = 'Random'
+    no = 3
+    category = 'Random'
     ###
 
     questions_list = get_questions(category, no)

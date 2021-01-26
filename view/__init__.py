@@ -1,10 +1,10 @@
-from flask import Flask, render_template, redirect, url_for, request, flash
+from flask import Flask, render_template, redirect, url_for, request
+import json
 from flask import session as flask_session
+from Data_mongo.repositories.question_repository import get_questions
 from controllers import question_controller as qc
 from controllers import user_controller as uc
-from Data_mongo.models import User
 from view.tools import login_required
-from difflib import SequenceMatcher
 from datetime import timedelta
 
 app = Flask(__name__)
@@ -21,6 +21,8 @@ def check():
 
 @app.route('/')
 def index():
+    if 'username' in flask_session:
+        return render_template('index_user.html')
     return render_template('index.html')
 
 
@@ -58,14 +60,35 @@ def add_question():
 @app.route('/highscore')
 def highscore():
     users = uc.get_users_highscore()
+    if 'username' in flask_session:
+        return render_template("highscore_user.html", users=users)
     return render_template("highscore.html", users=users)
 
 
-@app.route('/game')
+@app.route('/game', methods=['GET', 'POST'])
 # @login_required('index')
 def game():
-    #questions_list = get_questions()
-    return render_template('game.html')#, questions_list=questions_list)
+    no = 5
+    questions_list = get_questions(no)
+
+    question = questions_list[0].question
+
+    answers = questions_list[0].answers
+    a1 = answers[0]
+    a2 = answers[1]
+    a3 = answers[2]
+    a4 = answers[3]
+    if request.method == 'POST':
+        for i, a in enumerate([a1, a2, a3, a4]):
+            no = request.values['user_answer'][-1]
+            response = False
+            if a['correctBool']:
+                if i+1 == int(no):
+                    response=True
+                    break
+
+        return app.response_class(response=json.dumps({'response': response}), status=200, mimetype='application/json')
+    return render_template('game.html', question=question, a1=a1, a2=a2, a3=a3, a4=a4)
 
 
 @app.route('/sign_in')
@@ -88,7 +111,8 @@ def sign_in_post():
 def profile():
     username = flask_session['username']
     user = uc.get_user(username)
-    return render_template('profile.html', user=user)
+    friends = user.friends
+    return render_template('profile.html', user=user, friends=friends)
 
 
 @app.route('/signup')
@@ -116,3 +140,7 @@ def error():
 def signout():
     flask_session.clear()
     return redirect(url_for('index'))
+
+@app.route('/setup')
+def setup():
+    return render_template('setup.html')

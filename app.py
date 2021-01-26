@@ -1,4 +1,3 @@
-import bcrypt
 from Data_mongo.models import Question, User
 from view import app
 
@@ -31,14 +30,6 @@ def add_test_question():
 
     question.save()
 
-def sql():
-    Base.metadata.create_all(engine)
-    email='simon@email.com'
-    username='simon'
-    password='s3cr37'
-    salt = bcrypt.gensalt()
-    hashed_password = bcrypt.hashpw(str.encode(password), salt)
-    add_user(email, username, hashed_password)
 
 # add_test_question()
 
@@ -48,13 +39,11 @@ def test_user():
         'email': 'test',
         'username': 'test',
         'password': 'test',
-        'score': 0,
+        'score': 123,
         'friends': []
     })
     user.save()
 
-
-test_user()
 
 if __name__ == '__main__':
    app.run(debug=True)

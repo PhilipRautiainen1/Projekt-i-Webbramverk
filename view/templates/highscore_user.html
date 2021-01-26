@@ -1,0 +1,47 @@
+{% extends "base_user.html" %}
+{% block content %}
+{#    <!DOCTYPE html>#}
+{#<html lang="en">#}
+{#<head>#}
+{#    <meta charset="UTF-8">#}
+{#    <meta name="viewport" content="width=device-width, initial-scale=1.0">#}
+{#    <title>Title</title>#}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/highscore.css') }}">
+{#</head>#}
+
+    <div id="wrap">
+        <div id="highscore">Highscore</div>
+        <div id="filler1"></div>
+        <div id="rank">Rank</div>
+        <div id="points">
+            <p id="pointsheader">Poäng</p>
+            <div id="hdata">
+                {% for user in users %}
+                    <ul class="a">
+                        <li><a href="{{ user.href }}">{{ user.score }}</a></li>
+                    </ul>
+                {% endfor %}
+            </div>
+
+        </div>
+        <div id="username">
+            <p id="usersheader">Användarnamn</p>
+            <div id="udata">
+                {% for user in users %}
+                    <ul class="b">
+                        <li><a href="{{ user.href }}">{{ user.username }}</a></li>
+                    </ul>
+                {% endfor %}
+            </div>
+        </div>
+        <div id="filler2"></div>
+    </div>
+{#</html>#}
+
+
+
+
+{% endblock %}
+
+
+

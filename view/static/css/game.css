@@ -26,7 +26,7 @@
 
 }
 .answers {
-    margin-top: 100px;
+    margin-top: 50px;
 }
 
 .r1 {
@@ -49,8 +49,21 @@
     padding: 15px;
     margin: auto;
     background-color: #b3fcff;
-
+    border: 3px dotted black;
 }
-button {
-    background-color: saddlebrown;
+
+
+
+#next-question {
+    width: 300px;
+    background: rgba(85, 60, 96, 0.8);
+    border-left: 5px solid #890bc4;
+    border-radius: 5px;
+    display: block;
+    margin: 20px auto;
+    padding: 10px;
+    font-family: 'Staatliches', cursive;
+    font-size: 22px;
+    text-align: center;
+    cursor: pointer;
 }

@@ -1,6 +1,10 @@
 from flask import Flask, render_template, redirect, url_for, request
 import json
+import random
+
+from flask import Flask, render_template, redirect, url_for, request, flash
 from flask import session as flask_session
+
 from Data_mongo.repositories.question_repository import get_questions
 from controllers import question_controller as qc
 from controllers import user_controller as uc
@@ -68,16 +72,30 @@ def highscore():
 @app.route('/game', methods=['GET', 'POST'])
 # @login_required('index')
 def game():
-    no = 5
-    questions_list = get_questions(no)
+
+    category = request.args.get('category', None)
+    no = request.args.get('no', None)
+
+    #temp value
+    no = 3
+    category = 'Random'
+    ###
+
+    questions_list = get_questions(category, no)
 
     question = questions_list[0].question
 
     answers = questions_list[0].answers
-    a1 = answers[0]
-    a2 = answers[1]
-    a3 = answers[2]
-    a4 = answers[3]
+
+    num=[0, 1, 2, 3]
+    random.shuffle(num)
+    print(num[3])
+    a1 = answers[num[0]]
+    a2 = answers[num[1]]
+    a3 = answers[num[2]]
+    a4 = answers[num[3]]
+
+
     if request.method == 'POST':
         for i, a in enumerate([a1, a2, a3, a4]):
             no = request.values['user_answer'][-1]
@@ -90,6 +108,7 @@ def game():
         return app.response_class(response=json.dumps({'response': response}), status=200, mimetype='application/json')
     return render_template('game.html', question=question, a1=a1, a2=a2, a3=a3, a4=a4)
 
+#TODO renderar inte.
 
 @app.route('/sign_in')
 def sign_in():
@@ -141,6 +160,12 @@ def signout():
     flask_session.clear()
     return redirect(url_for('index'))
 
-@app.route('/setup')
+@app.route('/setup', methods=['GET', 'POST'])
 def setup():
+    if request.method == 'POST':
+        category = request.form['category']
+        no = int(request.form['number'])
+        data = [category, no]
+        return redirect(url_for('game', category=category, no=no))
     return render_template('setup.html')
+

@@ -1,0 +1,30 @@
+
+.setup-body{
+}
+
+.header-setup{
+    font-family: 'Staatliches', cursive;
+    font-size: 66px;
+    text-align: center;
+}
+
+.category-sel{
+    margin-bottom: 10px;
+}
+
+#category-selector{
+    background-color: #adadad;
+    font-size: 24px;
+    border: 2px solid black;
+}
+
+#number-selector{
+    background-color: #adadad;
+    font-size: 24px;
+    border: 2px solid black;
+}
+#submit-setup{
+    width: 200px;
+    margin-top: 30px;
+    border: 0;
+}

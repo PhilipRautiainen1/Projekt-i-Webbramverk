@@ -1,4 +1,5 @@
 import json
+import random
 
 from flask import Flask, render_template, redirect, url_for, request, flash
 from flask import session as flask_session
@@ -72,15 +73,26 @@ def game():
     category = request.args.get('category', None)
     no = request.args.get('no', None)
 
+    #temp value
+    #no = 3
+    #category = 'Random'
+    ###
+
     questions_list = get_questions(category, no)
 
     question = questions_list[0].question
 
     answers = questions_list[0].answers
-    a1 = answers[0]
-    a2 = answers[1]
-    a3 = answers[2]
-    a4 = answers[3]
+
+    num=[0, 1, 2, 3]
+    random.shuffle(num)
+    print(num[3])
+    a1 = answers[num[0]]
+    a2 = answers[num[1]]
+    a3 = answers[num[2]]
+    a4 = answers[num[3]]
+
+
     if request.method == 'POST':
         for i, a in enumerate([a1, a2, a3, a4]):
             no = request.values['user_answer'][-1]

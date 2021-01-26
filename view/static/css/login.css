@@ -29,7 +29,7 @@
 .button-x{
     float: right;
     width: 30px;
-    height: 100%;
+    height: 50%;
     /*border-radius: 15%;*/
     line-height: 30px;
     margin-top: 20px;
@@ -38,7 +38,7 @@
 
 
 .close{
-    height: 100%;
+    height: 50%;
     width: 30px;
     text-align: center;
     background-color: rgb(255, 153, 0);
@@ -49,7 +49,7 @@
 }
 
 .close span{
-  font-size: 25px;
+  font-size: 35px;
 }
 
 

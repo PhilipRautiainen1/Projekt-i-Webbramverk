@@ -1,17 +1,12 @@
 {% extends 'base.html' %}
 {% block content %}
     <div class="center">
-        <h1>Logga in</h1>
-{#         <div class="container">#}
-{#        <nav>#}
-            <div class="button-x">
+        <div class="button-x">
                 <div class="close">
-                    <span>&times;</span>
-                        <a href="{{ url_for("index") }}"></a>
+                    <a href="{{ url_for("index") }}"><span>&times;</span></a>
                 </div>
-{#            </div>#}
-{#        </nav>#}
         </div>
+        <h1>Logga in</h1>
 
         <form action="/sign_in" method="POST">
             <div class="txt_field">

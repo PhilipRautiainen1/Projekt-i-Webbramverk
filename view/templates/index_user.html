@@ -1,0 +1,13 @@
+{% extends "base_user.html" %}
+{% block content %}
+    <div class="wrap-flex">
+        <div class="column">
+            <a href="{{ url_for('game') }}"><div class="header-center">Lokalt spel</div></a>
+            <div class="text">Spela på en dator med upp till 8 spelare</div>
+        </div>
+        <div class="column">
+            <a href="{{ url_for('index') }}"><div class="header-center">Online spel</div></a>
+            <div class="text">Spela mot andra</div>
+        </div>
+    </div>
+{% endblock %}

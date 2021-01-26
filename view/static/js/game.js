@@ -23,7 +23,8 @@ function reply(id){
                      $('#'+id).fadeTo('slow', 0.5).fadeTo('slow', 1.0);
                  }
             }
-            $('#next-question').html()
+            $('#next-question').attr('disabled', false);
+            $('.answer').removeAttr('onclick');
     }});
 }
 

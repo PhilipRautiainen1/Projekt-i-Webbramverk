@@ -4,6 +4,41 @@
     box-sizing: border-box;
 }
 
+.button-x{
+    float: right;
+    width: 40px;
+    height: 100%;
+    line-height: 30px;
+    margin: -30px -15px 15px 0;
+
+}
+
+.close-x{
+    height: 50%;
+    width: 100%;
+    background-image: linear-gradient(120deg, #f6d365, #fda087);
+    cursor: pointer;
+    transition-property: background, border-radius;
+    transition: all ease-in-out .4s;
+    border-radius: 30%;
+    text-align: center;
+    padding-top: 5px;
+    margin-bottom: 10px;
+}
+
+.close-x span{
+  font-size: 35px;
+}
+
+.close-x a{
+  width: 30px;
+  height: 30px;
+}
+
+.close-x:hover{
+    background: #f39e00;
+    border-radius: 50%;
+}
 
 .signup-form{
     font-family: 'Staatliches', cursive;
@@ -22,15 +57,15 @@
     justify-content: center;
 }
 
-
 .signup-form h1{
-    margin: 10px;
-    padding: 0 0 20px 0;
+    /*width:400px;*/
+    /*margin: 10px;*/
+    margin: -15px -40px 10px -40px;
+    padding: 0 0 20px 80px;
     text-align: center;
     border-bottom: 1px solid silver;
 
   }
-
 
 .text_button{
     width: 100%;

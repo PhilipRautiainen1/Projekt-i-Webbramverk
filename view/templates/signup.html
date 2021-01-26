@@ -3,6 +3,11 @@
 {% block content %}
     <div class="signup-form">
         <form name='sign_up_form' onsubmit='return validate()' action='/signup' method='POST'>
+            <div class="button-x">
+            <div class="close-x">
+                <a href="{{ url_for("index") }}"><span>&times;</span></a>
+            </div>
+            </div>
             <h1> SKAPA KONTO </h1>
             <input type="email" name="email" placeholder="E-postadress"  class="text_button" /> <br />
             <div class='error' id='email_error'></div>

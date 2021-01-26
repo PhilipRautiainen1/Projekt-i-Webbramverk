@@ -139,3 +139,7 @@ def error():
 def signout():
     flask_session.clear()
     return redirect(url_for('index'))
+
+@app.route('/setup')
+def setup():
+    return render_template('setup.html')

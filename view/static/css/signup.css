@@ -4,7 +4,6 @@
     box-sizing: border-box;
 }
 
-
 .button-x{
     float: right;
     width: 40px;
@@ -14,11 +13,10 @@
 
 }
 
-
 .close-x{
     height: 50%;
     width: 100%;
-    background-color: rgb(255, 153, 0);
+    background-image: linear-gradient(120deg, #f6d365, #fda087);
     cursor: pointer;
     transition-property: background, border-radius;
     transition: all ease-in-out .4s;
@@ -28,25 +26,19 @@
     margin-bottom: 10px;
 }
 
-
 .close-x span{
   font-size: 35px;
 }
-
 
 .close-x a{
   width: 30px;
   height: 30px;
 }
 
-
-
 .close-x:hover{
     background: #f39e00;
     border-radius: 50%;
 }
-
-
 
 .signup-form{
     font-family: 'Staatliches', cursive;
@@ -65,7 +57,6 @@
     justify-content: center;
 }
 
-
 .signup-form h1{
     /*width:400px;*/
     /*margin: 10px;*/
@@ -75,7 +66,6 @@
     border-bottom: 1px solid silver;
 
   }
-
 
 .text_button{
     width: 100%;
@@ -89,7 +79,6 @@
     height: 40px;
     margin: 10px;
 }
-
 
 .signup_button{
     width: 100%;
@@ -105,7 +94,6 @@
     outline: none;
     font-family:  'Staatliches', cursive;
 }
-
 
 .signup_button:hover{
     background-image: linear-gradient(120deg, #f6d365, #fda087);

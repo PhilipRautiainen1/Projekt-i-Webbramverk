@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+    <setup-body>
+        <div class="header-setup">Spelinställningar</div>
+        <form action="">
+            <div class="category-selector">
+                <select name="category" id="category-selector">
+                    <option value="Header">Välj Kategori</option>
+                    <option value="literature">Litteratur</option>
+                    <option value="music">Musik</option>
+                    <option value="football">Fotboll</option>
+                    <option value="cars">Bilar</option>
+                </select> <br />
+            </div>
+
+            <div class="number">
+                <input type="text" name="number" placeholder="Number of questions?" /> <br />
+            </div>
+        </form>
+    </setup-body>
+
+{% endblock %}

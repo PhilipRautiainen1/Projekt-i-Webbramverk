@@ -8,12 +8,20 @@ function reply(id){
         crossDomain:true,
 
         success:(data)=>{
-            console.log($('#'+id).html())
             if(data.response){
-                $('#'+id).css('border', '3px solid green');
+
+                $('#'+id).css({'background-color': 'green'});
+                 for(i=0;i<3;i++) {
+                     $('#'+id).fadeTo('fast', 0.5).fadeTo('fast', 1.0);
+                 }
+
+
             }
             else {
-                $('#'+id).css('border', '3px solid red');
+                $('#'+id).css({'background-color': 'red'});
+                for(i=0;i<2;i++) {
+                     $('#'+id).fadeTo('slow', 0.5).fadeTo('slow', 1.0);
+                 }
             }
             $('#next-question').html()
     }});

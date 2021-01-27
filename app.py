@@ -1,4 +1,3 @@
-from Data_mongo.models import Question, User
 from view import app
 
 

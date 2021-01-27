@@ -1,10 +1,7 @@
-from flask import Flask, render_template, redirect, url_for, request
 import json
 import random
-
-from flask import Flask, render_template, redirect, url_for, request, flash
+from flask import Flask, render_template, redirect, url_for, request
 from flask import session as flask_session
-
 from Data_mongo.repositories.question_repository import get_questions
 from controllers import question_controller as qc
 from controllers import user_controller as uc
@@ -95,7 +92,6 @@ def game():
     a3 = answers[num[2]]
     a4 = answers[num[3]]
 
-
     if request.method == 'POST':
         for i, a in enumerate([a1, a2, a3, a4]):
             no = request.values['user_answer'][-1]
@@ -109,6 +105,7 @@ def game():
     return render_template('game.html', question=question, a1=a1, a2=a2, a3=a3, a4=a4)
 
 #TODO renderar inte.
+
 
 @app.route('/sign_in')
 def sign_in():
@@ -159,6 +156,7 @@ def error():
 def signout():
     flask_session.clear()
     return redirect(url_for('index'))
+
 
 @app.route('/setup', methods=['GET', 'POST'])
 def setup():

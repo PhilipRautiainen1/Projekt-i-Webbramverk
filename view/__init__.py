@@ -1,6 +1,6 @@
 import json
 import random
-from flask import Flask, render_template, redirect, url_for, request
+from flask import Flask, render_template, redirect, url_for, request, flash
 from flask import session as flask_session
 from Data_mongo.repositories.question_repository import get_questions
 from controllers import question_controller as qc
@@ -127,6 +127,13 @@ def end_game():
     user = uc.get_user(username)
     save_score(score, user)
     return render_template('end_game.html', score=score, correct=correct, nr_quest=nr_quest)
+
+
+@app.route('/multiplayer')
+@login_required('index')
+def multiplayer():
+    flash('Kommer snart! Multiplayer har ännu inte lanserats.')
+    return redirect(url_for('index'))
 
 
 @app.route('/sign_in')

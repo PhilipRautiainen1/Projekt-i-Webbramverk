@@ -30,10 +30,6 @@ def add_test_question():
 
     question.save()
 
-
-# add_test_question()
-
-
 def test_user():
     user = User ({
         'email': 'test',

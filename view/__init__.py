@@ -2,7 +2,6 @@ import json
 import random
 from flask import Flask, render_template, redirect, url_for, request
 from flask import session as flask_session
-from Data_mongo.repositories.question_repository import get_questions
 from controllers import question_controller as qc
 from controllers import user_controller as uc
 from controllers.user_controller import save_score
@@ -112,7 +111,7 @@ def game():
 def start_game():
     category = flask_session['category']
     no = flask_session['no']
-    flask_session['question_list'] = get_questions(category, no)
+    flask_session['question_list'] = qc.get_questions(category, no)
     flask_session['current_question'] = 0
     flask_session['score'] = 0
     return redirect(url_for('game'))

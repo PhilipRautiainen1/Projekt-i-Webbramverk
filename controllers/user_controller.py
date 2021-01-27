@@ -33,4 +33,3 @@ def get_users_highscore():
 def save_score(score, user):
     return ur.save_score(score, user)
 
-

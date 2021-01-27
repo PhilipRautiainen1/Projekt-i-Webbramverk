@@ -30,4 +30,8 @@ def check_and_add_q(new_question):
         return flash('Ett rätt svar kan inte vara samma som ett felaktigt svar!')
 
 
+def add_questions():
+    return qr.add_questions()
 
+def get_questions(category, no):
+    return qr.get_questions(category, no)

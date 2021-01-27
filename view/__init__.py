@@ -1,10 +1,7 @@
-from flask import Flask, render_template, redirect, url_for, request
 import json
 import random
-
-from flask import Flask, render_template, redirect, url_for, request, flash
+from flask import Flask, render_template, redirect, url_for, request
 from flask import session as flask_session
-
 from Data_mongo.repositories.question_repository import get_questions
 from controllers import question_controller as qc
 from controllers import user_controller as uc
@@ -73,42 +70,57 @@ def highscore():
 # @login_required('index')
 def game():
 
-    category = request.args.get('category', None)
-    no = request.args.get('no', None)
 
     #temp value
-    no = 3
-    category = 'Random'
+    #no = 3
+    #category = 'Random'
     ###
+    if request.method == 'GET':
+        question_list = flask_session['question_list']
+        current_question = flask_session['current_question']
 
-    questions_list = get_questions(category, no)
+        flask_session['current_question'] += 1
+        if flask_session['current_question']>len(question_list):
+            print(flask_session['score'])
+            return 'endgame'
 
-    question = questions_list[0].question
+        question = question_list[current_question]['question']
 
-    answers = questions_list[0].answers
+        answers = question_list[current_question]['answers']
 
-    num=[0, 1, 2, 3]
-    random.shuffle(num)
-    print(num[3])
-    a1 = answers[num[0]]
-    a2 = answers[num[1]]
-    a3 = answers[num[2]]
-    a4 = answers[num[3]]
+        num=[0, 1, 2, 3]
+        random.shuffle(num)
+        a1 = answers[num[0]]
+        a2 = answers[num[1]]
+        a3 = answers[num[2]]
+        a4 = answers[num[3]]
+        flask_session['answer_order'] = [a1, a2, a3, a4]
 
 
     if request.method == 'POST':
+        a1, a2, a3, a4 = flask_session.pop('answer_order', None)
         for i, a in enumerate([a1, a2, a3, a4]):
             no = request.values['user_answer'][-1]
             response = False
             if a['correctBool']:
                 if i+1 == int(no):
+                    flask_session['score'] += 50
                     response=True
                     break
 
         return app.response_class(response=json.dumps({'response': response}), status=200, mimetype='application/json')
     return render_template('game.html', question=question, a1=a1, a2=a2, a3=a3, a4=a4)
 
-#TODO renderar inte.
+
+
+@app.route('/start_game')
+def start_game():
+    category = request.args.get('category', None)
+    no = request.args.get('no', None)
+    flask_session['question_list'] = get_questions(category, no)
+    flask_session['current_question'] = 0
+    flask_session['score'] = 0
+    return redirect(url_for('game'))
 
 @app.route('/sign_in')
 def sign_in():
@@ -165,7 +177,6 @@ def setup():
     if request.method == 'POST':
         category = request.form['category']
         no = int(request.form['number'])
-        data = [category, no]
-        return redirect(url_for('game', category=category, no=no))
+        return redirect(url_for('start_game', category=category, no=no))
     return render_template('setup.html')
 

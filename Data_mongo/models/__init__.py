@@ -17,6 +17,9 @@ class Question(Document):
     '''
     collection = db.questions
 
+    def to_dict(self):
+        return {'question': self.question, 'answers': self.answers, 'diff': self.diff, 'category': self.category}
+
 
 class PlayedGame(Document):
     '''

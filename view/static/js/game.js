@@ -13,6 +13,7 @@ function reply(id){
                 $('#'+id).css({'background-color': 'green'});
                  for(i=0;i<3;i++) {
                      $('#'+id).fadeTo('fast', 0.5).fadeTo('fast', 1.0);
+
                  }
 
 
@@ -23,7 +24,9 @@ function reply(id){
                      $('#'+id).fadeTo('slow', 0.5).fadeTo('slow', 1.0);
                  }
             }
-            $('#next-question').attr('disabled', false);
+            $('#next-question').css('cursor', 'pointer').attr('disabled', false);
+
+
             $('.answer').removeAttr('onclick');
     }});
 }

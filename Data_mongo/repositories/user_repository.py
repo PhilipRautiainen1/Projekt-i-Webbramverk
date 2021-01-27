@@ -18,3 +18,7 @@ def add_user(email, username, hashed_password):
 
 def get_all_users():
     return User.all()
+
+def save_score(score, user):
+    new_score = score + user.score
+    user.collection.update({"_id": user._id}, {"$set": {'score': new_score}}, upsert=True)

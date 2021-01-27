@@ -50,6 +50,7 @@
     margin: auto;
     background-color: #b3fcff;
     border: 3px dotted black;
+    cursor: pointer;
 }
 
 
@@ -65,5 +66,9 @@
     font-family: 'Staatliches', cursive;
     font-size: 22px;
     text-align: center;
-    cursor: pointer;
+    cursor: default;
+}
+.linken{
+    width: 300px;
+    margin: auto;
 }

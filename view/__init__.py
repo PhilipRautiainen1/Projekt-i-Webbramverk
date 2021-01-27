@@ -1,10 +1,12 @@
-from flask import Flask, render_template, redirect, url_for, request
 import json
+import random
+from flask import Flask, render_template, redirect, url_for, request
 from flask import session as flask_session
 
 from Data_mongo.repositories.question_repository import get_questions
 from controllers import question_controller as qc
 from controllers import user_controller as uc
+from controllers.user_controller import save_score
 from view.tools import login_required
 from datetime import timedelta
 
@@ -71,27 +73,76 @@ def highscore():
 @app.route('/game', methods=['GET', 'POST'])
 # @login_required('index')
 def game():
-    no = 5
-    questions_list = get_questions(no)
 
-    question = questions_list[0].question
+    if request.method == 'GET':
+        question_list = flask_session['question_list']
+        current_question = flask_session['current_question']
 
-    answers = questions_list[0].answers
-    a1 = answers[0]
-    a2 = answers[1]
-    a3 = answers[2]
-    a4 = answers[3]
+        flask_session['current_question'] += 1
+        if flask_session['current_question']>len(question_list):
+            print(flask_session['score'])
+            return redirect(url_for('end_game'))
+
+        question = question_list[current_question]['question']
+        answers = question_list[current_question]['answers']
+
+        num=[0, 1, 2, 3]
+        random.shuffle(num)
+        a1 = answers[num[0]]
+        a2 = answers[num[1]]
+        a3 = answers[num[2]]
+        a4 = answers[num[3]]
+        flask_session['answer_order'] = [a1, a2, a3, a4]
+
+
     if request.method == 'POST':
+        a1, a2, a3, a4 = flask_session.pop('answer_order', None)
         for i, a in enumerate([a1, a2, a3, a4]):
             no = request.values['user_answer'][-1]
             response = False
             if a['correctBool']:
                 if i+1 == int(no):
+                    flask_session['score'] += 50
                     response=True
                     break
 
         return app.response_class(response=json.dumps({'response': response}), status=200, mimetype='application/json')
     return render_template('game.html', question=question, a1=a1, a2=a2, a3=a3, a4=a4)
+
+
+
+@app.route('/start_game')
+def start_game():
+    category = flask_session['category']
+    no = flask_session['no']
+    flask_session['question_list'] = get_questions(category, no)
+    flask_session['current_question'] = 0
+    flask_session['score'] = 0
+    return redirect(url_for('game'))
+
+
+@app.route('/setup', methods=['GET', 'POST'])
+@login_required('index')
+def setup():
+    if request.method == 'POST':
+        category = request.form['category']
+        no = int(request.form['number'])
+        flask_session['category'] = category
+        flask_session['no'] = no
+        return redirect(url_for('start_game'))
+    return render_template('setup.html')
+
+
+@app.route('/end_game')
+def end_game():
+    score = flask_session['score']
+    correct = score/50
+    nr_quest = flask_session['no']
+    username = flask_session['username']
+    user = uc.get_user(username)
+    save_score(score, user)
+
+    return render_template('end_game.html', score=score, correct=correct, nr_quest=nr_quest)
 
 
 @app.route('/sign_in')
@@ -133,17 +184,11 @@ def signup_post():
     username_error = 'Det finns redan en användare med det här användarnamnet'
     return render_template('signup.html', username_error=username_error)
 
-
 @app.route('/error')
 def error():
     return render_template('error.html')
-
 
 @app.route('/signout')
 def signout():
     flask_session.clear()
     return redirect(url_for('index'))
-
-@app.route('/setup')
-def setup():
-    return render_template('setup.html')

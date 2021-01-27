@@ -62,7 +62,7 @@ def get_questions(category, no):
         questions = Question.all()
         for i in range(20):
             random.shuffle(questions)
-        for i in range(no):
+        for i in range(int(no)):
             quest.append(questions[i])
     else:
         questions = Question.all()
@@ -73,7 +73,7 @@ def get_questions(category, no):
         for i in range(int(no)):
             quest.append(cat_quest[i])
 
-    return quest
+    return [q.to_dict() for q in quest]
 
 
 

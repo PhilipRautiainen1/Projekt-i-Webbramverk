@@ -1,0 +1,14 @@
+{% extends "base_user.html" %}
+{% block content %}
+    <div class="last-page" id="last-page-1">
+        <div class="overlay"></div>
+        <div class="content">
+            <div class="close-btn" onclick="togglePopup()">&times;</div>
+            <h1>You have gussed all questions</h1>
+            <p>your score is {{ score}} and you had {{ correct }} correct answers</p>
+        </div>
+
+      <script src="{{ url_for('static', filename='js/end_game.js') }}"></script>
+      <button onclick="togglePopup()">Show the result</button>
+    </div>
+{% endblock %}

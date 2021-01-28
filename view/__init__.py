@@ -85,12 +85,13 @@ def game():
             no = request.values['user_answer'][-1]
             response = False
             if a['correctBool']:
+                correct = i+1
                 if i+1 == int(no):
                     flask_session['score'] += 50
                     response=True
                     break
 
-        return app.response_class(response=json.dumps({'response': response}), status=200, mimetype='application/json')
+        return app.response_class(response=json.dumps({'response': response, 'correct': correct}), status=200, mimetype='application/json')
     return render_template('game.html', question=question, a1=a1, a2=a2, a3=a3, a4=a4)
 
 

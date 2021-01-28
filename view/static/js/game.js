@@ -19,6 +19,10 @@ function reply(id){
                 for(i=0;i<2;i++) {
                      $('#'+id).fadeTo('slow', 0.5).fadeTo('slow', 1.0);
                  }
+            $('#answer'+data.correct).css({'background-color': 'green'})
+                for(i=0;i<3;i++) {
+                    $('#' + id).fadeTo('fast', 0.5).fadeTo('fast', 1.0);
+                }
             }
             $('#next-question').css('cursor', 'pointer').attr('disabled', false);
             $('.answer').removeAttr('onclick');

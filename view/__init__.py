@@ -1,6 +1,6 @@
 import json
 import random
-from flask import Flask, render_template, redirect, url_for, request
+from flask import Flask, render_template, redirect, url_for, request, flash
 from flask import session as flask_session
 from controllers import question_controller as qc
 from controllers import user_controller as uc
@@ -25,17 +25,6 @@ def index():
     if 'username' in flask_session:
         return render_template('index_user.html')
     return render_template('index.html')
-
-
-@app.route('/logged-in')
-def logged_in():
-    return render_template('profile.html')
-
-
-@app.route('/my-page')
-@login_required('index')
-def my_page():
-    return render_template('my_page.html')
 
 
 @app.route('/add-question', methods=['GET', 'POST'])
@@ -67,9 +56,8 @@ def highscore():
 
 
 @app.route('/game', methods=['GET', 'POST'])
-# @login_required('index')
+@login_required('index')
 def game():
-
     if request.method == 'GET':
         question_list = flask_session['question_list']
         current_question = flask_session['current_question']
@@ -90,7 +78,6 @@ def game():
         a4 = answers[num[3]]
         flask_session['answer_order'] = [a1, a2, a3, a4]
 
-
     if request.method == 'POST':
         a1, a2, a3, a4 = flask_session.pop('answer_order', None)
         for i, a in enumerate([a1, a2, a3, a4]):
@@ -106,8 +93,8 @@ def game():
     return render_template('game.html', question=question, a1=a1, a2=a2, a3=a3, a4=a4)
 
 
-
 @app.route('/start_game')
+@login_required('index')
 def start_game():
     category = flask_session['category']
     no = flask_session['no']
@@ -130,6 +117,7 @@ def setup():
 
 
 @app.route('/end_game')
+@login_required('index')
 def end_game():
     score = flask_session['score']
     correct = score/50
@@ -137,8 +125,14 @@ def end_game():
     username = flask_session['username']
     user = uc.get_user(username)
     save_score(score, user)
-
     return render_template('end_game.html', score=score, correct=correct, nr_quest=nr_quest)
+
+
+@app.route('/multiplayer')
+@login_required('index')
+def multiplayer():
+    flash('Kommer snart! Multiplayer har ännu inte lanserats.')
+    return redirect(url_for('index'))
 
 
 @app.route('/sign_in')
@@ -152,12 +146,13 @@ def sign_in_post():
     password = request.form['password']
     if uc.login_check(username, password):
         flask_session.permanent = True
-        return redirect(url_for('profile'))
+        return redirect(url_for('index'))
     login_error = 'Felaktigt användarnamn eller lösenord'
     return render_template('login.html', login_error=login_error)
 
 
 @app.route('/profile')
+@login_required('index')
 def profile():
     username = flask_session['username']
     user = uc.get_user(username)
@@ -180,11 +175,14 @@ def signup_post():
     username_error = 'Det finns redan en användare med det här användarnamnet'
     return render_template('signup.html', username_error=username_error)
 
+
 @app.route('/error')
 def error():
     return render_template('error.html')
+
 
 @app.route('/signout')
 def signout():
     flask_session.clear()
     return redirect(url_for('index'))
+

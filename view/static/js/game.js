@@ -9,14 +9,10 @@ function reply(id){
 
         success:(data)=>{
             if(data.response){
-
                 $('#'+id).css({'background-color': 'green'});
                  for(i=0;i<3;i++) {
                      $('#'+id).fadeTo('fast', 0.5).fadeTo('fast', 1.0);
-
                  }
-
-
             }
             else {
                 $('#'+id).css({'background-color': 'red'});
@@ -25,8 +21,6 @@ function reply(id){
                  }
             }
             $('#next-question').css('cursor', 'pointer').attr('disabled', false);
-
-
             $('.answer').removeAttr('onclick');
     }});
 }

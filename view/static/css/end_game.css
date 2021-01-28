@@ -14,6 +14,7 @@ body{
     color: white;
     font-family: 'Centry Gothic', sans-serif;
 }
+
 .btn-x{
     float: right;
     width: 40px;
@@ -51,7 +52,7 @@ body{
 
 .box h1{
     font-size: 20px;
-    font-weight: 300;
+    font-weight: 60;
     margin-top: -25px;
     padding-bottom: 30px;
 
@@ -59,7 +60,7 @@ body{
 
 .box h3{
     font-size: 20px;
-    font-weight: 300;
+    font-weight: 60;
     padding-top: 20px;
 }
 

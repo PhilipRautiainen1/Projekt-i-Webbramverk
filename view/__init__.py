@@ -142,6 +142,7 @@ def end_game():
     user = uc.get_user(username)
     save_score(score, user)
 
+
     return render_template('end_game.html', score=score, correct=correct, nr_quest=nr_quest)
 
 

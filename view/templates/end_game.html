@@ -1,14 +1,16 @@
 {% extends "base_user.html" %}
 {% block content %}
-    <div class="last-page" id="last-page-1">
-        <div class="overlay"></div>
-        <div class="content">
-            <div class="close-btn" onclick="togglePopup()">&times;</div>
-            <h1>You have gussed all questions</h1>
-            <p>your score is {{ score}} and you had {{ correct }} correct answers</p>
-        </div>
 
-      <script src="{{ url_for('static', filename='js/end_game.js') }}"></script>
-      <button onclick="togglePopup()">Show the result</button>
-    </div>
+ <div class="box">
+     <div class="btn-x">
+         <div class="x">
+             <a href="{{ url_for("index") }}"><span>&times;</span></a>
+         </div>
+     </div>
+     <h1>Grattis du svarade på alla frågor!</h1>
+     <h3><p>Din poäng är {{ score }}, och du hade svarat rätt på {{ correct }} /  av {{ nr_quest }}.
+     </p></h3>
+ </div>
+
+
 {% endblock %}

@@ -103,3 +103,11 @@ Att göra: Philip och Sara gör idag klart valideringen. Sayed ska lägga till e
 Närvarande: Sara, Simon, Sayed
 Gjort: Sara och Philip fick klart valderingen igår. Sara löste också så att footern hamnade på rätt plats. Sayed har jobbat med att få in funktionen att kunna kryssa ner inloggningsrutan. Simon har med hjälp av Joakim börjat på spelmotorn för quizet.
 Att göra: Philip jobbar med errorhandlers, Sara jobbar med knapp för att visa nästa fråga. Simon jobbar med sidan där man väljer setup för spelet och Sayed fortsätter med kryssfunktionen. 
+
+27/1
+Närvarande: Simon, Sara, Sayed
+Att göra: Philip fortsätter att arbeta med errorhandlers, Sara jobbar med att städa upp i modulerna samt korrigera mindre fel, Sayed jobbar med end_game-sidan. Simon ordnar med poängräkningen. Tillsammans med Joakim får vi också klart spelmekaniken och nästa-fråga-funktionen. 
+
+28/1
+Närvarande: Simon, Sara, Sayed
+Att göra: Sara ska arbeta med en funktion som visar det korrekta svaret när en fråga besvarats fel. Sayed fortsätter med end-game-sidan. Philip börjar titta på att implementera en timer i quizet. Simon kikar på en lösning för att lägga till och ta bort vänner. 

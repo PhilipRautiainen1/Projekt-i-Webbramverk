@@ -123,7 +123,7 @@ def setup():
 @login_required('index')
 def end_game():
     score = flask_session['score']
-    correct = score / 50
+    correct = int(score/50)
     nr_quest = flask_session['no']
     username = flask_session['username']
     user = uc.get_user(username)

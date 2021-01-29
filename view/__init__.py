@@ -64,14 +64,14 @@ def game():
         current_question = flask_session['current_question']
 
         flask_session['current_question'] += 1
-        if flask_session['current_question']>len(question_list):
+        if flask_session['current_question'] > len(question_list):
             print(flask_session['score'])
             return redirect(url_for('end_game'))
 
         question = question_list[current_question]['question']
         answers = question_list[current_question]['answers']
 
-        num=[0, 1, 2, 3]
+        num = [0, 1, 2, 3]
         random.shuffle(num)
         a1 = answers[num[0]]
         a2 = answers[num[1]]
@@ -85,13 +85,14 @@ def game():
             no = request.values['user_answer'][-1]
             response = False
             if a['correctBool']:
-                correct = i+1
-                if i+1 == int(no):
+                correct = i + 1
+                if i + 1 == int(no):
                     flask_session['score'] += 50
-                    response=True
+                    response = True
                     break
 
-        return app.response_class(response=json.dumps({'response': response, 'correct': correct}), status=200, mimetype='application/json')
+        return app.response_class(response=json.dumps({'response': response, 'correct': correct}), status=200,
+                                  mimetype='application/json')
     return render_template('game.html', question=question, a1=a1, a2=a2, a3=a3, a4=a4)
 
 
@@ -122,7 +123,7 @@ def setup():
 @login_required('index')
 def end_game():
     score = flask_session['score']
-    correct = score/50
+    correct = score / 50
     nr_quest = flask_session['no']
     username = flask_session['username']
     user = uc.get_user(username)
@@ -187,4 +188,3 @@ def error():
 def signout():
     flask_session.clear()
     return redirect(url_for('index'))
-

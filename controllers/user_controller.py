@@ -31,5 +31,7 @@ def get_users_highscore():
     return limited_users
 
 
+def save_score(score, user):
+    return ur.save_score(score, user)
 
 

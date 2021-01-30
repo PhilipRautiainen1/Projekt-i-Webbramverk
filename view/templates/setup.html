@@ -1,0 +1,34 @@
+{% extends "base_user.html" %}
+{% block content %}
+    <div class="setup-body">
+        <div class="header-setup">Spelinställningar</div>
+        <form action="/setup" method="POST">
+            <div class="category-sel">
+                <select name="category" id="category-selector">
+                    <option value="Header">Välj Kategori</option>
+                    <option value="Random">Blandat</option>
+                    <option value="animals">Animals</option>
+                    <option value="entertainment">Entertainment</option>
+                    <option value="general knowledge">General Knowledge</option>
+                    <option value="geography">Geography</option>
+                    <option value="history">History</option>
+                    <option value="science">Science</option>
+                    <option value="sports">Sports</option>
+                    <option value="vehicles">Vehicles</option>
+                </select> <br />
+            </div>
+
+            <div class="numbers">
+                <select name="number" id="number-selector">
+                    <option value="Header">Välj Antal Frågor</option>
+                    <option value="3">3</option>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="20">20</option>
+                </select> <br />
+            </div>
+            <input type="submit" value="Starta" id="submit-setup" /> <br />
+        </form>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,44 @@
+form{
+    margin: auto;
+    text-align: center;
+}
+
+.category-select{
+    width: 80%;
+    margin: 10px auto;
+    height: 22px;
+    padding-bottom: 20px;
+    text-align: left;
+}
+
+label{
+    font-family: 'Staatliches', cursive;
+    font-size: 18px;
+    margin-bottom: 20px
+}
+
+select{
+    width: 80%;
+    text-align: center;
+    margin-left: 10px;
+    padding: 6px;
+    border: none;
+    border-radius: 4px;
+    background-color: white;
+}
+
+input{
+    width: 80%;
+    height: 22px;
+}
+
+#submit{
+    background-color: black;
+    color: white;
+    height: 35px;
+    border-radius: 10px;
+    margin-top: 10px;
+    margin-left: 5px;
+    font-family: 'Staatliches', cursive;
+    font-size: 20px;
+}

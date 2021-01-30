@@ -7,7 +7,38 @@
 body{
     width: 100%;
     height: 100vh;
+}
+
+.page-container{
     background-image: linear-gradient(120deg, #f6d365, #fda087);
+    position: relative;
+    min-height: 100vh;
+}
+
+.wrap-flex{
+    display: flex;
+    flex: auto;
+    width: 70%;
+    margin: auto;
+}
+
+.wrap{
+    width: 70%;
+    margin: auto;
+}
+
+.header{
+    font-family: 'Staatliches', cursive;
+    font-size: 25px;
+}
+
+.header-center {
+    font-family: 'Staatliches', cursive;
+    margin: 10px;
+    font-size: 25px;
+    padding-left: 10px;
+    text-align: center;
+    text-decoration: underline;
 }
 
 .web-header{
@@ -31,7 +62,7 @@ body{
 }
 
 .button-small{
-     width: 25%;
+    width: 25%;
     text-align: center;
     font-family: 'Staatliches', cursive;
     font-size: 30px;
@@ -44,17 +75,49 @@ body{
     font-size: 30px;
 }
 
-
 .content{
     margin: 20px;
+    padding-bottom: 65px;
 }
 
-.page-footer{
+.column {
+    width: 50%;
+    height: 110px;
+    margin: 10px;
+    padding: 10px;
+    border: #890bc4 2px solid;
+}
+
+.text{
+    font-family: 'Staatliches', cursive;
+    text-align: center;
+    padding: 7px;
+}
+
+.info{
+    width:50%;
+    background: rgba(85, 60, 96, 0.8);
+    border-left: 5px solid #890bc4;
+    border-radius: 5px;
+    padding: 10px;
+    font-family: 'Staatliches', cursive;
+    font-size: 22px;
+    text-align: center;
+}
+
+.error{
+    padding: 5px;
+    color: red;
+    font-size: 15px;
+    font-family: 'Staatliches', cursive;
+}
+
+#footer{
     background-image: linear-gradient(120deg, #917f4a, #985f4f);
-    padding: 20px;
-    position:absolute;
-    bottom: 0;
+    position: absolute;
     width: 100%;
+    bottom: 0;
+    padding: 20px;
 }
 
 .footer-text{
@@ -63,7 +126,6 @@ body{
     text-align: center;
     color: #fff;
 }
-
 
 a:link {
     text-decoration: none;

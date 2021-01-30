@@ -85,3 +85,21 @@ Kommentarer från Joakim:
 Närvarande: alla
 Gjort: Philip har börjat titta på hur vi kan validera de frågor som läggs till, Simon har fortsatt att arbeta med spelsidan och Sayed med inloggninssidan, Sara har städat upp i modulerna, gjort validering av sign-up-formuläret, logga-ut funktion samt profilsida.
 Att göra: Philip jobbar med validering av frågeformuläret, Simon fortsätter med spelsidan, Sayed fortsätter med inloggninssidan, Sara jobbar med att hämta upp frågor från ett api till vår databas. 
+
+
+21/1
+Nävarande: alla
+Gjort: Philip och Simon har fortsatt sitt arbete med validering av frågeformuläret respektive spelsida. Sayed blev klar med login och signup-sidorna. Sara har fått klart en funktion för att hämta upp frågor från API till databas. 
+Att göra: Philip fortsätter med validering av frågeformuläret. Sayed jobbar med att flytta logga-ut knappen. Sara jobbar med loyouten på base. 
+
+
+25/1
+Närvarande: alla
+Gjort: Philip och Sara har fortsatt arbetet med valideringen av frågor som läggs till i databasen. Sara har jobbat med layouten av base för inloggad respektive inte inloggad användare. Sayed har flyttat logga-ut knappen in i menyn. 
+Att göra: Philip och Sara gör idag klart valideringen. Sayed ska lägga till en funktion för att kunna kryssa ner logga in och bli medlem-rutorna. Simon läser på om Ajax. 
+
+
+26/1
+Närvarande: Sara, Simon, Sayed
+Gjort: Sara och Philip fick klart valderingen igår. Sara löste också så att footern hamnade på rätt plats. Sayed har jobbat med att få in funktionen att kunna kryssa ner inloggningsrutan. Simon har med hjälp av Joakim börjat på spelmotorn för quizet.
+Att göra: Philip jobbar med errorhandlers, Sara jobbar med knapp för att visa nästa fråga. Simon jobbar med sidan där man väljer setup för spelet och Sayed fortsätter med kryssfunktionen. 

@@ -163,8 +163,7 @@ def profile():
             uc.add_friend(user, f_user)
             return redirect(url_for('profile'))
         else:
-            #no user by that name.
-            return None
+            return redirect(url_for('profile'))
     else:
         username = flask_session['username']
         user = uc.get_user(username)

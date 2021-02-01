@@ -26,6 +26,6 @@ function reply(id){
     }});
 }
 
-function check_answer(){
-    pass
+function show_res(){
+    document.querySelector('#pop_bg').style.display = 'flex';
 }

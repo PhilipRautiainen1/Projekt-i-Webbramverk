@@ -2,10 +2,8 @@ import json
 import random
 from flask import Flask, render_template, redirect, url_for, request, flash
 from flask import session as flask_session
-from Data_mongo.repositories.question_repository import get_questions
 from controllers import question_controller as qc
 from controllers import user_controller as uc
-from controllers.user_controller import save_score
 from view.tools import login_required
 from datetime import timedelta
 
@@ -60,6 +58,7 @@ def highscore():
 @login_required('index')
 def game():
     if request.method == 'GET':
+        end = False
         question_list = flask_session['question_list']
         current_question = flask_session['current_question']
 
@@ -67,6 +66,9 @@ def game():
         if flask_session['current_question'] > len(question_list):
             print(flask_session['score'])
             return redirect(url_for('end_game'))
+
+        if flask_session['current_question']>len(question_list) -1:
+            end = True
 
         question = question_list[current_question]['question']
         answers = question_list[current_question]['answers']
@@ -90,10 +92,10 @@ def game():
                     flask_session['score'] += 50
                     response = True
                     break
-
         return app.response_class(response=json.dumps({'response': response, 'correct': correct}), status=200,
                                   mimetype='application/json')
-    return render_template('game.html', question=question, a1=a1, a2=a2, a3=a3, a4=a4)
+    return render_template('game.html', question=question, a1=a1, a2=a2, a3=a3, a4=a4, end=end)
+
 
 
 @app.route('/start_game')
@@ -101,7 +103,7 @@ def game():
 def start_game():
     category = flask_session['category']
     no = flask_session['no']
-    flask_session['question_list'] = get_questions(category, no)
+    flask_session['question_list'] = qc.get_questions(category, no)
     flask_session['current_question'] = 0
     flask_session['score'] = 0
     return redirect(url_for('game'))
@@ -127,7 +129,7 @@ def end_game():
     nr_quest = flask_session['no']
     username = flask_session['username']
     user = uc.get_user(username)
-    save_score(score, user)
+    uc.save_score(score, user)
     return render_template('end_game.html', score=score, correct=correct, nr_quest=nr_quest)
 
 
@@ -154,13 +156,29 @@ def sign_in_post():
     return render_template('login.html', login_error=login_error)
 
 
-@app.route('/profile')
+@app.route('/profile', methods=['GET', 'POST'])
 @login_required('index')
 def profile():
-    username = flask_session['username']
-    user = uc.get_user(username)
-    friends = user.friends
-    return render_template('profile.html', user=user, friends=friends)
+    if request.method == 'POST':
+        friend_name = request.form['friend_name']
+        f_user = uc.get_user(friend_name)
+
+        if f_user != None:
+            username = flask_session['username']
+            user = uc.get_user(username)
+            uc.add_friend(user, f_user)
+            return redirect(url_for('profile'))
+        else:
+            return redirect(url_for('profile'))
+    else:
+        username = flask_session['username']
+        user = uc.get_user(username)
+        friends = user.friends
+        friend_list = []
+        for id in friends:
+            friend_list.append(uc.get_user_by_id(id))
+        return render_template('profile.html', user=user, friends=friend_list)
+
 
 
 @app.route('/signup')
@@ -182,6 +200,21 @@ def signup_post():
 @app.route('/error')
 def error():
     return render_template('error.html')
+
+
+@app.errorhandler(404)
+def handler404(e):
+    return render_template('error.html', e=e)
+
+
+@app.errorhandler(500)
+def handler404(e):
+    return render_template('error.html', e=e)
+
+
+@app.errorhandler(502)
+def handler404(e):
+    return render_template('error.html', e=e)
 
 
 @app.route('/signout')

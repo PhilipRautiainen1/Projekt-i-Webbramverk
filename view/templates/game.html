@@ -15,7 +15,29 @@
             </div>
         </div>
         <div class="linken">
-            <a href="{{ url_for('game') }}"><button id="next-question" disabled>Nästa fråga</button></a>
+            {% if not end %}
+                <a href="{{ url_for('game') }}"><button id="next-question" disabled>Nästa fråga</button></a>
+            {% else %}
+                <button id="next-question" onclick="show_res()" disabled>Resultat</button>
+
+            {% endif %}
         </div>
     </div>
+{% endblock %}
+
+{% block shadow %}
+     <div class="pop_bg" id="pop_bg">
+         <div class="box" id="pop_box">
+             <div class="btn-x">
+                 <div class="x">
+                     <a href="{{ url_for("index") }}"><span>&times;</span></a>
+                 </div>
+             </div>
+             <h1>Grattis du svarade på alla frågor!</h1>
+             <h3><p>Din poäng är {{ score }}. Du har svarat rätt på {{ correct }}/{{ nr_quest }} frågor.
+             </p></h3>
+         </div>
+     </div>
+
+
 {% endblock %}

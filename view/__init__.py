@@ -58,6 +58,7 @@ def highscore():
 @login_required('index')
 def game():
     if request.method == 'GET':
+        end = False
         question_list = flask_session['question_list']
         current_question = flask_session['current_question']
 
@@ -65,6 +66,9 @@ def game():
         if flask_session['current_question']>len(question_list):
             print(flask_session['score'])
             return redirect(url_for('end_game'))
+
+        if flask_session['current_question']>len(question_list) -1:
+            end = True
 
         question = question_list[current_question]['question']
         answers = question_list[current_question]['answers']
@@ -89,7 +93,7 @@ def game():
                     break
 
         return app.response_class(response=json.dumps({'response': response}), status=200, mimetype='application/json')
-    return render_template('game.html', question=question, a1=a1, a2=a2, a3=a3, a4=a4)
+    return render_template('game.html', question=question, a1=a1, a2=a2, a3=a3, a4=a4, end=end)
 
 
 @app.route('/start_game')

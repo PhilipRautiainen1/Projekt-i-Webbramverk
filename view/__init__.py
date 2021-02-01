@@ -4,7 +4,6 @@ from flask import Flask, render_template, redirect, url_for, request, flash
 from flask import session as flask_session
 from controllers import question_controller as qc
 from controllers import user_controller as uc
-from controllers.user_controller import save_score
 from view.tools import login_required
 from datetime import timedelta
 
@@ -124,7 +123,7 @@ def end_game():
     nr_quest = flask_session['no']
     username = flask_session['username']
     user = uc.get_user(username)
-    save_score(score, user)
+    uc.save_score(score, user)
     return render_template('end_game.html', score=score, correct=correct, nr_quest=nr_quest)
 
 
@@ -151,13 +150,30 @@ def sign_in_post():
     return render_template('login.html', login_error=login_error)
 
 
-@app.route('/profile')
+@app.route('/profile', methods=['GET', 'POST'])
 @login_required('index')
 def profile():
-    username = flask_session['username']
-    user = uc.get_user(username)
-    friends = user.friends
-    return render_template('profile.html', user=user, friends=friends)
+    if request.method == 'POST':
+        friend_name = request.form['friend_name']
+        f_user = uc.get_user(friend_name)
+
+        if f_user != None:
+            username = flask_session['username']
+            user = uc.get_user(username)
+            uc.add_friend(user, f_user)
+            return redirect(url_for('profile'))
+        else:
+            #no user by that name.
+            return None
+    else:
+        username = flask_session['username']
+        user = uc.get_user(username)
+        friends = user.friends
+        friend_list = []
+        for id in friends:
+            friend_list.append(uc.get_user_by_id(id))
+        return render_template('profile.html', user=user, friends=friend_list)
+
 
 
 @app.route('/signup')
@@ -200,4 +216,3 @@ def handler404(e):
 def signout():
     flask_session.clear()
     return redirect(url_for('index'))
-

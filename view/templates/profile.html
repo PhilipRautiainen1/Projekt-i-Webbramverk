@@ -1,12 +1,18 @@
 {% extends 'base_user.html'%}
 
 {% block content %}
+    <script type="text/javascript" src="{{ url_for('static',filename='/js/friends.js') }}"></script>
     <div class="wrap">
-        <div class="header">Min profil</div>
+        <div class="header_box">
+            <div class="header">Min profil</div>
+            <div class="add_box">
+                <a id="add_button" class="add_button" onclick="show_add()">Lägg till vän</a>
+            </div>
+        </div>
         <div class="profile">
             <div class="profile_picture">
                 <img src="{{ url_for('static', filename='images/profile.png') }}"
-                     alt="Profile image" width="150" height="150">
+                alt="Profile image" width="150" height="150">
             </div>
             <div class="user_info profile_text">
                 Användarnamn: {{ user.username }} <br />
@@ -14,15 +20,33 @@
                 Totalpoäng: {{ user.score }} <br />
             </div>
             <div class="friends profile_text">
-                {% if friends %}
+                {% if friends != [] %}
                     <div class="header">Vänner </div>
                     {% for friend in friends %}
-                        <li>{{ friend }}</li>
+                        <div class="friend_box">
+                            Användarnamn: {{ friend.username }} <br />
+                            Email: {{ friend.email }} <br />
+                            Totalpoäng: {{ friend.score }} <br />
+                        </div>
                     {% endfor %}
                 {% else %}
                     Du har ännu inte lagt till några vänner.
                 {% endif %}
             </div>
+        </div>
+    </div>
+{% endblock %}
+{% block shadow %}
+    <div class="add_friend_bg">
+        <div class="add_friend_content">
+            <div class="close_add" onclick="close_add()">+</div>
+            <div class="head">Lägg till vän</div>
+            <form action="/profile" method="POST">
+                <div class="username">Sök efter en vän</div>
+                <input type="text" name="friend_name" placeholder="Användarnamn" id="input_add">
+                <input type="submit" value="Sök" id="search_user" /> <br />
+
+            </form>
         </div>
     </div>
 {% endblock %}

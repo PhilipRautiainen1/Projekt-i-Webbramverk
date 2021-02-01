@@ -104,10 +104,31 @@ Närvarande: Sara, Simon, Sayed
 Gjort: Sara och Philip fick klart valderingen igår. Sara löste också så att footern hamnade på rätt plats. Sayed har jobbat med att få in funktionen att kunna kryssa ner inloggningsrutan. Simon har med hjälp av Joakim börjat på spelmotorn för quizet.
 Att göra: Philip jobbar med errorhandlers, Sara jobbar med knapp för att visa nästa fråga. Simon jobbar med sidan där man väljer setup för spelet och Sayed fortsätter med kryssfunktionen. 
 
+
 27/1
 Närvarande: Simon, Sara, Sayed
 Att göra: Philip fortsätter att arbeta med errorhandlers, Sara jobbar med att städa upp i modulerna samt korrigera mindre fel, Sayed jobbar med end_game-sidan. Simon ordnar med poängräkningen. Tillsammans med Joakim får vi också klart spelmekaniken och nästa-fråga-funktionen. 
 
+
 28/1
 Närvarande: Simon, Sara, Sayed
 Att göra: Sara ska arbeta med en funktion som visar det korrekta svaret när en fråga besvarats fel. Sayed fortsätter med end-game-sidan. Philip börjar titta på att implementera en timer i quizet. Simon kikar på en lösning för att lägga till och ta bort vänner. 
+
+
+1/2 
+Närvarande: Alla
+Gjort: Simon har gjort klart funktionen att lägga till vänner. Sayed har gjort end-game sidan. Philip är färdig med error-handling. Sara har ordnat så att rätt svar visas i quizet, när man svarat fel samt fixat funktion som hämtar frågor i en kategori då det inte finns tillräckligt med frågor i databasen. 
+Att göra: Vi ska börja planera inför testning, vilka tester som ska skrivas samt en uppdelning av arbetet. 
+
+Följande test ska skrivas:
+-logga in - logga in med korrekt username och lösen, fel username och lösen samt att en av de är fel.
+-logga ut - blir man verkligen utloggad? Går det gå tillbaka och då bli inloggad igen?
+-skapa användare - ett eller flera fält felaktigt ifyllda, ex användarnamn av bara mellanslag, tillåtna tecken
+-profil - lägg till vän, 
+-lägga till fråga - vad händer om ett fält är tomt? om man fyller i samma sak i två fält? om frågan redan existerar i databasen? tillåtna tecken?
+-spelinställningar - testa olika kombinationer, ett fält tomt, båda tomma, 
+-errorhandlers - framkalla error och få fram felkod
+-quiz - vad händer med poängen om man avbryter quizet? är det rätta svaret rätt? och de felaktig fel? vad händer om man refreshar i under quizet utan att svara?om man loggar ut mitt i ett spel?
+-resultatsidan - är poängen korrekt? antal rätt svar korrekt? sparas poängen?
+-routes - kommer man åt sidorna genom att söka på de manuellt? ska man kunna komma åt de? kraschar sidan?
+

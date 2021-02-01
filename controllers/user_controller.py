@@ -6,6 +6,8 @@ from Data_mongo.repositories import user_repository as ur
 def get_user(username):
     return ur.get_user(username)
 
+def get_user_by_id(id):
+    return ur.get_user_by_id(id)
 
 def login_check(username, password):
     user = ur.get_user(username)
@@ -34,4 +36,5 @@ def get_users_highscore():
 def save_score(score, user):
     return ur.save_score(score, user)
 
-
+def add_friend(user, friend):
+    return ur.add_friend(user, friend)

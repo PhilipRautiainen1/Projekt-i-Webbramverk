@@ -22,16 +22,6 @@ def sign_in_status():
 def unescape_dict(d):
     return {k: html.unescape(v) for k, v in d.items()}
 
-class GameInit:
-    def __init__(self, category, no):
-        self.category = category
-        self.no = no
-
-    def no(self):
-        return self.no
-
-    def category(self):
-        return self.category
 
 
 

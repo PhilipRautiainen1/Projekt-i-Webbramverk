@@ -23,13 +23,14 @@
     font-family: 'Staatliches', cursive;
     margin: auto;
 }
+
 .questionbox {
     width: 600px;
     height: 200px;
     background-color: #7eb3b5;
     margin: auto;
-
 }
+
 .question {
     height: 100%;
     width: 100%;
@@ -41,10 +42,8 @@
     justify-content: center;
     align-items: center;
     text-align: center;
-
-
-
 }
+
 .answers {
     margin-top: 50px;
 }

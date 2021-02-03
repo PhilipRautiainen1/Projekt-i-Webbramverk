@@ -107,7 +107,7 @@
 .btn-x{
     float: right;
     width: 40px;
-    height: 100%;
+    /*§*/
     line-height: 30px;
     margin-right: -12%;
     margin-top: -12%;

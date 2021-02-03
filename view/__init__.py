@@ -208,12 +208,12 @@ def handler404(e):
 
 
 @app.errorhandler(500)
-def handler404(e):
+def handler500(e):
     return render_template('error.html', e=e)
 
 
 @app.errorhandler(502)
-def handler404(e):
+def handler502(e):
     return render_template('error.html', e=e)
 
 

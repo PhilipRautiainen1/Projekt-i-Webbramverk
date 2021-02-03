@@ -33,6 +33,7 @@ input{
 }
 
 #submit{
+    width: 80%;
     background-color: black;
     color: white;
     width: 80%;

@@ -11,17 +11,18 @@ function reply(id){
             if(data.response){
                 $('#'+id).css({'background-color': 'green'});
                  for(i=0;i<3;i++) {
-                     $('#'+id).fadeTo('fast', 0.5).fadeTo('fast', 1.0);
+                     $('#'+id).fadeIn('fast', 0.5).fadeTo('fast', 1.0);
                  }
             }
             else {
+                $('#answer'+data.correct).css({'background-color': 'green'}).fadeTo('slow', 0.5).fadeTo('slow', 1.0);
                 $('#'+id).css({'background-color': 'red'});
                 for(i=0;i<2;i++) {
                      $('#'+id).fadeTo('slow', 0.5).fadeTo('slow', 1.0);
                  }
             }
             $('#next-question').css('cursor', 'pointer').attr('disabled', false);
-            $('.answer').removeAttr('onclick');
+            $('.answer').css('cursor', 'default').removeAttr('onclick');
     }});
 }
 

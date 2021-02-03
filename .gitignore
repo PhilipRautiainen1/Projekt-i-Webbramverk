@@ -1,5 +1,6 @@
 venv/
 .idea/
 __pycache__/
+temp.js
 temp.py
 Data_mysql/db/settings.py

@@ -58,20 +58,27 @@ def add_questions():
 def get_questions(category, no):
     quest = []
     cat_quest = []
+    questions = Question.all()
+    for i in range(20):
+        random.shuffle(questions)
+
     if category == 'Random':
-        questions = Question.all()
-        for i in range(20):
-            random.shuffle(questions)
         for i in range(int(no)):
             quest.append(questions[i])
+
     else:
-        questions = Question.all()
         for q in questions:
             if category in q.category.lower():
                 cat_quest.append(q)
         random.shuffle(cat_quest)
-        for i in range(int(no)):
-            quest.append(cat_quest[i])
+        if len(cat_quest) < no:
+            for i in range(len(cat_quest)):
+                quest.append(cat_quest[i])
+            for i in range(no - len(cat_quest)):
+                quest.append(questions[i])
+        else:
+            for i in range(int(no)):
+                quest.append(cat_quest[i])
 
     return [q.to_dict() for q in quest]
 

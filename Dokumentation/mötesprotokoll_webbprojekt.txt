@@ -132,3 +132,14 @@ Följande test ska skrivas:
 -resultatsidan - är poängen korrekt? antal rätt svar korrekt? sparas poängen?
 -routes - kommer man åt sidorna genom att söka på de manuellt? ska man kunna komma åt de? kraschar sidan?
 
+Vi börjar med följande tester:
+Sara - logga in
+Philip - logga ut
+Simon - skapa användare
+Sayed - lägg till fråga
+
+
+3/2
+Närvarande: alla
+Att göra: idag fortsätter vi arbetet med våra tilldelade uppgifter. 
+

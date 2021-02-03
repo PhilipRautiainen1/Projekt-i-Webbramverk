@@ -3,4 +3,3 @@ venv/
 __pycache__/
 temp.py
 Data_mysql/db/settings.py
-unittest/chromedriver.exe

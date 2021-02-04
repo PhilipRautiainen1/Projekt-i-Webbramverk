@@ -2,7 +2,7 @@ from unittest import TestCase
 from selenium import webdriver
 
 
-class LogInTests(TestCase):
+class ErrorHandlersTest(TestCase):
     def setUp(self):
         self.driver = webdriver.Chrome('chromedriver.exe')
 

@@ -5,7 +5,7 @@ from Data_mongo.repositories.user_repository import remove_friend, get_user
 from view import app
 
 
-class LogInTests(TestCase):
+class ProfileTest(TestCase):
     def setUp(self):
         self.driver = webdriver.Chrome('chromedriver.exe')
         self.driver.get('http://127.0.0.1:5000/sign_in')

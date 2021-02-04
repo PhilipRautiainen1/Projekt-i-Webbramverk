@@ -29,6 +29,20 @@ class RoutesTestCase(TestCase):
             switch = True
         self.assertIs(switch, True)
 
+    def testStartGameLoggedIn(self):
+        switch = False
+        new_url = 'http://127.0.0.1:5000/setup'
+        self.username.send_keys('TestUser')
+        self.password.send_keys('superhemligt')
+        self.submit.send_keys(Keys.RETURN)
+        self.driver.implicitly_wait(3)
+        self.assertIn('Min sida', self.driver.page_source)
+        self.button = self.driver.find_element_by_xpath("//*[contains(text(), 'Singleplayer')]")
+        self.button.click()
+        if WebDriverWait(self.driver, 20).until(EC.url_matches(new_url)):
+            switch = True
+        self.assertIs(switch, True)
+
     def tearDown(self):
         self.driver.close()
 

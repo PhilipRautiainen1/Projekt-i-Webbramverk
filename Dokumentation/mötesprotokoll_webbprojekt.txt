@@ -143,3 +143,9 @@ Sayed - lägg till fråga
 Närvarande: alla
 Att göra: idag fortsätter vi arbetet med våra tilldelade uppgifter. 
 
+
+4/2
+Närvarande: Sara, Simon, Sayed
+Gjort: Philip är klar med testerna för logga ut och Sara är klar med logga in och errorhandlers. 
+Att göra: vi fortsätter att jobba vidare med testerna. 
+

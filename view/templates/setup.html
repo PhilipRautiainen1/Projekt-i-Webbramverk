@@ -5,26 +5,28 @@
         <form action="/setup" method="POST">
             <div class="category-sel">
                 <select name="category" id="category-selector">
-                    <option value="Header">Välj Kategori</option>
-                    <option value="Random">Blandat</option>
-                    <option value="animals">Djur</option>
-                    <option value="entertainment">Nöje</option>
-                    <option value="general Knowledge">Allmänkunskap</option>
-                    <option value="geography">Geografi</option>
-                    <option value="history">Historia</option>
-                    <option value="science">Naturvetenskap</option>
-                    <option value="sports">Sport</option>
-                    <option value="vehicles">Bilar</option>
+                    <optgroup label="Välj Kategori">
+                        <option value="Random">Blandat</option>
+                        <option value="animals">Djur</option>
+                        <option value="entertainment">Nöje</option>
+                        <option value="general Knowledge">Allmänkunskap</option>
+                        <option value="geography">Geografi</option>
+                        <option value="history">Historia</option>
+                        <option value="science">Naturvetenskap</option>
+                        <option value="sports">Sport</option>
+                        <option value="vehicles">Bilar</option>
+                    </optgroup>
                 </select> <br />
             </div>
 
             <div class="numbers">
                 <select name="number" id="number-selector">
-                    <option value="Header">Välj Antal Frågor</option>
-                    <option value="3">3</option>
-                    <option value="5">5</option>
-                    <option value="10">10</option>
-                    <option value="20">20</option>
+                    <optgroup label="Välj Antal Frågor">
+                        <option value="3">3</option>
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                    </optgroup>
                 </select> <br />
             </div>
             <input type="submit" value="Starta" id="submit-setup" /> <br />

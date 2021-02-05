@@ -149,3 +149,9 @@ Närvarande: Sara, Simon, Sayed
 Gjort: Philip är klar med testerna för logga ut och Sara är klar med logga in och errorhandlers. 
 Att göra: vi fortsätter att jobba vidare med testerna. 
 
+
+5/2
+Närvarande: Sara, Philip, Sayed 
+Gjort: Philip har börjat att jobba med tester av routes. Sara är klar med tester för profil och börjat med setup. 
+Att göra: Sayed arbetar med tester för Lägg till fråga, Sara med setup och Philip för routes. Philip tittar också på en timer lösning. 
+

@@ -58,28 +58,32 @@ def highscore():
 @login_required('index')
 def game():
     if request.method == 'GET':
-        end = False
-        question_list = flask_session['question_list']
-        current_question = flask_session['current_question']
+        if 'question_list' in flask_session:
+            score = flask_session['score']
+            correct = int(score / 50)
+            nr_quest = flask_session['no']
 
-        flask_session['current_question'] += 1
-        if flask_session['current_question'] > len(question_list):
-            print(flask_session['score'])
-            return redirect(url_for('end_game'))
+            question_list = flask_session['question_list']
+            current_question = flask_session['current_question']
+            flask_session['current_question'] += 1
 
-        if flask_session['current_question']>len(question_list) -1:
-            end = True
+            if flask_session['current_question'] > len(question_list)-1:
+                flask_session['last_turn'] = True
 
-        question = question_list[current_question]['question']
-        answers = question_list[current_question]['answers']
+            last_turn = flask_session['last_turn']
+            question = question_list[current_question]['question']
+            answers = question_list[current_question]['answers']
 
-        num = [0, 1, 2, 3]
-        random.shuffle(num)
-        a1 = answers[num[0]]
-        a2 = answers[num[1]]
-        a3 = answers[num[2]]
-        a4 = answers[num[3]]
-        flask_session['answer_order'] = [a1, a2, a3, a4]
+            num = [0, 1, 2, 3]
+            random.shuffle(num)
+            a1 = answers[num[0]]
+            a2 = answers[num[1]]
+            a3 = answers[num[2]]
+            a4 = answers[num[3]]
+            flask_session['answer_order'] = [a1, a2, a3, a4]
+            return render_template('game.html', question=question, a1=a1, a2=a2, a3=a3, a4=a4, last_turn=last_turn,
+                                   score=score, correct=correct, nr_quest=nr_quest)
+        return redirect(url_for('setup'))
 
     if request.method == 'POST':
         a1, a2, a3, a4 = flask_session.pop('answer_order', None)
@@ -92,10 +96,16 @@ def game():
                     flask_session['score'] += 50
                     response = True
                     break
+
+        if flask_session['last_turn']:
+            username = flask_session['username']
+            score = flask_session['score']
+            user = uc.get_user(username)
+            uc.save_score(score, user)
+            [flask_session.pop(key) for key in ('category', 'no', 'question_list', 'current_question', 'score', 'last_turn')]
+
         return app.response_class(response=json.dumps({'response': response, 'correct': correct}), status=200,
                                   mimetype='application/json')
-    return render_template('game.html', question=question, a1=a1, a2=a2, a3=a3, a4=a4, end=end)
-
 
 
 @app.route('/start_game')
@@ -106,6 +116,7 @@ def start_game():
     flask_session['question_list'] = qc.get_questions(category, no)
     flask_session['current_question'] = 0
     flask_session['score'] = 0
+    flask_session['last_turn'] = False
     return redirect(url_for('game'))
 
 
@@ -127,9 +138,7 @@ def end_game():
     score = flask_session['score']
     correct = int(score/50)
     nr_quest = flask_session['no']
-    username = flask_session['username']
-    user = uc.get_user(username)
-    uc.save_score(score, user)
+
     return render_template('end_game.html', score=score, correct=correct, nr_quest=nr_quest)
 
 

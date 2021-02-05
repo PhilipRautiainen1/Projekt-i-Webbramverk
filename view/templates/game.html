@@ -15,7 +15,7 @@
             </div>
         </div>
         <div class="linken">
-            {% if not end %}
+            {% if not last_turn %}
                 <a href="{{ url_for('game') }}"><button id="next-question" disabled>Nästa fråga</button></a>
             {% else %}
                 <button id="next-question" onclick="show_res()" disabled>Resultat</button>

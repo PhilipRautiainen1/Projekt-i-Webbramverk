@@ -9,7 +9,7 @@ def add_question(question):
 
 def check_and_add_q(new_question):
     category, question, right_answer, wrong_answer1, wrong_answer2, wrong_answer3 = new_question
-    questions = qr.get_questions()
+    questions = qr.get_all_questions()
 
     for q in questions:
         seq = SequenceMatcher(None, question, q.question)

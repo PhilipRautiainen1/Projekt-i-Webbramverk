@@ -85,3 +85,12 @@ def get_questions(category, no):
                 quest.append(cat_quest[i])
 
     return [q.to_dict() for q in quest]
+
+
+def remove_recurring_questions():
+    questions = Question.all()
+    for q in questions:
+        for q_compare in questions:
+            if q._id != q_compare._id:
+                if q.question == q_compare.question:
+                    Question.delete(_id=q_compare._id)

@@ -59,10 +59,6 @@ def highscore():
 def game():
     if request.method == 'GET':
         if 'question_list' in flask_session:
-            score = flask_session['score']
-            correct = int(score / 50)
-            nr_quest = flask_session['no']
-
             question_list = flask_session['question_list']
             current_question = flask_session['current_question']
             flask_session['current_question'] += 1
@@ -81,8 +77,7 @@ def game():
             a3 = answers[num[2]]
             a4 = answers[num[3]]
             flask_session['answer_order'] = [a1, a2, a3, a4]
-            return render_template('game.html', question=question, a1=a1, a2=a2, a3=a3, a4=a4, last_turn=last_turn,
-                                   score=score, correct=correct, nr_quest=nr_quest)
+            return render_template('game.html', question=question, a1=a1, a2=a2, a3=a3, a4=a4, last_turn=last_turn)
         return redirect(url_for('setup'))
 
     if request.method == 'POST':
@@ -96,13 +91,6 @@ def game():
                     flask_session['score'] += 50
                     response = True
                     break
-
-        if flask_session['last_turn']:
-            username = flask_session['username']
-            score = flask_session['score']
-            user = uc.get_user(username)
-            uc.save_score(score, user)
-            [flask_session.pop(key) for key in ('category', 'no', 'question_list', 'current_question', 'score', 'last_turn')]
 
         return app.response_class(response=json.dumps({'response': response, 'correct': correct}), status=200,
                                   mimetype='application/json')
@@ -132,14 +120,20 @@ def setup():
     return render_template('setup.html')
 
 
-@app.route('/end_game')
+@app.route('/end_game', methods=['GET', 'POST'])
 @login_required('index')
 def end_game():
     score = flask_session['score']
     correct = int(score/50)
     nr_quest = flask_session['no']
 
-    return render_template('end_game.html', score=score, correct=correct, nr_quest=nr_quest)
+    username = flask_session['username']
+    user = uc.get_user(username)
+    uc.save_score(score, user)
+    [flask_session.pop(key) for key in ('category', 'no', 'question_list', 'current_question', 'score', 'last_turn')]
+
+    return app.response_class(response=json.dumps({'score': score, 'correct': correct, 'nr_quest': nr_quest}),
+                              status=200, mimetype='application/json')
 
 
 @app.route('/multiplayer')
@@ -187,7 +181,6 @@ def profile():
         for id in friends:
             friend_list.append(uc.get_user_by_id(id))
         return render_template('profile.html', user=user, friends=friend_list)
-
 
 
 @app.route('/signup')

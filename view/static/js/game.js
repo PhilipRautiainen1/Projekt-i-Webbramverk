@@ -27,5 +27,15 @@ function reply(id){
 }
 
 function show_res(){
+    $.ajax({
+        method: 'GET',
+        url: 'http://127.0.0.1:5000/end_game',
+
+        success:(data)=>{
+            $('#score').text(data.score);
+            $('#correct').text(data.correct);
+            $('#nr_quest').text(data.nr_quest);
+        }
+    })
     document.querySelector('#pop_bg').style.display = 'flex';
 }

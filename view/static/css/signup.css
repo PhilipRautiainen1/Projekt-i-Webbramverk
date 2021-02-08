@@ -10,7 +10,6 @@
     height: 100%;
     line-height: 30px;
     margin: -10px -15px 15px 0;
-
 }
 
 .close-x{
@@ -64,8 +63,7 @@
     padding: 0 0 20px 80px;
     text-align: center;
     border-bottom: 1px solid silver;
-
-  }
+}
 
 .text_button{
     width: 100%;

@@ -27,7 +27,7 @@ class AddQuestionsTests(unittest.TestCase):
 
 
 
-    def test_add_q(self):
+    def test_add_question(self):
         self.driver.find_element_by_class_name('category-select').click()
         select_cat = Select(self.driver.find_element_by_id('category'))
         select_cat.select_by_value('General Knowledge')
@@ -43,23 +43,7 @@ class AddQuestionsTests(unittest.TestCase):
 
 
 
-    def test_duplicates_add_q(self):
-        self.driver.find_element_by_class_name('category-select').click()
-        select_cat = Select(self.driver.find_element_by_id('category'))
-        select_cat.select_by_value('General Knowledge')
-
-        self.question.send_keys('What is the distance from the Earth to the sun?')
-        self.right_answer.send_keys('150 million kilometers')
-        self.wrong_answer1.send_keys('100 million kilometers')
-        self.wrong_answer2.send_keys('200 million kilometers')
-        self.wrong_answer3.send_keys('300 million kilometers')
-        self.submit.send_keys(Keys.RETURN)
-        self.driver.implicitly_wait(3)
-        self.assertIn('Din fråga är för lik en som redan existerar!', self.driver.page_source)
-
-
-
-    def test_double_add_answers(self):
+    def test_wrong_answers(self):
         self.driver.find_element_by_class_name('category-select').click()
         select_cat = Select(self.driver.find_element_by_id('category'))
         select_cat.select_by_value('General Knowledge')

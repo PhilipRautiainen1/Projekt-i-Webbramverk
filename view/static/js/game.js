@@ -1,4 +1,35 @@
+let t;
+let bar_handle;
+let elem;
+let i = 1;
+let width = 1;
 
+window.addEventListener('load', event => {
+    bar_handle = setInterval(frame, 150);
+    t = setTimeout(changeButtons, 15000);
+    elem = document.getElementById("bar");
+    console.log("starting");
+});
+
+function frame(){
+    if (width >= 100) {
+        clearInterval(bar_handle);
+        i = 0;
+    }
+    else {
+        width++;
+        elem.style.width = width + "%";
+    }
+}
+
+function show_res(){
+    document.querySelector('#pop_bg').style.display = 'flex';
+}
+
+function changeButtons(){
+    $('#next-question').css('cursor', 'pointer').attr('disabled', false);
+    $('.answer').css('cursor', 'default').css({'background-color': 'red'}).removeAttr('onclick');
+}
 
 function reply(id){
     $.ajax({
@@ -23,9 +54,9 @@ function reply(id){
             }
             $('#next-question').css('cursor', 'pointer').attr('disabled', false);
             $('.answer').css('cursor', 'default').removeAttr('onclick');
+            clearTimeout(t);
+            console.log(bar_handle);
+            clearInterval(bar_handle);
+            console.log(bar_handle);
     }});
-}
-
-function show_res(){
-    document.querySelector('#pop_bg').style.display = 'flex';
 }

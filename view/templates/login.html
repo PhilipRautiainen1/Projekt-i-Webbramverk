@@ -10,17 +10,17 @@
 
         <form action="/sign_in" method="POST">
             <div class="txt_field">
-                <input type="text" name="username" required>
+                <input type="text" id="l_username" name="username" required>
                 <span></span>
                 <label>Användarnamn</label>
             </div>
             <div class="txt_field">
-                <input type="password" name="password" required>
+                <input type="password" id="l_password" name="password" required>
                 <span></span>
                 <label>Lösenord</label>
             </div>
             <div class="pass">Glömt ditt lösenord?</div>
-            <input type="submit" value="Logga In">
+            <input type="submit" id="l_submit" value="Logga In">
             <div class="error" id="login_error">{{ login_error }}</div>
             <div class="signup-link">
                 Inte Medlem? <a href="{{ url_for('signup') }}">Bli Medlem</a>

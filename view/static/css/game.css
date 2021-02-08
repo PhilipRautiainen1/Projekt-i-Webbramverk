@@ -160,7 +160,7 @@
 #time {
   width: 87%;
     height: 30px;
-  background-color: grey;
+  background-color: green;
   margin: 0 auto;
     padding-bottom: 10px;
 }
@@ -168,7 +168,7 @@
 #bar {
   width: 1%;
   height: 30px;
-  background-color: green;
+  background-color: grey;
     padding-top: 10px;
     float: right;
 }

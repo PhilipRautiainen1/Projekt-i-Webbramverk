@@ -1,7 +1,7 @@
+
 .wrap{
     width: 90%;
 }
-
 .header_box{
     width: 100%;
     display: flex;
@@ -28,6 +28,8 @@
     width: 66%;
     list-style: none;
     padding-left: 25px;
+
+
 }
 
 .friend_box{
@@ -42,7 +44,7 @@
 
 .add_box{
     width: 50%;
-    margin-left: 50%;
+    margin-left: 0;
 }
 
 .header{
@@ -60,6 +62,21 @@
     padding-right: 15px;
     cursor: pointer;
     font-family: 'Staatliches', cursive;
+
+}
+.rm_button{
+    font-size: 24px;
+    background: #2691d9;
+    border-radius: 25px;
+    color: #e9f4fb;
+    font-weight: 700;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: 15px;
+    cursor: pointer;
+    font-family: 'Staatliches', cursive;
+
 }
 
 .add_friend_bg{
@@ -83,6 +100,7 @@
     padding: 20px;
     position: relative;
 }
+
 
 .head{
     font-size: 32px;
@@ -115,6 +133,7 @@
     padding: 10px;
     padding-left: 15px;
     padding-right: 15px;
+
 }
 
 .close_add{
@@ -124,4 +143,45 @@
     font-size: 38px;
     transform: rotate(45deg);
     cursor: pointer;
+
+}
+.remove_friend_bg{
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.7);
+    position: absolute;
+    top: 0;
+    justify-content: center;
+    align-items: center;
+    display: none;
+}
+.remove_friend_content {
+    width: 500px;
+    height: 300px;
+    background-color: #e9f4fb;
+    border-radius: 6px;
+    border: dotted black;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
+.close_rm {
+    position: absolute;
+    top: 0;
+    right: 14px;
+    font-size: 38px;
+    transform: rotate(45deg);
+    cursor: pointer;
+}
+#input_rm {
+    width: 50%;
+    display: block;
+    margin: 15px auto;
+    font-family: 'Staatliches', cursive;
+}
+#hidden_add{
+    display: none;
+}
+#hidden_rm{
+    display: none;
 }

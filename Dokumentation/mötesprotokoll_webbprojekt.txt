@@ -143,3 +143,24 @@ Sayed - lägg till fråga
 Närvarande: alla
 Att göra: idag fortsätter vi arbetet med våra tilldelade uppgifter. 
 
+
+4/2
+Närvarande: Sara, Simon, Sayed
+Gjort: Philip är klar med testerna för logga ut och Sara är klar med logga in och errorhandlers. 
+Att göra: vi fortsätter att jobba vidare med testerna. 
+
+
+5/2
+Närvarande: Sara, Philip, Sayed 
+Gjort: Philip har börjat att jobba med tester av routes. Sara är klar med tester för profil och börjat med setup. 
+Att göra: Sayed arbetar med tester för Lägg till fråga, Sara med setup och Philip för routes. Philip tittar också på en timer lösning. Sara jobbar också med en lösning av game-routen så att spelet endast ska starta när inställningarna har fyllts i. 
+
+
+8/2
+Nävarande: alla
+Att göra: Sayed fortsätter med tester av lägg till fråga, och Simon med tester av skapa användare. Philip fortsätter arbetet med timer och rensar upp i våra moduler. Sara ska hitta en lösning på problet med resultatsidan, eftersom poängen inte är korrekt samt skriva en funktion som tar bort dublettfrågor från databasen. Vidare ska alla förbereda sin del av presentationen inför onsdag. 
+
+Inför redovisning
+- presentera - vad har vi gjort? Vad var syftet? Hade vi några andra idéer?
+- demo - visa vad vi gjort. Berätta också vad vi inte hunnit med. 
+- erfarenheter - vad var extra svårt? Hur löste vi det? 

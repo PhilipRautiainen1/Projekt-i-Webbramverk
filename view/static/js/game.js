@@ -22,10 +22,6 @@ function frame(){
     }
 }
 
-function show_res(){
-    document.querySelector('#pop_bg').style.display = 'flex';
-}
-
 function changeButtons(){
     $('#next-question').css('cursor', 'pointer').attr('disabled', false);
     $('.answer').css('cursor', 'default').css({'background-color': 'red'}).removeAttr('onclick');
@@ -59,4 +55,18 @@ function reply(id){
             clearInterval(bar_handle);
             console.log(bar_handle);
     }});
+}
+
+function show_res(){
+    $.ajax({
+        method: 'GET',
+        url: 'http://127.0.0.1:5000/end_game',
+
+        success:(data)=>{
+            $('#score').text(data.score);
+            $('#correct').text(data.correct);
+            $('#nr_quest').text(data.nr_quest);
+        }
+    })
+    document.querySelector('#pop_bg').style.display = 'flex';
 }

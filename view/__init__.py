@@ -58,28 +58,28 @@ def highscore():
 @login_required('index')
 def game():
     if request.method == 'GET':
-        end = False
-        question_list = flask_session['question_list']
-        current_question = flask_session['current_question']
+        if 'question_list' in flask_session:
+            question_list = flask_session['question_list']
+            current_question = flask_session['current_question']
+            flask_session['current_question'] += 1
 
-        flask_session['current_question'] += 1
-        if flask_session['current_question'] > len(question_list):
-            print(flask_session['score'])
-            return redirect(url_for('end_game'))
+            if flask_session['current_question'] > len(question_list)-1:
+                flask_session['last_turn'] = True
 
-        if flask_session['current_question']>len(question_list) -1:
-            end = True
+            last_turn = flask_session['last_turn']
+            question = question_list[current_question]['question']
+            answers = question_list[current_question]['answers']
 
-        question = question_list[current_question]['question']
-        answers = question_list[current_question]['answers']
+            num = [0, 1, 2, 3]
+            random.shuffle(num)
+            a1 = answers[num[0]]
+            a2 = answers[num[1]]
+            a3 = answers[num[2]]
+            a4 = answers[num[3]]
+            flask_session['answer_order'] = [a1, a2, a3, a4]
 
-        num = [0, 1, 2, 3]
-        random.shuffle(num)
-        a1 = answers[num[0]]
-        a2 = answers[num[1]]
-        a3 = answers[num[2]]
-        a4 = answers[num[3]]
-        flask_session['answer_order'] = [a1, a2, a3, a4]
+            return render_template('game.html', question=question, a1=a1, a2=a2, a3=a3, a4=a4, last_turn=last_turn)
+        return redirect(url_for('setup'))
 
     if request.method == 'POST':
         a1, a2, a3, a4 = flask_session.pop('answer_order', None)
@@ -94,7 +94,6 @@ def game():
                     break
         return app.response_class(response=json.dumps({'response': response, 'correct': correct}), status=200,
                                   mimetype='application/json')
-    return render_template('game.html', question=question, a1=a1, a2=a2, a3=a3, a4=a4, end=end)
 
 
 @app.route('/start_game')
@@ -105,6 +104,7 @@ def start_game():
     flask_session['question_list'] = qc.get_questions(category, no)
     flask_session['current_question'] = 0
     flask_session['score'] = 0
+    flask_session['last_turn'] = False
     return redirect(url_for('game'))
 
 
@@ -120,16 +120,20 @@ def setup():
     return render_template('setup.html')
 
 
-@app.route('/end_game')
+@app.route('/end_game', methods=['GET'])
 @login_required('index')
 def end_game():
     score = flask_session['score']
     correct = int(score/50)
     nr_quest = flask_session['no']
+
     username = flask_session['username']
     user = uc.get_user(username)
     uc.save_score(score, user)
-    return render_template('end_game.html', score=score, correct=correct, nr_quest=nr_quest)
+    [flask_session.pop(key) for key in ('category', 'no', 'question_list', 'current_question', 'score', 'last_turn')]
+
+    return app.response_class(response=json.dumps({'score': score, 'correct': correct, 'nr_quest': nr_quest}),
+                              status=200, mimetype='application/json')
 
 
 @app.route('/multiplayer')
@@ -206,11 +210,6 @@ def signup_post():
         return redirect(url_for('sign_in'))
     username_error = 'Det finns redan en användare med det här användarnamnet'
     return render_template('signup.html', username_error=username_error)
-
-
-@app.route('/error')
-def error():
-    return render_template('error.html')
 
 
 @app.errorhandler(404)

@@ -55,6 +55,10 @@ def add_questions():
         print('Could not reach the API')
 
 
+def get_all_questions():
+    return Question.all()
+
+
 def get_questions(category, no):
     quest = []
     cat_quest = []

@@ -1,4 +1,7 @@
 {% extends "base_user.html" %}
+{% block javascript %}
+    <script type="text/javascript" src="{{ url_for('static',filename='/js/game.js') }}"></script>
+{% endblock %}
 {% block content %}
     <div class="game">
         <div class="questionbox">
@@ -12,6 +15,9 @@
             <div class="r2">
                 <div id="answer3" class="answer" onclick="reply(this.id)">{{ a3['answer'] }}</div>
                 <div id="answer4" class="answer" onclick="reply(this.id)">{{ a4['answer'] }}</div>
+            </div>
+            <div id="time">
+                <div id="bar"></div>
             </div>
         </div>
         <div class="linken">

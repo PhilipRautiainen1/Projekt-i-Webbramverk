@@ -97,7 +97,6 @@ def game():
     return render_template('game.html', question=question, a1=a1, a2=a2, a3=a3, a4=a4, end=end)
 
 
-
 @app.route('/start_game')
 @login_required('index')
 def start_game():
@@ -191,7 +190,6 @@ def profile():
         for id in friends:
             friend_list.append(uc.get_user_by_id(id))
         return render_template('profile.html', user=user, friends=friend_list)
-
 
 
 @app.route('/signup')

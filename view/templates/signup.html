@@ -9,15 +9,15 @@
             </div>
             </div>
             <h1> SKAPA KONTO </h1>
-            <input type="email" name="email" placeholder="E-postadress"  class="text_button" /> <br />
+            <input type="text" name="email" id="email" placeholder="E-postadress"  class="text_button" /> <br />
             <div class='error' id='email_error'></div>
-            <input type="text" name="username" placeholder="Användarnamn" class="text_button" /> <br />
+            <input type="text" name="username" id="username" placeholder="Användarnamn" class="text_button" /> <br />
             <div class='error' id='username_error'>{{ username_error }}</div>
-            <input type="password" name="password1" placeholder="Lösenord" class="text_button" /> <br />
+            <input type="password" name="password1" id="password1" placeholder="Lösenord" class="text_button" /> <br />
             <div class='error' id='password1_error'></div>
-            <input type="password" name="password2" placeholder="Bekräfta" class="text_button" /> <br />
+            <input type="password" name="password2" id="password2" placeholder="Bekräfta" class="text_button" /> <br />
             <div class='error' id='password2_error'></div>
-            <input type="submit" value="Bli Medlem" class="signup_button" /> <br />
+            <input type="submit" value="Bli Medlem" class="signup_button" id="signup_button" /> <br />
         </form>
     </div>
 {% endblock %}

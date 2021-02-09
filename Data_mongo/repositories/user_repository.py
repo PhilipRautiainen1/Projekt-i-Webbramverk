@@ -29,3 +29,6 @@ def get_all_users():
 def save_score(score, user):
     new_score = score + user.score
     user.collection.update({"_id": user._id}, {"$set": {'score': new_score}}, upsert=True)
+
+def delete_user(user):
+    user.collection.delete_one({"_id": user._id})

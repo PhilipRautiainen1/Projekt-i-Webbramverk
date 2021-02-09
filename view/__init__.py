@@ -160,16 +160,29 @@ def sign_in_post():
 @login_required('index')
 def profile():
     if request.method == 'POST':
-        friend_name = request.form['friend_name']
-        f_user = uc.get_user(friend_name)
+        add_rm = request.form['hidden']
+        if add_rm == 'add':
+            friend_name = request.form['friend_name']
+            f_user = uc.get_user(friend_name)
 
-        if f_user != None:
-            username = flask_session['username']
-            user = uc.get_user(username)
-            uc.add_friend(user, f_user)
-            return redirect(url_for('profile'))
-        else:
-            return redirect(url_for('profile'))
+            if f_user != None:
+                username = flask_session['username']
+                user = uc.get_user(username)
+                uc.add_friend(user, f_user)
+                return redirect(url_for('profile'))
+            else:
+                return redirect(url_for('profile'))
+        if add_rm == 'rm':
+            friend_name = request.form['friend_name']
+            f_user = uc.get_user(friend_name)
+
+            if f_user != None:
+                username = flask_session['username']
+                user = uc.get_user(username)
+                uc.remove_friend(user, f_user)
+                return redirect(url_for('profile'))
+            else:
+                return redirect(url_for('profile'))
     else:
         username = flask_session['username']
         user = uc.get_user(username)

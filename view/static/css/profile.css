@@ -44,7 +44,7 @@
 
 .add_box{
     width: 50%;
-    margin-left: 50%;
+    margin-left: 0;
 }
 
 .header{
@@ -73,6 +73,7 @@
     padding: 10px;
     padding-left: 15px;
     padding-right: 15px;
+    margin-left: 15px;
     cursor: pointer;
     font-family: 'Staatliches', cursive;
 
@@ -177,4 +178,10 @@
     display: block;
     margin: 15px auto;
     font-family: 'Staatliches', cursive;
+}
+#hidden_add{
+    display: none;
+}
+#hidden_rm{
+    display: none;
 }

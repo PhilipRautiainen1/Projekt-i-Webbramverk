@@ -120,7 +120,7 @@ def setup():
     return render_template('setup.html')
 
 
-@app.route('/end_game', methods=['GET', 'POST'])
+@app.route('/end_game', methods=['GET'])
 @login_required('index')
 def end_game():
     score = flask_session['score']
@@ -197,11 +197,6 @@ def signup_post():
         return redirect(url_for('sign_in'))
     username_error = 'Det finns redan en användare med det här användarnamnet'
     return render_template('signup.html', username_error=username_error)
-
-
-@app.route('/error')
-def error():
-    return render_template('error.html')
 
 
 @app.errorhandler(404)

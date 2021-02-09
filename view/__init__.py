@@ -77,6 +77,7 @@ def game():
             a3 = answers[num[2]]
             a4 = answers[num[3]]
             flask_session['answer_order'] = [a1, a2, a3, a4]
+
             return render_template('game.html', question=question, a1=a1, a2=a2, a3=a3, a4=a4, last_turn=last_turn)
         return redirect(url_for('setup'))
 
@@ -91,7 +92,6 @@ def game():
                     flask_session['score'] += 50
                     response = True
                     break
-
         return app.response_class(response=json.dumps({'response': response, 'correct': correct}), status=200,
                                   mimetype='application/json')
 

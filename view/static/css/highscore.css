@@ -99,13 +99,11 @@
     }
 
     #udata{
-      width: 20%;
+      width: 100%;
       height: 50%;
       top:5%;
-        left: 40%;
       margin: 0 auto;
       position: relative;
-      /*background:orange;*/
         text-align: center;
     }
 

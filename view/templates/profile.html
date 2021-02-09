@@ -1,4 +1,5 @@
 {% extends 'base_user.html'%}
+
 {% block content %}
     <script type="text/javascript" src="{{ url_for('static',filename='/js/friends.js') }}"></script>
     <div class="wrap">
@@ -6,6 +7,7 @@
             <div class="header">Min profil</div>
             <div class="add_box">
                 <a id="add_button" class="add_button" onclick="show_add()">Lägg till vän</a>
+                <a id="rm_button" class="rm_button" onclick="show_rm()">Ta bort vän</a>
             </div>
         </div>
         <div class="profile">
@@ -44,6 +46,21 @@
                 <div class="username">Sök efter en vän</div>
                 <input type="text" name="friend_name" placeholder="Användarnamn" id="input_add">
                 <input type="submit" value="Sök" id="search_user" /> <br />
+                <input type="text" name="hidden" id="hidden_add" value="add">
+            </form>
+        </div>
+    </div>
+{% endblock %}
+{% block shadow2 %}
+    <div class="remove_friend_bg">
+        <div class="remove_friend_content">
+            <div class="close_rm" onclick="close_rm()">+</div>
+            <div class="head">Ta bort vän</div>
+            <form action="/profile" method="POST">
+                <div class="username">Sök efter en vän</div>
+                <input type="text" name="friend_name" placeholder="Användarnamn" id="input_rm">
+                <input type="submit" value="Sök" id="search_user" /> <br />
+                <input type="text" name="hidden" id="hidden_rm" value="rm">
             </form>
         </div>
     </div>

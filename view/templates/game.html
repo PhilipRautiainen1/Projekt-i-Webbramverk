@@ -21,7 +21,7 @@
             </div>
         </div>
         <div class="linken">
-            {% if not end %}
+            {% if not last_turn %}
                 <a href="{{ url_for('game') }}"><button id="next-question" disabled>Nästa fråga</button></a>
             {% else %}
                 <button id="next-question" onclick="show_res()" disabled>Resultat</button>
@@ -39,9 +39,8 @@
                      <a href="{{ url_for("index") }}"><span>&times;</span></a>
                  </div>
              </div>
-             <h1>Grattis du svarade på alla frågor!</h1>
-             <h3><p>Din poäng är {{ score }}. Du har svarat rätt på {{ correct }}/{{ nr_quest }} frågor.
-             </p></h3>
+             <h1>Du har nu svarat på alla frågor!</h1>
+             <h3>Din poäng är <span id="score"></span>. Du har svarat rätt på <span id="correct"></span> / <span id="nr_quest"></span> frågor.</h3>
          </div>
      </div>
 

@@ -1,4 +1,5 @@
 from Data_mongo.models import User
+from bson.objectid import ObjectId
 
 
 def get_user(username):
@@ -24,6 +25,10 @@ def add_friend(user, friend):
     friends = user.friends
     friends.append(friend._id)
     user.collection.update({"_id": user._id}, {"$set": {'friends': friends}}, upsert=True)
+
+
+def remove_friend(user, friend_id):
+    user.collection.update_one({'_id': user._id}, {'$pull': {'friends': ObjectId(friend_id)}})
 
 
 def get_all_users():

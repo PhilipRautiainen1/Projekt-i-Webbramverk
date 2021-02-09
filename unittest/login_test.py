@@ -3,7 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
 
-class LogInTests(TestCase):
+class LogInTest(TestCase):
     def setUp(self):
         self.driver = webdriver.Chrome('chromedriver.exe')
         self.driver.get('http://127.0.0.1:5000/sign_in')

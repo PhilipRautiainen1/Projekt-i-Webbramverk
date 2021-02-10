@@ -28,8 +28,6 @@
     width: 66%;
     list-style: none;
     padding-left: 25px;
-
-
 }
 
 .friend_box{
@@ -101,7 +99,6 @@
     position: relative;
 }
 
-
 .head{
     font-size: 32px;
     font-family:  'Staatliches', cursive;
@@ -133,7 +130,6 @@
     padding: 10px;
     padding-left: 15px;
     padding-right: 15px;
-
 }
 
 .close_add{
@@ -143,7 +139,6 @@
     font-size: 38px;
     transform: rotate(45deg);
     cursor: pointer;
-
 }
 .remove_friend_bg{
     height: 100%;

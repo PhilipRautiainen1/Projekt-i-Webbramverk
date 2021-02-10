@@ -57,8 +57,6 @@
 }
 
 .signup-form h1{
-    /*width:400px;*/
-    /*margin: 10px;*/
     margin: -15px -40px 10px -40px;
     padding: 0 0 20px 80px;
     text-align: center;
@@ -74,7 +72,6 @@
     border-bottom: 2px solid #adadad;
     height: 40px;
     font-size: 16px;
-    height: 40px;
     margin: 10px;
 }
 

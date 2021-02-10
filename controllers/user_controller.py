@@ -42,11 +42,14 @@ def save_score(score, user):
 def add_friend(user, friend):
     return ur.add_friend(user, friend)
 
+
 def delete_user(user):
     return ur.delete_user(user)
 
+
 def remove_friend(user, friend):
     return ur.remove_friend(user, friend)
+
 
 def get_all_users():
     return ur.get_all_users()

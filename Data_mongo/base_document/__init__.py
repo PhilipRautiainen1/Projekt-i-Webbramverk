@@ -38,7 +38,6 @@ class Document(dict, ABC):
     def delete_field(self, field):
         self.collection.update({'_id': self._id}, {"$unset": {field: ""}})
 
-
     @classmethod
     def insert_many(cls, items):
         for item in items:
@@ -51,9 +50,11 @@ class Document(dict, ABC):
     @classmethod
     def find(cls, **kwargs):
         return ResultList(cls(item) for item in cls.collection.find(kwargs))
+
     @classmethod
     def find_one(cls, **kwargs):
         return cls.collection.find(kwargs)
+
     @classmethod
     def delete(cls, **kwargs):
         cls.collection.delete_many(kwargs)

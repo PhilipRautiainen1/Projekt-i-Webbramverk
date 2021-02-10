@@ -4,7 +4,7 @@ from flask import Flask, render_template, redirect, url_for, request, flash
 from flask import session as flask_session
 from controllers import question_controller as qc
 from controllers import user_controller as uc
-from controllers.user_controller import get_all_users, get_user_by_id
+from controllers.user_controller import get_user_by_id
 from view.tools import login_required
 from datetime import timedelta
 

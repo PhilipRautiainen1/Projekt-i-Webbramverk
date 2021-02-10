@@ -5,10 +5,9 @@ let i = 1;
 let width = 1;
 
 window.addEventListener('load', event => {
-    bar_handle = setInterval(frame, 150);
-    t = setTimeout(changeButtons, 15000);
+    bar_handle = setInterval(frame, 3000);
+    t = setTimeout(changeButtons, 3000000);
     elem = document.getElementById("bar");
-    console.log("starting");
 });
 
 function frame(){
@@ -51,9 +50,7 @@ function reply(id){
             $('#next-question').css('cursor', 'pointer').attr('disabled', false);
             $('.answer').css('cursor', 'default').removeAttr('onclick');
             clearTimeout(t);
-            console.log(bar_handle);
             clearInterval(bar_handle);
-            console.log(bar_handle);
     }});
 }
 
